@@ -3,88 +3,89 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class PlayerController : MonoBehaviour
 {
 
     public float speed = 0.1f;
-
-    private Vector3 mousePosition;
-    //public float moveSpeed = 0.1f;
-
-    public int length;
-    public Text lengthText;
-
-    private Rigidbody2D rb;
+    public int startingLength = 5;
     public List<Transform> tail = new List<Transform>();
+    public Text lengthText;
+    public Camera mainCam;
+    public Transform tailLink;
+    private Vector3 mousePosition;
+    private SpriteRenderer sprRend;
+    private Vector2 scaleVector = new Vector2(0.05f, 0.05f);
+
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+        //ssprRend.drawMode = SpriteDrawMode.Sliced;
 
-        /*foreach (Transform child in gameObject.transform)
-        {
-            if (child.tag == "Tail")
-            {
-                tail.Add(child);
-            }
-        }*/
+
+
+        lengthText.text = "Length: ---";
+        // players start with 1 link already, so grow until you reach statring length
+        for (int i = 0; i < startingLength - 1; i++) {
+            GrowTail();
+        }
     }
 
+    //private void FixedUpdate()
     private void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        //Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        // rotate head (... something not right with this)
+        var mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        var angle = Mathf.Atan2(mousePos.x, mousePos.y) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward * -1); // -1 for inverted z-axis
 
-
-            /*if (Input.GetMouseButton(1))
-            {*/
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = Vector2.MoveTowards(transform.position, mousePosition, speed);
-            //}
+        // move head
+        transform.position = Vector2.MoveTowards(transform.position, mousePos, speed);
     }
 
-
-        //rb.AddForce(movement * speed);
-
-        // MoveTail();
-    //}
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // eat a food and grow a link
         if (other.gameObject.CompareTag("Food"))
         {
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
             GrowTail();
-            //length++;
-            //lengthText.text = "Length: " + length.ToString();
         }
+
+        // hit a wall (... or other snake) and game over
+
     }
 
 
 
     void GrowTail() {
-        //tail.Add(new GameObject("tail"));
-        length++;
-        lengthText.text = "Length: " + length.ToString();
-    }
 
-    /*
-    void MoveTail() {
-        Follow(this.gameObject, tail[0]);
-        for (int i = 1; i < length-1; i++) {
-            Follow(tail[i], tail[i + 1]);
+        var tailPos = tail[tail.Count - 1].position; // starting with one tail link in the snake (so don't need the if check)
+
+        Transform newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
+        tail.Add(newLink);
+
+        // scale up (very broken at the moment)
+        if (tail.Count > 5)
+        {
+            var newSize = sprRend.size + scaleVector;
+            // bigger snake links spread out more
+            // TODO: figure out proper timeSteps / deltas
+            var newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime + 0.001f;
+            sprRend.size = newSize;
+            foreach (Transform trans in tail) {
+                //var tailSprRend = trans.gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                //tailSprRend.size = newSize;
+                trans.gameObject.GetComponent<SpriteRenderer>().size = newSize;
+                trans.gameObject.GetComponent<TailController>().followTime = newFollowTime;
+            }
+            // zoom out
+            var newZoom = mainCam.orthographicSize + 1.0f;
+            mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, newZoom, 2.0f * Time.deltaTime); ;
         }
-    }*/
 
-
-    /*void Follow(GameObject leader, GameObject follower) {
-        // The step size is equal to speed times frame time.
-        float step = speed * Time.deltaTime;
-
-        // Move follower a step closer to the target.
-        follower.transform.position =
-            Vector3.MoveTowards(follower.transform.position, leader.transform.position, step);
-    }*/
+        lengthText.text = "Length: " + tail.Count.ToString();
+    }
 }

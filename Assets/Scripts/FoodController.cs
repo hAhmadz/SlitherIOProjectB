@@ -1,0 +1,34 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FoodController : MonoBehaviour {
+    public Transform deliciousFood;
+    public int boardMin, boardMax;
+    public float spawnProbability;
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	void FixedUpdate () {
+        MakeFood();
+	}
+
+
+
+        // with spawnProbability make a new food in a random location within the board
+    void MakeFood() {
+        float chance = Random.Range(0.0f, 1.0f);
+        print(chance);
+        if (chance < spawnProbability)
+        {
+            float xPoint = Random.Range(boardMin, boardMax);
+            float yPoint = Random.Range(boardMin, boardMax);
+            Vector3 foodPos = new Vector3(xPoint, yPoint, 0.0f);
+
+            Instantiate(deliciousFood, foodPos, Quaternion.identity);
+        }
+    }
+}
