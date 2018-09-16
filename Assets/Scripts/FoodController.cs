@@ -20,8 +20,7 @@ public class FoodController : MonoBehaviour {
 
         // with spawnProbability make a new food in a random location within the board
     void MakeFood() {
-        float chance = Random.Range(0.0f, 1.0f);
-        print(chance);
+        float chance = Random.value;
         if (chance < spawnProbability)
         {
             float xPoint = Random.Range(boardMin, boardMax);

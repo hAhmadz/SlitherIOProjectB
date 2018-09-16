@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TailController : MonoBehaviour {
+public class AITailController : MonoBehaviour
+{
 
     public float speed = 0.1f;
     //private GameObject parent;
@@ -19,10 +20,11 @@ public class TailController : MonoBehaviour {
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
     }
 
-    void Start () {
-        head = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
+    void Start()
+    {
+        head = GameObject.FindGameObjectWithTag("AI").gameObject.transform;
         // is this just an object reference, or does it make a copy of the list
-        tail = head.GetComponent<PlayerController>().tail;
+        tail = head.GetComponent<AIController>().tail;
         tailNumber = tail.IndexOf(transform);
         //sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         //hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
@@ -31,7 +33,8 @@ public class TailController : MonoBehaviour {
 
     private Vector2 movementSpeed;
     public float followTime = 0.1f;
-	void FixedUpdate () {
+    void FixedUpdate()
+    {
 
         // if it is the first tail object, follow the head.
         // otherwise follow the tail object before it in the tail list
@@ -41,15 +44,16 @@ public class TailController : MonoBehaviour {
             target = tail[tailNumber - 1];
         }
 
-        transform.position = Vector2.SmoothDamp(transform.position, 
-                                                target.position, 
-                                                ref movementSpeed, 
+        transform.position = Vector2.SmoothDamp(transform.position,
+                                                target.position,
+                                                ref movementSpeed,
                                                 followTime);
         transform.right = target.position - transform.position;
     }
 
 
-    public void ScaleUp(float newSize, float newFollowTime, float newRadius) {
+    public void ScaleUp(float newSize, float newFollowTime, float newRadius)
+    {
         sprRend.size = new Vector2(newSize, newSize);
         followTime = newFollowTime;
         hitBox.radius = newRadius;

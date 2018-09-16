@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    // TODO: figure out constants, and make them instance variables
 
     public float speed = 0.1f;
     public int startingLength = 5;
@@ -15,25 +16,29 @@ public class PlayerController : MonoBehaviour
     public Transform tailLink;
     private Vector3 mousePosition;
     private SpriteRenderer sprRend;
-    private Vector2 scaleVector = new Vector2(0.05f, 0.05f);
+    private CircleCollider2D hitBox;
+    private float scaleFactor = 0.05f;
+    private Vector2 scaleVector;
 
 
     void Start()
     {
+        scaleVector = new Vector2(scaleFactor, scaleFactor);
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-        //ssprRend.drawMode = SpriteDrawMode.Sliced;
+        //sprRend.drawMode = SpriteDrawMode.Sliced;
+
+        hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
 
 
 
         lengthText.text = "Length: ---";
-        // players start with 1 link already, so grow until you reach statring length
+        // players start with 1 link already, so grow until you reach starting length
         for (int i = 0; i < startingLength - 1; i++) {
             GrowTail();
         }
     }
 
-    //private void FixedUpdate()
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         // rotate head (... something not right with this)
         var mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -70,17 +75,24 @@ public class PlayerController : MonoBehaviour
         // scale up (very broken at the moment)
         if (tail.Count > 5)
         {
-            var newSize = sprRend.size + scaleVector;
+            Vector2 newSize = sprRend.size + scaleVector;
+            float newRadius = hitBox.radius + scaleFactor / 2; // divided by two because radius not diameter
             // bigger snake links spread out more
             // TODO: figure out proper timeSteps / deltas
-            var newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime + 0.001f;
+            float newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime + 0.001f;
+
+
             sprRend.size = newSize;
+            hitBox.radius = newRadius;
+
+            // map scaling up changes to the rest of the snake (i.e., its tail)
             foreach (Transform trans in tail) {
-                //var tailSprRend = trans.gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-                //tailSprRend.size = newSize;
-                trans.gameObject.GetComponent<SpriteRenderer>().size = newSize;
-                trans.gameObject.GetComponent<TailController>().followTime = newFollowTime;
+                trans.gameObject.GetComponent<TailController>().ScaleUp(newSize.x, newFollowTime, newRadius);
+                //trans.gameObject.GetComponent<SpriteRenderer>().size = newSize;
+                //trans.gameObject.GetComponent<TailController>().followTime = newFollowTime;
+                //trans.gameObject.GetComponent<TailController>().hitBox.radius += scaleFactor / 2;
             }
+
             // zoom out
             var newZoom = mainCam.orthographicSize + 1.0f;
             mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, newZoom, 2.0f * Time.deltaTime); ;
