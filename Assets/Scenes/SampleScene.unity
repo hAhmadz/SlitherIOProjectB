@@ -561,6 +561,8 @@ GameObject:
   - component: {fileID: 686637057}
   - component: {fileID: 686637058}
   - component: {fileID: 686637059}
+  - component: {fileID: 686637060}
+  - component: {fileID: 686637061}
   m_Layer: 0
   m_Name: BadHead
   m_TagString: AI
@@ -645,6 +647,41 @@ MonoBehaviour:
   tailLink: {fileID: 1572119654}
   boardMin: -25
   boardMax: 25
+--- !u!58 &686637060
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 686637056}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.38
+--- !u!50 &686637061
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 686637056}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &784066830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
@@ -1432,6 +1469,8 @@ GameObject:
   - component: {fileID: 1572119654}
   - component: {fileID: 1572119655}
   - component: {fileID: 1572119656}
+  - component: {fileID: 1572119657}
+  - component: {fileID: 1572119658}
   m_Layer: 0
   m_Name: BadTail Link
   m_TagString: Untagged
@@ -1506,11 +1545,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 1572119653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2bc9ac4bd7ae4c2d9d9c63340765112, type: 3}
+  m_Script: {fileID: 11500000, guid: 58b2e745f6002455f93c34e7b917d43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
   followTime: 0.1
+--- !u!58 &1572119657
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572119653}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.38
+--- !u!50 &1572119658
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572119653}
+  m_BodyType: 2
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1574665288
 Prefab:
   m_ObjectHideFlags: 0
@@ -1696,7 +1770,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -25.5}
   m_SpriteTilingProperty:
