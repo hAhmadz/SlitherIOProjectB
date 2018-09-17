@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
         var tailPos = tail[tail.Count - 1].position; // starting with one tail link in the snake (so don't need the if check)
 
         Transform newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
+        newLink.parent = GameObject.Find("Snake").transform;
         tail.Add(newLink);
 
         // scale up (very broken at the moment)

@@ -27,7 +27,8 @@ public class FoodController : MonoBehaviour {
             float yPoint = Random.Range(boardMin, boardMax);
             Vector3 foodPos = new Vector3(xPoint, yPoint, 0.0f);
 
-            Instantiate(deliciousFood, foodPos, Quaternion.identity);
+            Transform newFood = Instantiate(deliciousFood, foodPos, Quaternion.identity);
+            newFood.parent = GameObject.Find("Food").transform;
         }
     }
 }

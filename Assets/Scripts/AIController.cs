@@ -43,15 +43,20 @@ public class AIController : MonoBehaviour
     public void FixedUpdate()
     {
         // for now the snake moves randomly
-
-       
         var chance = Random.value;
         if (chance < 0.01) {
             currentTarget = RandomPosition();
+
         }
+
+        // ensure target is not too close to the current position
+        if (Mathf.Abs(currentTarget.x - transform.position.x) < 5 &&
+            Mathf.Abs(currentTarget.y - transform.position.y) < 5)
+        {
+            currentTarget = RandomPosition();
+        }
+
         transform.position = Vector2.MoveTowards(transform.position, currentTarget, speed);
-
-
     }
 
 
@@ -76,6 +81,7 @@ public class AIController : MonoBehaviour
         var tailPos = tail[tail.Count - 1].position; // starting with one tail link in the snake (so don't need the if check)
 
         Transform newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
+        newLink.parent = GameObject.Find("Snake").transform;
         tail.Add(newLink);
 
         // scale up (very broken at the moment)
