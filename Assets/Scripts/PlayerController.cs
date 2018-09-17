@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public int startingLength = 5;
     public List<Transform> tail = new List<Transform>();
     public Text lengthText;
+    public Text gameOverText;
     public Camera mainCam;
     public Transform tailLink;
     private Vector3 mousePosition;
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
 
 
-
+        gameOverText.text = "";
         lengthText.text = "Length: ---";
         // players start with 1 link already, so grow until you reach starting length
         for (int i = 0; i < startingLength - 1; i++) {
@@ -39,6 +40,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public void FixedUpdate()
+    {
+        RotateAndMove();
+    }
+
+    void RotateAndMove()
     {
         // rotate head (... something not right with this)
         var mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -49,7 +55,6 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, mousePos, speed);
     }
 
-
     void OnTriggerEnter2D(Collider2D other)
     {
         // eat a food and grow a link
@@ -59,18 +64,50 @@ public class PlayerController : MonoBehaviour
             GrowTail();
         }
 
-        // hit a wall (... or other snake) and game over
+        // hit a wall and game over
+        else if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("AITail"))
+        {
+            CrashAndBurn();
+        }
 
     }
 
 
 
+    // when a snake dies it releases food
+    void CrashAndBurn() 
+    {
+        //FoodController foodSpawner = transform.gameObject.GetComponent<FoodController>() as FoodController;
+
+        FoodController foodSpawner = GameObject.Find("Food").GetComponent<FoodController>() as FoodController;
+
+        foreach (Transform trans in tail)
+        {
+            Vector2 deltaPos = new Vector2(Random.Range(-0.5f, 0.5f),
+                                           Random.Range(-0.5f, 0.5f));
+            Vector2 tailPos = trans.position;
+            foodSpawner.MakeFood(tailPos + deltaPos);
+            trans.gameObject.SetActive(false);
+            //Destroy(trans.gameObject); // TODO : issue with destroying in the list?
+        }
+
+        foodSpawner.MakeFood(transform.position);
+
+
+        // TODO: game over
+        gameOverText.text = "YOU LOSE";
+        transform.gameObject.SetActive(false);
+
+
+    }
+            
+
     void GrowTail() {
 
-        var tailPos = tail[tail.Count - 1].position; // starting with one tail link in the snake (so don't need the if check)
+        Vector2 tailPos = tail[tail.Count - 1].position; // starting with one tail link in the snake (so don't need the if check)
 
         Transform newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
-        newLink.parent = GameObject.Find("Snake").transform;
+        newLink.parent = transform.parent;
         tail.Add(newLink);
 
         // scale up (very broken at the moment)
@@ -89,9 +126,6 @@ public class PlayerController : MonoBehaviour
             // map scaling up changes to the rest of the snake (i.e., its tail)
             foreach (Transform trans in tail) {
                 trans.gameObject.GetComponent<TailController>().ScaleUp(newSize.x, newFollowTime, newRadius);
-                //trans.gameObject.GetComponent<SpriteRenderer>().size = newSize;
-                //trans.gameObject.GetComponent<TailController>().followTime = newFollowTime;
-                //trans.gameObject.GetComponent<TailController>().hitBox.radius += scaleFactor / 2;
             }
 
             // zoom out

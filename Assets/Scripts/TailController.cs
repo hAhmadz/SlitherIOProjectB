@@ -31,8 +31,7 @@ public class TailController : MonoBehaviour {
 
     private Vector2 movementSpeed;
     public float followTime = 0.1f;
-	void FixedUpdate () {
-
+    void FixedUpdate () {
         // if it is the first tail object, follow the head.
         // otherwise follow the tail object before it in the tail list
         Transform target = head;
@@ -41,12 +40,18 @@ public class TailController : MonoBehaviour {
             target = tail[tailNumber - 1];
         }
 
-        transform.position = Vector2.SmoothDamp(transform.position, 
-                                                target.position, 
-                                                ref movementSpeed, 
+        transform.position = Vector2.SmoothDamp(transform.position,
+                                                target.position,
+                                                ref movementSpeed,
                                                 followTime);
         transform.right = target.position - transform.position;
+
     }
+
+
+
+    //void Follow() {
+    //}
 
 
     public void ScaleUp(float newSize, float newFollowTime, float newRadius) {

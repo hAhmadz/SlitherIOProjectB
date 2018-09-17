@@ -26,8 +26,8 @@ public class AITailController : MonoBehaviour
         // is this just an object reference, or does it make a copy of the list
         tail = head.GetComponent<AIController>().tail;
         tailNumber = tail.IndexOf(transform);
-        //sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-        //hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
+        sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+        hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
 
     }
 
