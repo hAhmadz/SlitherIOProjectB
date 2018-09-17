@@ -65,11 +65,16 @@ public class PlayerController : MonoBehaviour
         }
 
         // hit a wall and game over
-        else if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("AITail"))
+        else if (other.gameObject.CompareTag("Wall"))
         {
             CrashAndBurn();
         }
 
+        // hit another snake tail, you die
+        else if (other.gameObject.CompareTag("AITail"))
+        {
+            CrashAndBurn();
+        }
     }
 
 
@@ -77,8 +82,6 @@ public class PlayerController : MonoBehaviour
     // when a snake dies it releases food
     void CrashAndBurn() 
     {
-        //FoodController foodSpawner = transform.gameObject.GetComponent<FoodController>() as FoodController;
-
         FoodController foodSpawner = GameObject.Find("Food").GetComponent<FoodController>() as FoodController;
 
         foreach (Transform trans in tail)
@@ -93,12 +96,9 @@ public class PlayerController : MonoBehaviour
 
         foodSpawner.MakeFood(transform.position);
 
-
         // TODO: game over
         gameOverText.text = "YOU LOSE";
         transform.gameObject.SetActive(false);
-
-
     }
             
 

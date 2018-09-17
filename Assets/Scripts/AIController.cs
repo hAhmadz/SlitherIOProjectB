@@ -69,8 +69,39 @@ public class AIController : MonoBehaviour
             GrowTail();
         }
 
-        // hit a wall (... or other snake) and game over
+        // hit a wall and game over
+        else if (other.gameObject.CompareTag("Wall"))
+        {
+            CrashAndBurn();
+        }
 
+        // hit the player snake tail, you die
+        else if (other.gameObject.CompareTag("Tail"))
+        {
+            CrashAndBurn();
+        }
+    }
+
+
+
+    // when a snake dies it releases food
+    void CrashAndBurn()
+    {
+        FoodController foodSpawner = GameObject.Find("Food").GetComponent<FoodController>() as FoodController;
+
+        foreach (Transform trans in tail)
+        {
+            Vector2 deltaPos = new Vector2(Random.Range(-0.5f, 0.5f),
+                                           Random.Range(-0.5f, 0.5f));
+            Vector2 tailPos = trans.position;
+            foodSpawner.MakeFood(tailPos + deltaPos);
+            trans.gameObject.SetActive(false);
+            //Destroy(trans.gameObject); // TODO : issue with destroying in the list?
+        }
+
+        foodSpawner.MakeFood(transform.position);
+
+        Destroy(gameObject);
     }
 
 
