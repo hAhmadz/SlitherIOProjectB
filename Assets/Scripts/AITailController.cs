@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class AITailController : MonoBehaviour
@@ -13,6 +12,7 @@ public class AITailController : MonoBehaviour
     private int tailNumber;
     private SpriteRenderer sprRend;
     private CircleCollider2D hitBox;
+    
 
     private void Awake()
     {
@@ -28,14 +28,13 @@ public class AITailController : MonoBehaviour
         tailNumber = tail.IndexOf(transform);
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
-
-    }
+        
+}
 
     private Vector2 movementSpeed;
     public float followTime = 0.1f;
     void FixedUpdate()
     {
-
         // if it is the first tail object, follow the head.
         // otherwise follow the tail object before it in the tail list
         Transform target = head;

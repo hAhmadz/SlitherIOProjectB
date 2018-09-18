@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class AIController : MonoBehaviour
@@ -13,9 +12,8 @@ public class AIController : MonoBehaviour
     public Transform tailLink;
     private SpriteRenderer sprRend;
     private CircleCollider2D hitBox;
-    private float scaleFactor = 0.05f;
+    private float scaleFactor = 0.01f;
     private Vector2 scaleVector;
-
     public int boardMin, boardMax;
     private Vector2 currentTarget;
 
@@ -23,8 +21,6 @@ public class AIController : MonoBehaviour
     private void Awake()
     {
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-
-
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
         currentTarget = RandomPosition();
     }
@@ -33,11 +29,7 @@ public class AIController : MonoBehaviour
     {
         scaleVector = new Vector2(scaleFactor, scaleFactor);
         for (int i = 0; i < startingLength - 1; i++)
-        {
             GrowTail();
-        }
-
-
     }
 
     public void FixedUpdate()

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     // TODO: figure out constants, and make them instance variables
 
-    public float speed = 0.1f;
-    public int startingLength = 5;
+    public float speed;
+    public int startingLength;
     public List<Transform> tail = new List<Transform>();
     public Text lengthText;
     public Text gameOverText;
@@ -18,9 +17,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 mousePosition;
     private SpriteRenderer sprRend;
     private CircleCollider2D hitBox;
-    private float scaleFactor = 0.05f;
+    private float scaleFactor = 0.01f;
     private Vector2 scaleVector;
-
+    
 
     void Start()
     {
@@ -83,7 +82,6 @@ public class PlayerController : MonoBehaviour
     void CrashAndBurn() 
     {
         FoodController foodSpawner = GameObject.Find("Food").GetComponent<FoodController>() as FoodController;
-
         foreach (Transform trans in tail)
         {
             Vector2 deltaPos = new Vector2(Random.Range(-0.5f, 0.5f),
