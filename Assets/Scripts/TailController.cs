@@ -4,39 +4,57 @@ using UnityEngine;
 public class TailController : MonoBehaviour {
 
     public float speed = 0.1f;
-    //private GameObject parent;
-
     private Transform head;
     private List<Transform> tail;
     private int tailNumber;
     private SpriteRenderer sprRend;
     private CircleCollider2D hitBox;
-    
+
+
+
     private void Awake()
     {
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
+
     }
 
-    void Start () {
-        head = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
-        // is this just an object reference, or does it make a copy of the list
+    void Start () 
+    {
+        head = transform.parent.GetChild(0);
         tail = head.GetComponent<PlayerController>().tail;
         tailNumber = tail.IndexOf(transform);
-        //sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-        //hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
-
     }
+
+
+    public Transform GetHead()
+    {
+        return head;
+    }
+
+
+    public void SetHead(Transform head) 
+    {
+        this.head = head;
+    }
+
+
+
 
     private Vector2 movementSpeed;
     public float followTime = 0.1f;
-    void FixedUpdate () {
+    void FixedUpdate () 
+    {
 
         // if it is the first tail object, follow the head.
         // otherwise follow the tail object before it in the tail list
         Transform target = head;
-        if (tailNumber > 0)
+
+        if (tailNumber > 0) 
+        {
             target = tail[tailNumber - 1];
+        }
+            
 
         transform.position = Vector2.SmoothDamp(transform.position,
                                                 target.position,
@@ -46,7 +64,8 @@ public class TailController : MonoBehaviour {
 
     }
     
-    public void ScaleUp(float newSize, float newFollowTime, float newRadius) {
+    public void ScaleUp(float newSize, float newFollowTime, float newRadius) 
+    {
         sprRend.size = new Vector2(newSize, newSize);
         followTime = newFollowTime;
         hitBox.radius = newRadius;
