@@ -12,7 +12,7 @@ public class AIController : MonoBehaviour
     public Transform tailLink;
     private SpriteRenderer sprRend;
     private CircleCollider2D hitBox;
-    private float scaleFactor = 0.01f;
+    private float scaleFactor = 0.05f;
     private Vector2 scaleVector;
     public int boardMin, boardMax;
     private Vector2 currentTarget;

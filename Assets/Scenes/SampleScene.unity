@@ -878,7 +878,7 @@ Prefab:
     - target: {fileID: 212763876543617232, guid: 80e0b0583919444e29e7ce7184a40efc,
         type: 2}
       propertyPath: m_DrawMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e0b0583919444e29e7ce7184a40efc, type: 2}
@@ -1630,7 +1630,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 0.87, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0

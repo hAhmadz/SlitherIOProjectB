@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 mousePosition;
     private SpriteRenderer sprRend;
     private CircleCollider2D hitBox;
-    private float scaleFactor = 0.01f;
+    private float scaleFactor = 0.05f;
     private Vector2 scaleVector;
     
 
