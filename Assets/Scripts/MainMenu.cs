@@ -8,8 +8,8 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void quitBtnPressed()
+    public void scoreBtnPressed()
     {
-        Application.Quit();
+        Debug.Log("Not implemented");
     }
 }
