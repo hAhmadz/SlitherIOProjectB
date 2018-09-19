@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class AITailController : MonoBehaviour
-{
+{ 
 
     public float speed = 0.1f;
     //private GameObject parent;
@@ -24,7 +24,7 @@ public class AITailController : MonoBehaviour
     {
         head = GameObject.FindGameObjectWithTag("AI").gameObject.transform;
         // is this just an object reference, or does it make a copy of the list
-        tail = head.GetComponent<AIController>().tail;
+        //tail = head.GetComponent<AIController>().tail;
         tailNumber = tail.IndexOf(transform);
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
