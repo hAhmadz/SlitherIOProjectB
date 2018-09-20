@@ -22,7 +22,7 @@ public class TailController : MonoBehaviour {
     void Start () 
     {
         head = transform.parent.GetChild(0);
-        tail = head.GetComponent<PlayerController>().tail;
+        tail = head.GetComponent<SnakeController>().tail;
         tailNumber = tail.IndexOf(transform);
     }
 
@@ -39,13 +39,10 @@ public class TailController : MonoBehaviour {
     }
 
 
-
-
     private Vector2 movementSpeed;
     public float followTime = 0.1f;
     void FixedUpdate () 
     {
-
         // if it is the first tail object, follow the head.
         // otherwise follow the tail object before it in the tail list
         Transform target = head;

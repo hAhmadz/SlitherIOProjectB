@@ -5,52 +5,37 @@
  * 
  */
 
-
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomAIController : SnakeController
-
+public class RandomAIController : AIController
 {
-    // TODO: figure out constants, and make them instance variables
-    private int boardMin = -25; 
-    private int boardMax = 25;
-    private Vector2 currentTarget;
-
-
-    public new void Awake()
+    // A Random snake's target is a random position not too close to its head
+    public override Vector2 FindTarget()
     {
-        base.Awake();
-        currentTarget = RandomPosition();
-    }
+        Vector2 target = GetCurrentTarget();
+        if (target.Equals(null))
+        {
+            target = RandomPosition();
+        }
 
-    public override void RotateAndMove()
-    {
         var chance = Random.value;
-        if (chance < 0.01) {
-            currentTarget = RandomPosition();
+        if (chance < 0.01)
+        {
+            target = RandomPosition();
 
         }
 
         // ensure target is not too close to the current position
         // TODO: constrain the angles so snakes don't do 180s
-        if (Mathf.Abs(currentTarget.x - transform.position.x) < 5 &&
-            Mathf.Abs(currentTarget.y - transform.position.y) < 5)
+        if (Mathf.Abs(target.x - transform.position.x) < 5 &&
+            Mathf.Abs(target.y - transform.position.y) < 5)
         {
-            currentTarget = RandomPosition();
+            target = RandomPosition();
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, currentTarget, GetSpeed());
+        return target;
     }
 
 
-    Vector2 RandomPosition() {
-        return new Vector2(Random.Range(boardMin, boardMax), Random.Range(boardMin, boardMax));
-    }
 
-
-    public override void KillSnake()
-    {
-        Destroy(gameObject);
-    }
 }

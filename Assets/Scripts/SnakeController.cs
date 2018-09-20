@@ -14,7 +14,6 @@ using UnityEngine;
 public abstract class SnakeController : MonoBehaviour
 {
     public List<Transform> tail = new List<Transform>();
-    [SerializeField]
     public Transform tailLink;
     private int startingLength = 5;
     // TODO: enable different snakes to have different skins
@@ -36,9 +35,6 @@ public abstract class SnakeController : MonoBehaviour
     {
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
-        /*foreach (Transform trans in tail) {
-            trans.gameObject.GetComponent<TailController>().SetHead(transform);
-        }*/
     }
 
     public void Start()
@@ -59,11 +55,6 @@ public abstract class SnakeController : MonoBehaviour
     /**************************************************************************
      * GETTING AND SETTING
      **************************************************************************/
-
-    /*public List<Transform> GetTail() {
-        return tail;
-    }*/
-
 
     public int GetStartingLength()
     {
@@ -104,10 +95,10 @@ public abstract class SnakeController : MonoBehaviour
         }
 
         // hit another snake tail, you die
-        else if (other.gameObject.CompareTag("AITail"))
+        else if (other.gameObject.CompareTag("Tail"))
         {
             // don't kill yourself if you've only hit your own tail
-            if (!(other.gameObject.GetComponent<TailController>().GetHead() == transform))
+            if (!(other.gameObject.GetComponent<TailController>().GetHead().Equals(transform)))
                 CrashAndBurn();
         }
     }
@@ -152,26 +143,28 @@ public abstract class SnakeController : MonoBehaviour
         }
     }
 
-    // when all snakes die they release food.
+    // when all snakes die they release food. (scatterFactor dictates the random spread from a body object)
     // then they call the KillSnake method which can be specific to certain snakes
+    private float scatterFactor = 0.5f;
     public void CrashAndBurn()
     {
         FoodController foodSpawner = GameObject.Find("Food").GetComponent<FoodController>() as FoodController;
         // each tail link spawns a food
         foreach (Transform trans in tail)
         {
-            Vector2 deltaPos = new Vector2(Random.Range(-0.5f, 0.5f),
-                                           Random.Range(-0.5f, 0.5f));
+            Vector2 scatterPos = new Vector2(Random.Range(-scatterFactor, scatterFactor),
+                                           Random.Range(-scatterFactor, scatterFactor));
             Vector2 tailPos = trans.position;
-            foodSpawner.MakeFood(tailPos + deltaPos);
-            trans.gameObject.SetActive(false);
+            foodSpawner.MakeFood(tailPos + scatterPos);
+
+            // TODO: make sure destroying the tail link doesn't result in any null references
+            Destroy(trans.gameObject);
         }
         // and the head spawns a food
         foodSpawner.MakeFood(transform.position);
 
         KillSnake();
     }
-
 
 
     // a concrete snake needs to override this to handle "game over" functionality
