@@ -5,18 +5,24 @@ using UnityEngine;
 public class KillerAIController : AIController
 {
     Transform targetHead;
+    //Vector2 targetLastObserved;
 
     public override Vector2 FindTarget()
     {
         Vector2 target = GetCurrentTarget();
-        if (target.Equals(Vector2.zero) || transform.position.Equals(target))
+        if (targetHead == null || 
+              target.Equals(Vector2.zero) || 
+              transform.position.Equals(target))
         {
+
             var chance = Random.value;
             print("chance : " + chance.ToString());
             if (chance < 0.33f) // hunt player
             {
-                targetHead = GameObject.FindGameObjectWithTag("Player").transform;
-                if (targetHead.Equals(null)) { return FindTarget(); }
+                GameObject targetGameObj = GameObject.FindGameObjectWithTag("Player");
+                print(targetGameObj);
+                if (targetGameObj == null) { return RandomPosition(); }
+                targetHead = targetGameObj.transform;
             }
             else // hunt ai
             {
@@ -29,16 +35,25 @@ public class KillerAIController : AIController
                         break;
                     }
                 }
-                if (targetHead.Equals(null)) { return FindTarget(); }
+                if (targetHead == null) { return RandomPosition(); }
+
             }
 
         }
+
         Vector2 myPos = transform.position;
         Vector2 diff = myPos - target;
 
         if (Mathf.Abs(diff.x) < 1 && Mathf.Abs(diff.x) < 1)
             return diff * -1;
-        return targetHead.position;
+
+        Vector2 targetPos = targetHead.position;
+        //Vector2 delta =  targetPos - targetLastObserved;
+        Vector2 intercept = targetPos * 1.5f;
+
+        //targetLastObserved = intercept;
+        return intercept;
+        //return targetHead.position;
     }
 }
        
