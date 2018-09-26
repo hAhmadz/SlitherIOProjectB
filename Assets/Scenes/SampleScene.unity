@@ -146,6 +146,7 @@ MonoBehaviour:
   tail:
   - {fileID: 1249361965}
   tailLink: {fileID: 4514833761301900, guid: 80e0b0583919444e29e7ce7184a40efc, type: 2}
+  startingLength: 5
   lengthText: {fileID: 377126416}
   gameOverText: {fileID: 318589329}
   mainCam: {fileID: 519420031}
@@ -314,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &154898749
 Transform:
   m_ObjectHideFlags: 0
@@ -779,6 +780,7 @@ MonoBehaviour:
   tail:
   - {fileID: 85261483}
   tailLink: {fileID: 85261483}
+  startingLength: 5
 --- !u!212 &529992736
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -968,6 +970,7 @@ MonoBehaviour:
   tail:
   - {fileID: 1572119654}
   tailLink: {fileID: 1572119654}
+  startingLength: 5
 --- !u!58 &686637060
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1947,6 +1950,7 @@ MonoBehaviour:
   tail:
   - {fileID: 139385999}
   tailLink: {fileID: 4670699845931600, guid: a239dc2b3993f419a80312d60c8080a7, type: 2}
+  startingLength: 5
   food: []
 --- !u!212 &1566275035
 SpriteRenderer:

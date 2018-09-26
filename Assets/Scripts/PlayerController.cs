@@ -1,4 +1,4 @@
-﻿
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +8,8 @@ public class PlayerController : SnakeController
     public Text lengthText;
     public Text gameOverText;
     public Camera mainCam;
+
+    private bool boosted = false;
 
 
     public new void Start()
@@ -53,4 +55,49 @@ public class PlayerController : SnakeController
 
         lengthText.text = "Length: " + tail.Count.ToString();
     }
+
+
+    public override void IsBoosted()
+    {
+        if (tail.Count > startingLength)
+        {
+            // check changes to input
+            if (Input.GetMouseButtonDown(0))
+                boosted = true;
+            if (Input.GetMouseButtonUp(0))
+                boosted = false;
+
+            // TODO: i really don't think i want to call this every frame
+            if (boosted)
+            {
+                SetSpeed(0.15f);
+                ChangeTailSpeed(2.0f);
+                //TODO: get the dropping working
+                //StartCoroutine("DropTailLinks");
+            }
+            else
+            {
+                SetSpeed(0.1f);
+                ChangeTailSpeed(1.0f);
+                //StopCoroutine("DropTailLinks");
+            }
+        }
+    }
+
+    IEnumerator DropTailLinks()
+    {
+        yield return new WaitForSeconds(1.0f);
+        if (tail.Count > startingLength)
+            ShrinkSnake();
+    }
+
+    void ChangeTailSpeed(float boost)
+    {
+        foreach (Transform t in tail)
+        {
+            t.gameObject.GetComponent<TailController>().followBoost = boost;
+        }
+    }
+
+
 }
