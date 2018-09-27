@@ -59,28 +59,28 @@ public class PlayerController : SnakeController
 
     public override void IsBoosted()
     {
-        if (tail.Count > startingLength)
+
+        // if the snake is greater than the minimum length and the mouse was 
+        // pressed this frame, initiate dropping links
+        if (tail.Count > startingLength && Input.GetMouseButtonDown(0))
         {
-            // if the mouse was pressed this frame, initiate dropping links
-            if (Input.GetMouseButtonDown(0))
-            {
-                //boosted = true;
-                SetSpeed(0.15f);
-                ChangeTailFollowBoost(0.75f);
-                StartCoroutine("DropTailLinks");
-            }
-
-            // if the mouse was released this frame, stop dropping links
-            if (Input.GetMouseButtonUp(0))
-            {
-                //boosted = false;
-                SetSpeed(0.1f);
-                ChangeTailFollowBoost(1.0f);
-                StopCoroutine("DropTailLinks");
-            }
-                
-
+            boosted = true;
+            SetSpeed(0.15f);
+            ChangeTailFollowBoost(0.75f);
+            StartCoroutine("DropTailLinks");
         }
+
+        // if the mouse was released this frame or the snake is not longer 
+        // than the minimum length, stop dropping links
+        if (tail.Count <= startingLength || Input.GetMouseButtonUp(0))
+        {
+            boosted = false;
+            SetSpeed(0.1f);
+            ChangeTailFollowBoost(1.0f);
+        }
+
+        if (!boosted)
+            StopCoroutine("DropTailLinks");
     }
 
     IEnumerator DropTailLinks()
