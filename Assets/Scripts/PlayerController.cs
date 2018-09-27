@@ -61,37 +61,36 @@ public class PlayerController : SnakeController
     {
         if (tail.Count > startingLength)
         {
-            // check changes to input
+            // if the mouse was pressed this frame, initiate dropping links
             if (Input.GetMouseButtonDown(0))
-                boosted = true;
-            if (Input.GetMouseButtonUp(0))
-                boosted = false;
-
-            // TODO: i really don't think i want to call this every frame
-            if (boosted)
             {
+                //boosted = true;
                 SetSpeed(0.15f);
-                ChangeTailSpeed(2.0f);
-                //TODO: get the dropping working
-                //StartCoroutine("DropTailLinks");
+                ChangeTailFollowBoost(0.75f);
+                StartCoroutine("DropTailLinks");
             }
-            else
+
+            // if the mouse was released this frame, stop dropping links
+            if (Input.GetMouseButtonUp(0))
             {
+                //boosted = false;
                 SetSpeed(0.1f);
-                ChangeTailSpeed(1.0f);
-                //StopCoroutine("DropTailLinks");
+                ChangeTailFollowBoost(1.0f);
+                StopCoroutine("DropTailLinks");
             }
+                
+
         }
     }
 
     IEnumerator DropTailLinks()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.66f);
         if (tail.Count > startingLength)
             ShrinkSnake();
     }
 
-    void ChangeTailSpeed(float boost)
+    void ChangeTailFollowBoost(float boost)
     {
         foreach (Transform t in tail)
         {
