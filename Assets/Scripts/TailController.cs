@@ -4,11 +4,14 @@ using UnityEngine;
 public class TailController : MonoBehaviour {
 
     public float speed = 0.1f;
+    public float followTime = 0.1f;
+    public float followBoost = 1.0f;
     private Transform head;
     private List<Transform> tail;
     private int tailNumber;
     private SpriteRenderer sprRend;
     private CircleCollider2D hitBox;
+
 
 
 
@@ -40,7 +43,6 @@ public class TailController : MonoBehaviour {
 
 
     private Vector2 movementSpeed;
-    public float followTime = 0.1f;
     void FixedUpdate () 
     {
         // if it is the first tail object, follow the head.
@@ -56,12 +58,12 @@ public class TailController : MonoBehaviour {
         transform.position = Vector2.SmoothDamp(transform.position,
                                                 target.position,
                                                 ref movementSpeed,
-                                                followTime);
+                                                followTime*followBoost);
         transform.right = target.position - transform.position;
 
     }
     
-    public void ScaleUp(float newSize, float newFollowTime, float newRadius) 
+    public void Scale(float newSize, float newFollowTime, float newRadius) 
     {
         sprRend.size = new Vector2(newSize, newSize);
         followTime = newFollowTime;

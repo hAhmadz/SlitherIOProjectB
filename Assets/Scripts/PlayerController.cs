@@ -1,4 +1,4 @@
-﻿
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +8,8 @@ public class PlayerController : SnakeController
     public Text lengthText;
     public Text gameOverText;
     public Camera mainCam;
+
+    private bool boosted = false;
 
 
     public new void Start()
@@ -53,4 +55,48 @@ public class PlayerController : SnakeController
 
         lengthText.text = "Length: " + tail.Count.ToString();
     }
+
+
+    public override void IsBoosted()
+    {
+
+        // if the snake is greater than the minimum length and the mouse was 
+        // pressed this frame, initiate dropping links
+        if (tail.Count > startingLength && Input.GetMouseButtonDown(0))
+        {
+            boosted = true;
+            SetSpeed(0.15f);
+            ChangeTailFollowBoost(0.75f);
+            StartCoroutine("DropTailLinks");
+        }
+
+        // if the mouse was released this frame or the snake is not longer 
+        // than the minimum length, stop dropping links
+        if (tail.Count <= startingLength || Input.GetMouseButtonUp(0))
+        {
+            boosted = false;
+            SetSpeed(0.1f);
+            ChangeTailFollowBoost(1.0f);
+        }
+
+        if (!boosted)
+            StopCoroutine("DropTailLinks");
+    }
+
+    IEnumerator DropTailLinks()
+    {
+        yield return new WaitForSeconds(0.66f);
+        if (tail.Count > startingLength)
+            ShrinkSnake();
+    }
+
+    void ChangeTailFollowBoost(float boost)
+    {
+        foreach (Transform t in tail)
+        {
+            t.gameObject.GetComponent<TailController>().followBoost = boost;
+        }
+    }
+
+
 }
