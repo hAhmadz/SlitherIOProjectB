@@ -18,8 +18,8 @@ public abstract class SnakeController : MonoBehaviour
     public int startingLength = 5;
     // TODO: enable different snakes to have different skins
     private Sprite skin;
-    private SpriteRenderer sprRend;
-    private CircleCollider2D hitBox;
+    public SpriteRenderer sprRend;
+    public CircleCollider2D hitBox;
     // TODO: figure out constants, and make them instance variables
     private float speed = 0.1f;
     private float scaleFactor = 0.05f;

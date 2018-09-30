@@ -28,6 +28,11 @@ public class PlayerController : SnakeController
         restartBtn.gameObject.SetActive(false);
         transform.gameObject.SetActive(true);
         transform.position = new Vector2(10, 10);
+        
+        //tentative fix to scaling and colission radius
+        //scaling fine, and radius may be too (but not sure how accurate)
+        sprRend.size = new Vector2(1,1);
+        hitBox.radius = 0.5f;
 
         //add first tail link...
         Vector2 tailPos = transform.position;
