@@ -165,8 +165,12 @@ public abstract class SnakeController : MonoBehaviour
             foodSpawner.MakeFood(tailPos + scatterPos);
 
             // TODO: make sure destroying the tail link doesn't result in any null references
+                //tail.Clear() below fixes this?
             Destroy(trans.gameObject);
         }
+
+        //clears the tail list
+        tail.Clear();
         // and the head spawns a food
         foodSpawner.MakeFood(transform.position);
 

@@ -7,6 +7,7 @@ public class PlayerController : SnakeController
 {
     public Text lengthText;
     public Text gameOverText;
+    public Button restartBtn;
     public Camera mainCam;
 
     private bool boosted = false;
@@ -17,7 +18,34 @@ public class PlayerController : SnakeController
         base.Start();
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
+        restartBtn.gameObject.SetActive(false);
     }
+
+
+    //used to restart the game (i.e. revive the player)
+    public void Restart()
+    {
+        restartBtn.gameObject.SetActive(false);
+        transform.gameObject.SetActive(true);
+        transform.position = new Vector2(10, 10);
+
+        //add first tail link...
+        Vector2 tailPos = transform.position;
+
+        // make a new tail link object and add it to the tail list
+        Transform newLink;
+        newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
+        tail.Add(newLink);
+        newLink.SetParent(transform.parent);
+        newLink.GetComponent<TailController>().SetHead(transform);
+        newLink.gameObject.SetActive(true);
+
+        base.Start();
+        gameOverText.text = "";
+        lengthText.text = "Length: " + GetStartingLength().ToString();
+
+    }
+
 
 
     public override void RotateAndMove()
@@ -39,6 +67,7 @@ public class PlayerController : SnakeController
         // TODO: ADVERTISEMENT
         gameOverText.text = "YOU LOSE";
         transform.gameObject.SetActive(false);
+        restartBtn.gameObject.SetActive(true);
     }
             
 
