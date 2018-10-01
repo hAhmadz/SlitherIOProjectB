@@ -176,8 +176,7 @@ public abstract class SnakeController : MonoBehaviour
 
         KillSnake();
     }
-
-
+    
     // a concrete snake needs to override this to handle "game over" functionality
     public abstract void KillSnake();
 
@@ -229,4 +228,5 @@ public abstract class SnakeController : MonoBehaviour
         }
 
     }
+
 }

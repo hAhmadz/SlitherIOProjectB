@@ -73,6 +73,12 @@ public class PlayerController : SnakeController
         gameOverText.text = "YOU LOSE";
         transform.gameObject.SetActive(false);
         restartBtn.gameObject.SetActive(true);
+
+
+        //Functionality to jump to start menu when game Over
+
+        //DelayTimer(); //timer to delay the exit
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
             
 
@@ -130,6 +136,12 @@ public class PlayerController : SnakeController
         {
             t.gameObject.GetComponent<TailController>().followBoost = boost;
         }
+    }
+
+    //Timer Delay Fnc
+    IEnumerator DelayTimer()
+    {
+        yield return new WaitForSeconds(5);
     }
 
 
