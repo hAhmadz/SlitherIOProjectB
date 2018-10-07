@@ -147,8 +147,11 @@ MonoBehaviour:
   - {fileID: 1249361965}
   tailLink: {fileID: 4514833761301900, guid: 80e0b0583919444e29e7ce7184a40efc, type: 2}
   startingLength: 5
+  sprRend: {fileID: 0}
+  hitBox: {fileID: 0}
   lengthText: {fileID: 377126416}
   gameOverText: {fileID: 318589329}
+  restartBtn: {fileID: 0}
   mainCam: {fileID: 519420031}
 --- !u!50 &12369779
 Rigidbody2D:
@@ -309,6 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154898749}
+  - component: {fileID: 154898750}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Untagged
@@ -331,6 +335,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &154898750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154898748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577dcf3e00e554396bc007c3692eda09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adsEnabled: 1
 --- !u!1001 &202830692
 Prefab:
   m_ObjectHideFlags: 0
@@ -781,6 +797,8 @@ MonoBehaviour:
   - {fileID: 85261483}
   tailLink: {fileID: 85261483}
   startingLength: 5
+  sprRend: {fileID: 0}
+  hitBox: {fileID: 0}
 --- !u!212 &529992736
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -971,6 +989,8 @@ MonoBehaviour:
   - {fileID: 1572119654}
   tailLink: {fileID: 1572119654}
   startingLength: 5
+  sprRend: {fileID: 0}
+  hitBox: {fileID: 0}
 --- !u!58 &686637060
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1951,6 +1971,8 @@ MonoBehaviour:
   - {fileID: 139385999}
   tailLink: {fileID: 4670699845931600, guid: a239dc2b3993f419a80312d60c8080a7, type: 2}
   startingLength: 5
+  sprRend: {fileID: 0}
+  hitBox: {fileID: 0}
   food: []
 --- !u!212 &1566275035
 SpriteRenderer:

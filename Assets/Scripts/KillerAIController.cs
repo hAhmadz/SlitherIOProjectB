@@ -16,11 +16,11 @@ public class KillerAIController : AIController
         {
 
             var chance = Random.value;
-            print("chance : " + chance.ToString());
+            //print("chance : " + chance.ToString());
             if (chance < 0.33f) // hunt player
             {
                 GameObject targetGameObj = GameObject.FindGameObjectWithTag("Player");
-                print(targetGameObj);
+                // print(targetGameObj);
                 if (targetGameObj == null) { return RandomPosition(); }
                 targetHead = targetGameObj.transform;
             }

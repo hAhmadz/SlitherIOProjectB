@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+#if UNITY_ADS
+using UnityEngine.Advertisements; // only compile Ads code on supported platforms
+#endif
 
 
 public class PlayerController : SnakeController
@@ -16,9 +19,11 @@ public class PlayerController : SnakeController
     public new void Start()
     {
         base.Start();
+
+
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
-        restartBtn.gameObject.SetActive(false);
+        // restartBtn.gameObject.SetActive(false);
     }
 
 
@@ -28,10 +33,10 @@ public class PlayerController : SnakeController
         restartBtn.gameObject.SetActive(false);
         transform.gameObject.SetActive(true);
         transform.position = new Vector2(10, 10);
-        
+
         //tentative fix to scaling and colission radius
         //scaling fine, and radius may be too (but not sure how accurate)
-        sprRend.size = new Vector2(1,1);
+        sprRend.size = Vector2.one;
         hitBox.radius = 0.5f;
 
         //add first tail link...
@@ -69,18 +74,22 @@ public class PlayerController : SnakeController
     public override void KillSnake() 
     {
         // TODO: game over
-        // TODO: ADVERTISEMENT
         gameOverText.text = "YOU LOSE";
-        transform.gameObject.SetActive(false);
-        restartBtn.gameObject.SetActive(true);
 
+
+        AdvertisementController ads = gameObject.GetComponentInParent<AdvertisementController>();
+        ads.WaitAndDisplayAd();
+
+        // deactivate the head
+        transform.gameObject.SetActive(false);
 
         //Functionality to jump to start menu when game Over
-
-        //DelayTimer(); //timer to delay the exit
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+
+
+        // restartBtn.gameObject.SetActive(true);
     }
-            
+
 
     // Player snake growth needs to handle zooming out the camera, and updating the score text
     public override void GrowSnake() 
@@ -107,7 +116,7 @@ public class PlayerController : SnakeController
             boosted = true;
             SetSpeed(0.15f);
             ChangeTailFollowBoost(0.75f);
-            StartCoroutine("DropTailLinks");
+            StartCoroutine(DropTailLinks());
         }
 
         // if the mouse was released this frame or the snake is not longer 
@@ -120,15 +129,26 @@ public class PlayerController : SnakeController
         }
 
         if (!boosted)
-            StopCoroutine("DropTailLinks");
+            StopCoroutine(DropTailLinks());
     }
 
+
+    // a thread to drop tail links while boosted
     IEnumerator DropTailLinks()
     {
-        yield return new WaitForSeconds(0.66f);
-        if (tail.Count > startingLength)
-            ShrinkSnake();
+        while (true)
+        {
+            yield return new WaitForSeconds(0.9f);
+
+            if (boosted && tail.Count > startingLength)
+                ShrinkSnake();
+            else
+                break;
+        }
+        StopCoroutine(DropTailLinks());
     }
+
+
 
     void ChangeTailFollowBoost(float boost)
     {
@@ -137,12 +157,5 @@ public class PlayerController : SnakeController
             t.gameObject.GetComponent<TailController>().followBoost = boost;
         }
     }
-
-    //Timer Delay Fnc
-    IEnumerator DelayTimer()
-    {
-        yield return new WaitForSeconds(5);
-    }
-
 
 }
