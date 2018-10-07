@@ -17,7 +17,6 @@ public class AdvertisementController : MonoBehaviour
     {
         if (adsEnabled)
         {
-            print("HERE");
             StartCoroutine(AdDelayTimer());
         }
 
@@ -25,22 +24,19 @@ public class AdvertisementController : MonoBehaviour
     }
 
 
-    //Timer Delay Fnc
+
     IEnumerator AdDelayTimer()
     {
         // wait 2 seconds then show an ad
         if (true)
         {
             yield return new WaitForSeconds(2);
-#if UNITY_ADS
-
-            if (!Advertisement.IsReady())
+            #if UNITY_ADS
+            if (Advertisement.IsReady("video"))
             {
-                Debug.Log("Ad not ready");
+                Advertisement.Show("video");
             }
-
-            Advertisement.Show();
-#endif
+            #endif
         }
         StopCoroutine(AdDelayTimer());
     }

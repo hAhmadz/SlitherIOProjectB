@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-#if UNITY_ADS
-using UnityEngine.Advertisements; // only compile Ads code on supported platforms
-#endif
 
 
 public class PlayerController : SnakeController
@@ -12,21 +9,19 @@ public class PlayerController : SnakeController
     public Text gameOverText;
     public Button restartBtn;
     public Camera mainCam;
-
     private bool boosted = false;
 
 
     public new void Start()
     {
         base.Start();
-
-
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
         // restartBtn.gameObject.SetActive(false);
     }
 
 
+    // TODO: i'm not entirely sure if respawning the player is strictly necessary?
     //used to restart the game (i.e. revive the player)
     public void Restart()
     {
@@ -38,6 +33,12 @@ public class PlayerController : SnakeController
         //scaling fine, and radius may be too (but not sure how accurate)
         sprRend.size = Vector2.one;
         hitBox.radius = 0.5f;
+
+        // bit of a hack to reorient the camera
+        while (mainCam.orthographicSize > 10.0f)
+        {
+            ZoomCamera(-1.0f);
+        }
 
         //add first tail link...
         Vector2 tailPos = transform.position;
@@ -95,13 +96,11 @@ public class PlayerController : SnakeController
     public override void GrowSnake() 
     {
         base.GrowSnake();
+        // zoom out
         if (tail.Count > GetStartingLength())
         {
-            // zoom out
-            var newZoom = mainCam.orthographicSize + 1.0f;
-            mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, newZoom, 2.0f * Time.deltaTime); ;
+            ZoomCamera(1.0f);
         }
-
         lengthText.text = "Length: " + tail.Count.ToString();
     }
 
@@ -141,9 +140,14 @@ public class PlayerController : SnakeController
             yield return new WaitForSeconds(0.9f);
 
             if (boosted && tail.Count > startingLength)
+            {
                 ShrinkSnake();
+                ZoomCamera(-1.0f);
+            }
             else
+            {
                 break;
+            }
         }
         StopCoroutine(DropTailLinks());
     }
@@ -156,6 +160,15 @@ public class PlayerController : SnakeController
         {
             t.gameObject.GetComponent<TailController>().followBoost = boost;
         }
+    }
+
+
+
+    /* method to adjust the main camera's orthographic size */
+    void ZoomCamera(float zoomFactor) 
+    {
+        float newZoom = mainCam.orthographicSize + zoomFactor;
+        mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, newZoom, 2.0f * Time.deltaTime);
     }
 
 }
