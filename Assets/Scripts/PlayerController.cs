@@ -143,6 +143,7 @@ public class PlayerController : SnakeController
             {
                 ShrinkSnake();
                 ZoomCamera(-1.0f);
+                lengthText.text = "Length: " + tail.Count.ToString();
             }
             else
             {
