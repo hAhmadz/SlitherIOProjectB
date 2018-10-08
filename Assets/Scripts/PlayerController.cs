@@ -17,7 +17,7 @@ public class PlayerController : SnakeController
         base.Start();
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
-        // restartBtn.gameObject.SetActive(false);
+         restartBtn.gameObject.SetActive(false);
     }
 
 
@@ -88,7 +88,7 @@ public class PlayerController : SnakeController
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
 
 
-        // restartBtn.gameObject.SetActive(true);
+         restartBtn.gameObject.SetActive(true);
     }
 
 
