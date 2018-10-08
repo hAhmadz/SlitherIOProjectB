@@ -24,6 +24,7 @@ public class TailController : MonoBehaviour {
 
     void Start () 
     {
+        //head = GameObject.FindWithTag("Player").GetComponent<Transform>();
         head = transform.parent.GetChild(0);
         tail = head.GetComponent<SnakeController>().tail;
         tailNumber = tail.IndexOf(transform);

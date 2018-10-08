@@ -8,6 +8,7 @@ TagManager:
   - Tail
   - AI
   - Wall
+  - TailPlayer
   layers:
   - Default
   - TransparentFX
