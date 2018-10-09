@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public GameObject player;
+    public Transform player;
 
     private Vector3 offset;
 
 
 	void Start () 
     {
-        offset = transform.position - player.transform.position;
+        if (player != null)
+        {
+            offset = transform.position - player.transform.position;
+        }
 	}
 	
 	void LateUpdate () 
     {
-        transform.position = player.transform.position + offset;
+        if (player != null)
+        {
+            transform.position = player.transform.position + offset;
+        }
+    }
+
+    public void setTarget(Transform target)
+    {
+        player =  target;
+        offset = transform.position - player.transform.position;
     }
 }

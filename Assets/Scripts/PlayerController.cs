@@ -5,19 +5,22 @@ using UnityEngine.UI;
 
 public class PlayerController : SnakeController
 {
-    public Text lengthText;
-    public Text gameOverText;
-    public Button restartBtn;
+    //public Text lengthText;
+    //public Text gameOverText;
+    //public Button restartBtn;
     public Camera mainCam;
     private bool boosted = false;
 
 
     public new void Start()
     {
+        Camera.main.GetComponent<CameraController>().setTarget(gameObject.transform);
+
+        mainCam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         base.Start();
-        gameOverText.text = "";
-        lengthText.text = "Length: " + GetStartingLength().ToString();
-         restartBtn.gameObject.SetActive(false);
+        //gameOverText.text = "";
+        //lengthText.text = "Length: " + GetStartingLength().ToString();
+         //restartBtn.gameObject.SetActive(false);
     }
 
 
@@ -25,7 +28,7 @@ public class PlayerController : SnakeController
     //used to restart the game (i.e. revive the player)
     public void Restart()
     {
-        restartBtn.gameObject.SetActive(false);
+        //restartBtn.gameObject.SetActive(false);
         transform.gameObject.SetActive(true);
         transform.position = new Vector2(10, 10);
 
@@ -52,8 +55,8 @@ public class PlayerController : SnakeController
         newLink.gameObject.SetActive(true);
 
         base.Start();
-        gameOverText.text = "";
-        lengthText.text = "Length: " + GetStartingLength().ToString();
+        //gameOverText.text = "";
+        //lengthText.text = "Length: " + GetStartingLength().ToString();
 
     }
 
@@ -75,7 +78,7 @@ public class PlayerController : SnakeController
     public override void KillSnake() 
     {
         // TODO: game over
-        gameOverText.text = "YOU LOSE";
+        //gameOverText.text = "YOU LOSE";
 
 
         AdvertisementController ads = gameObject.GetComponentInParent<AdvertisementController>();
@@ -88,7 +91,7 @@ public class PlayerController : SnakeController
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
 
 
-         restartBtn.gameObject.SetActive(true);
+         //restartBtn.gameObject.SetActive(true);
     }
 
 
@@ -101,7 +104,7 @@ public class PlayerController : SnakeController
         {
             ZoomCamera(1.0f);
         }
-        lengthText.text = "Length: " + tail.Count.ToString();
+        //lengthText.text = "Length: " + tail.Count.ToString();
     }
 
 
@@ -143,7 +146,7 @@ public class PlayerController : SnakeController
             {
                 ShrinkSnake();
                 ZoomCamera(-1.0f);
-                lengthText.text = "Length: " + tail.Count.ToString();
+                //lengthText.text = "Length: " + tail.Count.ToString();
             }
             else
             {
