@@ -18,6 +18,15 @@ public class PlayerController : PlayerSnakeController
         Camera.main.GetComponent<CameraController>().setTarget(gameObject.transform);
 
         mainCam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        /*Vector2 tailPos = transform.position;
+
+        // make a new tail link object and add it to the tail list
+        Transform newLink;
+        newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
+        tail.Add(newLink);
+        newLink.SetParent(transform.parent);
+        newLink.GetComponent<TailController>().SetHead(transform);
+        newLink.gameObject.SetActive(true);*/
         base.Start();
         //gameOverText.text = "";
         //lengthText.text = "Length: " + GetStartingLength().ToString();

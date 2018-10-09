@@ -24,13 +24,24 @@ public class TailController : MonoBehaviour {
 
     void Start () 
     {
-        head = transform.parent.GetChild(0);
+        if (transform.parent.tag == "Player")
+        {
+            head = transform.parent;
+            tail = head.GetComponent<PlayerSnakeController>().tail;
+        } else
+        {
+            head = transform.parent.GetChild(0);
+            tail = head.GetComponent<SnakeController>().tail;
+        }
+
+
+/*        head = transform.parent.GetChild(0);
         try {
             tail = head.GetComponent<SnakeController>().tail;
         } catch
         {
             tail = head.GetComponent<PlayerSnakeController>().tail;
-        }
+        }*/
         tailNumber = tail.IndexOf(transform);
     }
 

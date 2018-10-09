@@ -127,8 +127,9 @@ public abstract class PlayerSnakeController : MonoBehaviour
         // make a new tail link object and add it to the tail list
         Transform newLink;
         newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
+        newLink.transform.parent = gameObject.transform;
         tail.Add(newLink);
-        newLink.SetParent(transform.parent);
+        //newLink.SetParent(transform.parent);
         newLink.GetComponent<TailController>().SetHead(transform);
         newLink.gameObject.SetActive(true);
 
