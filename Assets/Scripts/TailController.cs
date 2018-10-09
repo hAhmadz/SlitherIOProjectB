@@ -25,7 +25,12 @@ public class TailController : MonoBehaviour {
     void Start () 
     {
         head = transform.parent.GetChild(0);
-        tail = head.GetComponent<SnakeController>().tail;
+        try {
+            tail = head.GetComponent<SnakeController>().tail;
+        } catch
+        {
+            tail = head.GetComponent<PlayerSnakeController>().tail;
+        }
         tailNumber = tail.IndexOf(transform);
     }
 

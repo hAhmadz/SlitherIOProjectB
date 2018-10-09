@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 4161730646552920}
   - component: {fileID: 114830639883366128}
   - component: {fileID: 114494425363666460}
+  - component: {fileID: 114964759230924724}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Untagged
@@ -194,9 +195,6 @@ MonoBehaviour:
   startingLength: 5
   sprRend: {fileID: 0}
   hitBox: {fileID: 0}
-  lengthText: {fileID: 0}
-  gameOverText: {fileID: 0}
-  restartBtn: {fileID: 0}
   mainCam: {fileID: 0}
 --- !u!114 &114353115104055156
 MonoBehaviour:
@@ -256,6 +254,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adsEnabled: 1
+--- !u!114 &114964759230924724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1790952442437962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!212 &212272319677015120
 SpriteRenderer:
   m_ObjectHideFlags: 1

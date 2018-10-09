@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class PlayerController : SnakeController
+
+public class PlayerController : PlayerSnakeController
 {
     //public Text lengthText;
     //public Text gameOverText;
