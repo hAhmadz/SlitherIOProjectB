@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 58387967565704762}
   - component: {fileID: 50253109648693186}
   - component: {fileID: 114201338819369036}
+  - component: {fileID: 114220929812549344}
+  - component: {fileID: 114698442113554034}
   m_Layer: 0
   m_Name: Head
   m_TagString: Player
@@ -179,6 +181,18 @@ MonoBehaviour:
     i15: 231
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114220929812549344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555874642672018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577dcf3e00e554396bc007c3692eda09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adsEnabled: 1
 --- !u!114 &114383088424929390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,6 +225,27 @@ MonoBehaviour:
   sprRend: {fileID: 0}
   hitBox: {fileID: 0}
   mainCam: {fileID: 0}
+--- !u!114 &114698442113554034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1555874642672018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!212 &212000207651530830
 SpriteRenderer:
   m_ObjectHideFlags: 1

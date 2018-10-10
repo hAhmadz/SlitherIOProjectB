@@ -38,6 +38,8 @@ public class AdvertisementController : MonoBehaviour
             }
             #endif
         }
+        Transform player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        player.gameObject.SetActive(false);
         StopCoroutine(AdDelayTimer());
     }
 }

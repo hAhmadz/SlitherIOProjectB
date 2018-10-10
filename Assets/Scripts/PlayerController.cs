@@ -90,12 +90,15 @@ public class PlayerController : PlayerSnakeController
         // TODO: game over
         //gameOverText.text = "YOU LOSE";
 
-
-        AdvertisementController ads = gameObject.GetComponentInParent<AdvertisementController>();
+        //not correct?
+        //        AdvertisementController ads = gameObject.GetComponentInParent<AdvertisementController>();
+        AdvertisementController ads = gameObject.GetComponent<AdvertisementController>();
+        Debug.Log(ads == null);
         ads.WaitAndDisplayAd();
 
         // deactivate the head
-        transform.gameObject.SetActive(false);
+        //moved to add coroutine... head needs to be active for ads to play
+        //transform.gameObject.SetActive(false);
 
         //Functionality to jump to start menu when game Over
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");

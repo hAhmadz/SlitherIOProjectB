@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public abstract class PlayerSnakeController : MonoBehaviour
+public abstract class PlayerSnakeController : NetworkBehaviour
 {
     public List<Transform> tail = new List<Transform>();
     public Transform tailLink;
@@ -50,10 +50,10 @@ public abstract class PlayerSnakeController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        /*if (!isLocalPlayer)
+        if (!isLocalPlayer)
         {
             return;
-        }*/
+        }
         IsBoosted();
         RotateAndMove();
     }
@@ -126,11 +126,11 @@ public abstract class PlayerSnakeController : MonoBehaviour
 
         // make a new tail link object and add it to the tail list
         Transform newLink;
-        newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
-        newLink.transform.parent = gameObject.transform;
+        newLink = Instantiate(tailLink, tailPos, Quaternion.identity,gameObject.transform) as Transform;
+        //newLink.transform.parent = ;
         tail.Add(newLink);
         //newLink.SetParent(transform.parent);
-        newLink.GetComponent<TailController>().SetHead(transform);
+        //newLink.GetComponent<TailController>().SetHead(transform); //unnecessary?
         newLink.gameObject.SetActive(true);
 
 

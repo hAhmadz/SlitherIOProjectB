@@ -26,8 +26,11 @@ public class TailController : MonoBehaviour {
     {
         if (transform.parent.tag == "Player")
         {
+            //Debug.Log("player");
             head = transform.parent;
             tail = head.GetComponent<PlayerSnakeController>().tail;
+            //Debug.Log(tail.IndexOf(transform));
+            //tail are being added to snake
         } else
         {
             head = transform.parent.GetChild(0);
@@ -64,9 +67,16 @@ public class TailController : MonoBehaviour {
         // if it is the first tail object, follow the head.
         // otherwise follow the tail object before it in the tail list
         Transform target = head;
-
+        if (transform.parent.tag == "Player")
+        {
+            Debug.Log(head.position);
+        }
         if (tailNumber > 0) 
         {
+            /*if (transform.parent.tag == "Player")
+            {
+                Debug.Log(tail.IndexOf(transform));
+            }*/
             target = tail[tailNumber - 1];
         }
             
@@ -75,7 +85,16 @@ public class TailController : MonoBehaviour {
                                                 target.position,
                                                 ref movementSpeed,
                                                 followTime*followBoost);
+        if (transform.parent.tag == "Player")
+        /*{
+            Debug.Log("tar" + target.position);
+            Debug.Log("pos"+transform.position);
+        }*/
         transform.right = target.position - transform.position;
+        /*if (transform.parent.tag == "Player")
+        {
+            Debug.Log(transform.right);
+        }*/
 
     }
     
