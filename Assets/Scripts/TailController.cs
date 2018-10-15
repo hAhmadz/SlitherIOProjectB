@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TailController : MonoBehaviour {
+public class TailController : MonoBehaviour
+{
 
     public float speed = 0.1f;
     public float followTime = 0.1f;
@@ -22,7 +23,7 @@ public class TailController : MonoBehaviour {
 
     }
 
-    void Start () 
+    void Start()
     {
         head = transform.parent.GetChild(0);
         tail = head.GetComponent<SnakeController>().tail;
@@ -36,38 +37,45 @@ public class TailController : MonoBehaviour {
     }
 
 
-    public void SetHead(Transform head) 
+    public void SetHead(Transform head)
     {
         this.head = head;
     }
 
 
     private Vector2 movementSpeed;
-    void FixedUpdate () 
+    void FixedUpdate()
     {
         // if it is the first tail object, follow the head.
         // otherwise follow the tail object before it in the tail list
         Transform target = head;
 
-        if (tailNumber > 0) 
+        if (tailNumber > 0)
         {
             target = tail[tailNumber - 1];
         }
-            
+
 
         transform.position = Vector2.SmoothDamp(transform.position,
                                                 target.position,
                                                 ref movementSpeed,
-                                                followTime*followBoost);
+                                                followTime * followBoost);
         transform.right = target.position - transform.position;
 
     }
-    
-    public void Scale(float newSize, float newFollowTime, float newRadius) 
+
+    public void Scale(float newSize, float newFollowTime, float newRadius)
     {
         sprRend.size = new Vector2(newSize, newSize);
         followTime = newFollowTime;
         hitBox.radius = newRadius;
     }
 
+    public void SetGlow(bool isBoosted)
+    {
+        ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
+        var em = glow.emission;
+        em.enabled = isBoosted;
+
+    }
 }

@@ -17,7 +17,7 @@ public class PlayerController : SnakeController
         base.Start();
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
-         restartBtn.gameObject.SetActive(false);
+        restartBtn.gameObject.SetActive(false);
     }
 
 
@@ -118,9 +118,9 @@ public class PlayerController : SnakeController
             StartCoroutine(DropTailLinks());
         }
 
-        // if the mouse was released this frame or the snake is not longer 
-        // than the minimum length, stop dropping links
-        if (tail.Count <= startingLength || Input.GetMouseButtonUp(0))
+        // if the mouse is not pressed or the snake is not longer than the 
+        // minimum length, stop dropping links
+        if (tail.Count <= startingLength || !(Input.GetMouseButton(0)))
         {
             boosted = false;
             SetSpeed(0.1f);
@@ -129,8 +129,22 @@ public class PlayerController : SnakeController
 
         if (!boosted)
             StopCoroutine(DropTailLinks());
+
+        SetGlow(boosted);
     }
 
+    void SetGlow(bool isBoosted) {
+        ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
+        var em = glow.emission;
+        em.enabled = isBoosted;
+
+
+        foreach (Transform link in tail)
+        {
+            link.gameObject.GetComponent<TailController>().SetGlow(isBoosted);
+        }
+            
+    }
 
     // a thread to drop tail links while boosted
     IEnumerator DropTailLinks()
