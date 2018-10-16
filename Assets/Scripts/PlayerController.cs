@@ -138,7 +138,6 @@ public class PlayerController : SnakeController
         var em = glow.emission;
         em.enabled = isBoosted;
 
-
         foreach (Transform link in tail)
         {
             link.gameObject.GetComponent<TailController>().SetGlow(isBoosted);

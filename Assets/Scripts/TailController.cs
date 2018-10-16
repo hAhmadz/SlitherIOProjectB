@@ -12,15 +12,14 @@ public class TailController : MonoBehaviour
     private int tailNumber;
     private SpriteRenderer sprRend;
     private CircleCollider2D hitBox;
-
-
+    private ParticleSystem glow;
 
 
     private void Awake()
     {
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
-
+        glow = gameObject.GetComponent<ParticleSystem>();
     }
 
     void Start()
@@ -64,18 +63,20 @@ public class TailController : MonoBehaviour
 
     }
 
-    public void Scale(float newSize, float newFollowTime, float newRadius)
+    public void Scale(float newSize, float newFollowTime, float newRadius, float newGlowMultiplier)
     {
         sprRend.size = new Vector2(newSize, newSize);
         followTime = newFollowTime;
         hitBox.radius = newRadius;
+        //ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
+        var glowmain = glow.main;
+        glowmain.startSizeMultiplier = newGlowMultiplier;
     }
 
     public void SetGlow(bool isBoosted)
     {
-        ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
+        //ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
         var em = glow.emission;
         em.enabled = isBoosted;
-
     }
 }

@@ -136,6 +136,7 @@ public abstract class SnakeController : MonoBehaviour
             Vector2 newSize = sprRend.size + scaleVector;
             float newRadius = hitBox.radius + scaleFactor / 2; // divided by two because radius not diameter
             float newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime + 0.001f; // bigger snake links spread out more
+            float newGlowMultiplier = tail[0].gameObject.GetComponent<ParticleSystem>().main.startSizeMultiplier + 0.1f;
             // TODO: figure out proper timeSteps / deltas -- and make them CONSTANTs
 
 
@@ -145,7 +146,7 @@ public abstract class SnakeController : MonoBehaviour
             // map scaling up changes to the rest of the snake (i.e., its tail)
             foreach (Transform trans in tail)
             {
-                trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius);
+                trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius, newGlowMultiplier);
             }
         }
     }
@@ -189,8 +190,6 @@ public abstract class SnakeController : MonoBehaviour
 
 
 
-
-
     // method called whilst the snake is speed boosted to drop off tail links
     // and spawn food
     public void ShrinkSnake()
@@ -216,14 +215,16 @@ public abstract class SnakeController : MonoBehaviour
             Vector2 newSize = sprRend.size - scaleVector;
             float newRadius = hitBox.radius - scaleFactor / 2; // divided by two because radius, not diameter
 
-            float newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime - 0.001f; // smaller snake links spread out less  
+            float newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime - 0.001f; // smaller snake links spread out less 
+            float newGlowMultiplier = tail[0].gameObject.GetComponent<ParticleSystem>().main.startSizeMultiplier - 0.1f;
+            // float newGlowMultiplier = tail.Count * 1.05f;
             // decrease head size
             sprRend.size = newSize;
             hitBox.radius = newRadius;
             // map scaling up changes to the rest of the snake (i.e., its tail)
             foreach (Transform trans in tail)
             {
-                trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius);
+                trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius, newGlowMultiplier);
             }
         }
 
