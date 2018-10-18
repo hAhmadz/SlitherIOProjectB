@@ -5,8 +5,6 @@ using UnityEngine.Advertisements;
 
 public class AdvertisementController : MonoBehaviour
 {
-    // public bool adsEnabled = true;
-
     void Start()
     {
         //Advertisement.Initialize("2837831");
@@ -19,8 +17,6 @@ public class AdvertisementController : MonoBehaviour
         {
             StartCoroutine(AdDelayTimer());
         }
-
-        // TODO: handle ads being turned off
     }
 
 

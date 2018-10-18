@@ -3,13 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class PlayerJoystickController : SnakeController
+public class PlayerAccelerometerController : SnakeController
 {
     public Text lengthText;
     public Text gameOverText;
     //public Button restartBtn;
     public Camera mainCam;
-    public Joystick joystick;
     private bool boosted = false;
     public bool boostButtonPressed;
     public bool boostButtonDown;
@@ -17,8 +16,6 @@ public class PlayerJoystickController : SnakeController
     public new void Start()
     {
         // assign the players chosen skin
-        //print("skin assigning");
-        //print(PersistenceController.persistence.skin);
         Sprite skinToApply = PersistenceController.persistence.skin;
         sprRend.sprite = skinToApply;
         tail[0].gameObject.GetComponent<SpriteRenderer>().sprite = skinToApply;
@@ -68,22 +65,24 @@ public class PlayerJoystickController : SnakeController
 
     public override void RotateAndMove()
     {
-        Vector3 moveVector = (Vector3.right * joystick.Horizontal + Vector3.up * joystick.Vertical);
-        if (moveVector == Vector3.zero)
-        {
-            moveVector = (transform.up) * 1.5f;
-        }
+        //Vector3 moveVector = (Vector3.right * joystick.Horizontal + Vector3.up * joystick.Vertical);
+        //if (moveVector == Vector3.zero)
+        //{
+        //    moveVector = (transform.up) * 1.5f;
+        //}
 
-        Vector3 currentPos = transform.position;
-        Vector3 targetPos = currentPos + moveVector;
+        //Vector3 currentPos = transform.position;
+        //Vector3 targetPos = currentPos + moveVector;
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, GetSpeed());
+        //transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
+        //transform.position = Vector3.MoveTowards(transform.position, targetPos, GetSpeed());
+
+        transform.Translate(Input.acceleration.x, 0, -Input.acceleration.z);
     }
 
 
     // for a player snake, death is slighlty more prolonged
-    public override void KillSnake() 
+    public override void KillSnake()
     {
         // TODO: game over
         gameOverText.text = "YOU LOSE";
@@ -99,12 +98,12 @@ public class PlayerJoystickController : SnakeController
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
 
 
-         //restartBtn.gameObject.SetActive(true);
+        //restartBtn.gameObject.SetActive(true);
     }
 
 
     // Player snake growth needs to handle zooming out the camera, and updating the score text
-    public override void GrowSnake() 
+    public override void GrowSnake()
     {
         base.GrowSnake();
         // zoom out
@@ -154,7 +153,8 @@ public class PlayerJoystickController : SnakeController
         SetGlow(boosted);
     }
 
-    void SetGlow(bool isBoosted) {
+    void SetGlow(bool isBoosted)
+    {
         ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
         var em = glow.emission;
         em.enabled = isBoosted;
@@ -163,7 +163,7 @@ public class PlayerJoystickController : SnakeController
         {
             link.gameObject.GetComponent<TailController>().SetGlow(isBoosted);
         }
-            
+
     }
 
     // a thread to drop tail links while boosted
@@ -200,10 +200,11 @@ public class PlayerJoystickController : SnakeController
 
 
     /* method to adjust the main camera's orthographic size */
-    void ZoomCamera(float zoomFactor) 
+    void ZoomCamera(float zoomFactor)
     {
         float newZoom = mainCam.orthographicSize + zoomFactor;
         mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, newZoom, 2.0f * Time.deltaTime);
     }
 
 }
+
