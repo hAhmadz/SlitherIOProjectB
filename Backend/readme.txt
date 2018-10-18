@@ -71,7 +71,7 @@ Output:
     "firstname":<string>,
     "highestscore":<int>,
     "lastname":<string>,
-    "level":<int>
+    "mostrecentscore":<int>
 }
 highestscore and level can be null.
 Example of output:
@@ -79,8 +79,9 @@ Example of output:
     "firstname": "YJ",
     "highestscore": 100,
     "lastname": "Chua",
-    "level": null
+    "mostrecentscore": null
 } 
+This function retrieves your own details (for example, to be displayed in the 'About yourself' page
 ****************************************************
 /retrieve_scores
 Input:
@@ -89,24 +90,42 @@ Input:
 }
 *this is just to check whether you're logged in*
 Output:
-[
-    {
-        "highestscore":<int>,
-        "username":<string>
-    }
-]
-NOTE: Output is in an array this time, because there can be multiple results
+{
+    "Results": [
+        {
+            "highestscore":<int>,
+            "mostrecentscore":<int>,
+            "username":<string>
+        }
+    ]
+}
+
 Example output:
-[
-    {
-        "highestscore": 200,
-        "username": "yjchua"
-    },
-    {
-        "highestscore": 500,
-        "username": "jclark"
-    }
-]
+{
+    "Results": [
+        {
+            "highestscore": 200,
+            "mostrecentscore": null,
+            "username": "yjchua"
+        },
+        {
+            "highestscore": 500,
+            "mostrecentscore": 300,
+            "username": "jclark"
+        },
+        {
+            "highestscore": null,
+            "mostrecentscore": null,
+            "username": "dripper"
+        },
+        {
+            "highestscore": null,
+            "mostrecentscore": null,
+            "username": "haarisa"
+        }
+    ]
+}
+Usage: Use this in a global leaderboards page
 ****************************************************
 /edit_username
 Input:
@@ -135,6 +154,8 @@ Output:
 {
     "Message": "Highest score updated!"
 }
+Usage:
+When you first log in, the backend returns all details about you. Keep them somewhere, it includes your highest score. After each game, compare that score with the highest score retrieved from the database earlier. If it's higher, call this function to update it.
 ****************************************************
 /update_mostrecentscore
 Input:
@@ -147,6 +168,8 @@ Output:
 {
     "Message": "Most recent score updated!"
 }
+Usage:
+After every game, call this function to upload your most recent score to the DB
 ****************************************************
 /search_user
 {
@@ -178,6 +201,8 @@ Sample output:
         }
     ]
 }
+Usage:
+Search engine to find people and add them as friends
 ****************************************************
 /add_friend
 Input:
@@ -199,6 +224,8 @@ OR
 {
     "Message": "Request already sent!"
 }
+Usage:
+Send a friend request to someone
 ****************************************************
 /retrieve_friend_requests
 Input:
@@ -220,6 +247,8 @@ Sample output:
         }
     ]
 }
+Usage:
+See who wants to make friends with you
 ****************************************************
 /friend_request_action
 {
@@ -237,6 +266,8 @@ OR
 {
     "Message": "Friend request rejected!"
 }
+Usage:
+Act upon friend requests
 ****************************************************
 /retrieve_friends_details
 {
@@ -266,6 +297,8 @@ Sample output:
         }
     ]
 }
+Usage:
+Call this function in a friends page or something like that. This function retrieves details of all your friends.
 ****************************************************
 /send_message:
 Input:
@@ -285,6 +318,8 @@ OR
 {
     "Message": "Message sent!"
 }
+Usage:
+Send a message to a friend
 ****************************************************
 /retrieve_messages
 Input:
@@ -318,3 +353,4 @@ If no unread messages:
     "Unread messages": []
 }
 
+Note: Please keep the messageid for each message for ordering/sorting purposes. This function only returns unread messages.
