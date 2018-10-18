@@ -14,6 +14,11 @@ public class PlayerController : SnakeController
 
     public new void Start()
     {
+        // assign the players chosen skin
+        Sprite skinToApply = PersistenceController.persistence.skin;
+        sprRend.sprite = skinToApply;
+        tail[0].gameObject.GetComponent<SpriteRenderer>().sprite = skinToApply;
+
         base.Start();
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();

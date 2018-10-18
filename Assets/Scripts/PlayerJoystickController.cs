@@ -15,6 +15,14 @@ public class PlayerJoystickController : SnakeController
 
     public new void Start()
     {
+        // assign the players chosen skin
+        //print("skin assigning");
+        //print(PersistenceController.persistence.skin);
+        Sprite skinToApply = PersistenceController.persistence.skin;
+        sprRend.sprite = skinToApply;
+        tail[0].gameObject.GetComponent<SpriteRenderer>().sprite = skinToApply;
+
+
         base.Start();
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
@@ -55,21 +63,7 @@ public class PlayerJoystickController : SnakeController
         base.Start();
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
-
     }
-
-
-
-    //public override void RotateAndMove()
-    //{
-    //    // rotate head (... TODO: something not right with this)
-    //    Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-    //    float angle = Mathf.Atan2(mousePos.x, mousePos.y) * Mathf.Rad2Deg;
-    //    transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward * -1); // -1 for inverted z-axis
-
-    //    // move head
-    //    transform.position = Vector2.MoveTowards(transform.position, mousePos, GetSpeed());
-    //}
 
     public override void RotateAndMove()
     {
@@ -85,7 +79,6 @@ public class PlayerJoystickController : SnakeController
         transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
         transform.position = Vector3.MoveTowards(transform.position, targetPos, GetSpeed());
     }
-
 
 
     // for a player snake, death is slighlty more prolonged

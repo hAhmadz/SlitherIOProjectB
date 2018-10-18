@@ -25,6 +25,7 @@ public class TailController : MonoBehaviour
     void Start()
     {
         head = transform.parent.GetChild(0);
+        sprRend.sprite = head.gameObject.GetComponent<SpriteRenderer>().sprite;
         tail = head.GetComponent<SnakeController>().tail;
         tailNumber = tail.IndexOf(transform);
     }

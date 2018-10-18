@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -8,6 +9,9 @@ using System.IO;
 public class PersistenceController : MonoBehaviour {
     public static PersistenceController persistence;
     public bool ads;
+    public Sprite skin;
+    private int skinIndex;
+    public List<Sprite> availableSkins; 
     // public enum Controls {Touch, Joystick, Gravity}; // how to set controls?
     // public ... // how to set snake skin ?
     // public ... availableSkins;
@@ -18,16 +22,26 @@ public class PersistenceController : MonoBehaviour {
 	void Awake () {
         if(persistence == null)
         {
+            print("here");
             DontDestroyOnLoad(gameObject);
             persistence = this;
         }
         else if(persistence != this)
         {
+            print("no here");
             Destroy(gameObject);
         }
 
         // set defaults // will be handled by reading from file eventually
         SetAds(true);
+
+
+        //availableSkins = Resources.LoadAll<Sprite>("Sprites");
+        // print(availableSkins.Length);
+
+        // skinIndex = 0;
+        // skin = availableSkins[skinIndex];
+        // print(skin);
 
 	}
 
@@ -50,10 +64,38 @@ public class PersistenceController : MonoBehaviour {
     //    controls = controlChoice;
     //}
 
-    //public void SetSkin(bool skinChoice)
-    //{
-    //    skinChoice = skinChoice;
-    //}
+
+
+    public void SetSkin(bool next)
+    {
+        // traverse available skins list based on input
+        skinIndex += next ? 1 : -1;
+        if (skinIndex < 0)
+        {
+            skinIndex = availableSkins.Count - 1; 
+        }
+        else if (skinIndex >= availableSkins.Count)
+        {
+            skinIndex = 0;
+        }
+
+        // assign the selected skin choice
+        skin = availableSkins[skinIndex];
+        print(skin);
+
+        // update the preview skin
+        Image dummySkin = GameObject.Find("Skin Preview").GetComponent<Image>();
+        if (dummySkin != null)
+        {
+            dummySkin.sprite = skin;
+        }
+
+        print(skin);
+            
+    }
+
+
+
 
     public void SetScore(int scoreValue)
     {

@@ -142,6 +142,8 @@ public abstract class SnakeController : MonoBehaviour
 
             // increase head size
             sprRend.size = newSize;
+            // increase eye size
+            transform.GetChild(0).GetComponent<SpriteRenderer>().size = newSize;
             hitBox.radius = newRadius;
             // map scaling up changes to the rest of the snake (i.e., its tail)
             foreach (Transform trans in tail)
@@ -220,6 +222,8 @@ public abstract class SnakeController : MonoBehaviour
             // float newGlowMultiplier = tail.Count * 1.05f;
             // decrease head size
             sprRend.size = newSize;
+            // decrease eye size
+            gameObject.GetComponentInChildren<SpriteRenderer>().size = newSize;
             hitBox.radius = newRadius;
             // map scaling up changes to the rest of the snake (i.e., its tail)
             foreach (Transform trans in tail)
