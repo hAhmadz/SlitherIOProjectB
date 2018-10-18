@@ -11,7 +11,9 @@ public class PlayerJoystickController : SnakeController
     public Camera mainCam;
     public Joystick joystick;
     private bool boosted = false;
-
+    public Button boostButton;
+    public bool boostButtonPressed;
+    public bool boostButtonDown;
 
     public new void Start()
     {
@@ -115,22 +117,32 @@ public class PlayerJoystickController : SnakeController
     }
 
 
+
+    // joystick boost function is called by a button press
+    public void PressBoost(bool isPressed)
+    {
+        boostButtonPressed = isPressed;
+        boostButtonDown = isPressed;
+    }
+
+
+
     public override void IsBoosted()
     {
-
-        // if the snake is greater than the minimum length and the mouse was 
+        // if the snake is greater than the minimum length and the button was 
         // pressed this frame, initiate dropping links
-        if (tail.Count > startingLength && Input.GetMouseButtonDown(0))
+        if (tail.Count > startingLength && boostButtonPressed)
         {
             boosted = true;
             SetSpeed(0.15f);
             ChangeTailFollowBoost(0.75f);
             StartCoroutine(DropTailLinks());
+            boostButtonPressed = false;
         }
 
-        // if the mouse is not pressed or the snake is not longer than the 
+        // if the button is not pressed or the snake is not longer than the 
         // minimum length, stop dropping links
-        if (tail.Count <= startingLength || !(Input.GetMouseButton(0)))
+        if (tail.Count <= startingLength || !boostButtonDown)
         {
             boosted = false;
             SetSpeed(0.1f);

@@ -10,6 +10,6 @@ public class MenuController : MonoBehaviour
 
     public void multiPlayerBtn()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/SampleScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/MouseScene");
     }
 }

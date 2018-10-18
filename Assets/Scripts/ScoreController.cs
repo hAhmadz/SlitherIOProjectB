@@ -79,15 +79,10 @@ public class ScoreController : MonoBehaviour {
         string output = "";
         foreach (KeyValuePair<string, int> kvp in sortedDict)
         {
-            // print("Key = " + kvp.Key + " Value = " + kvp.Value.ToString());
-            // output += kvp.Key + " : " + kvp.Value.ToString() + "\n";
             output += (String.Format("{0, 12} : {1,5}\n", kvp.Key, kvp.Value));
-
             // update the minimum threshold
             threshold = kvp.Value;
         }
-
-        print(threshold);
         return output;
     }
 
