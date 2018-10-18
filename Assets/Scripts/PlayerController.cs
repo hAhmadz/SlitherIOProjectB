@@ -82,7 +82,6 @@ public class PlayerController : SnakeController
         // TODO: game over
         gameOverText.text = "YOU LOSE";
 
-
         AdvertisementController ads = gameObject.GetComponentInParent<AdvertisementController>();
         ads.WaitAndDisplayAd();
 

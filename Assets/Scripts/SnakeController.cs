@@ -23,6 +23,7 @@ public abstract class SnakeController : MonoBehaviour
     // TODO: figure out constants, and make them instance variables
     private float speed = 0.1f;
     private float scaleFactor = 0.05f;
+    public string snakename;
 
 
 
@@ -40,12 +41,20 @@ public abstract class SnakeController : MonoBehaviour
 
     public void Start()
     {
+        // give a snake a random name
+        snakename = "snake" + Random.Range(0, 9999).ToString(); 
+
+
         // snakes start with 1 link already, so grow until you reach start length
         for (int i = 0; i < startingLength - 1; i++)
         {
             GrowSnake();
         }
+
+
+        SubmitScore();
     }
+
 
     public void FixedUpdate()
     {
@@ -74,6 +83,16 @@ public abstract class SnakeController : MonoBehaviour
     }
 
 
+    // used to submit our current length to the leaderboard
+    void SubmitScore()
+    {
+        GameObject.Find("ScorePanel").GetComponent<ScoreController>().SubmitScore(snakename, tail.Count);
+    }
+
+    void RemoveScore()
+    {
+        GameObject.Find("ScorePanel").GetComponent<ScoreController>().RemoveScore(snakename);
+    }
 
 
     /**************************************************************************
@@ -151,6 +170,8 @@ public abstract class SnakeController : MonoBehaviour
                 trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius, newGlowMultiplier);
             }
         }
+
+        SubmitScore();
     }
 
     // when all snakes die they release food. (scatterFactor dictates the random spread from a body object)
@@ -176,6 +197,8 @@ public abstract class SnakeController : MonoBehaviour
         tail.Clear();
         // and the head spawns a food
         foodSpawner.MakeFood(transform.position);
+
+        RemoveScore();
 
         KillSnake();
     }
@@ -223,7 +246,7 @@ public abstract class SnakeController : MonoBehaviour
             // decrease head size
             sprRend.size = newSize;
             // decrease eye size
-            gameObject.GetComponentInChildren<SpriteRenderer>().size = newSize;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().size = newSize;
             hitBox.radius = newRadius;
             // map scaling up changes to the rest of the snake (i.e., its tail)
             foreach (Transform trans in tail)
@@ -231,6 +254,8 @@ public abstract class SnakeController : MonoBehaviour
                 trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius, newGlowMultiplier);
             }
         }
+
+        SubmitScore();
 
     }
 

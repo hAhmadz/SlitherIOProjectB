@@ -22,26 +22,16 @@ public class PersistenceController : MonoBehaviour {
 	void Awake () {
         if(persistence == null)
         {
-            print("here");
             DontDestroyOnLoad(gameObject);
             persistence = this;
         }
         else if(persistence != this)
         {
-            print("no here");
             Destroy(gameObject);
         }
 
-        // set defaults // will be handled by reading from file eventually
+        // set defaults // TODO: will be handled by reading from file eventually
         SetAds(true);
-
-
-        //availableSkins = Resources.LoadAll<Sprite>("Sprites");
-        // print(availableSkins.Length);
-
-        // skinIndex = 0;
-        // skin = availableSkins[skinIndex];
-        // print(skin);
 
 	}
 
@@ -81,7 +71,6 @@ public class PersistenceController : MonoBehaviour {
 
         // assign the selected skin choice
         skin = availableSkins[skinIndex];
-        print(skin);
 
         // update the preview skin
         Image dummySkin = GameObject.Find("Skin Preview").GetComponent<Image>();
@@ -90,7 +79,6 @@ public class PersistenceController : MonoBehaviour {
             dummySkin.sprite = skin;
         }
 
-        print(skin);
             
     }
 
