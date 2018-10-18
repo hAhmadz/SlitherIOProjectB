@@ -5,7 +5,7 @@ using UnityEngine.Advertisements;
 
 public class AdvertisementController : MonoBehaviour
 {
-    public bool adsEnabled = true;
+    // public bool adsEnabled = true;
 
     void Start()
     {
@@ -15,7 +15,7 @@ public class AdvertisementController : MonoBehaviour
 
     public void WaitAndDisplayAd()
     {
-        if (adsEnabled)
+        if (PersistenceController.persistence.ads)
         {
             StartCoroutine(AdDelayTimer());
         }
@@ -27,10 +27,10 @@ public class AdvertisementController : MonoBehaviour
 
     IEnumerator AdDelayTimer()
     {
-        // wait 2 seconds then show an ad
+        // wait 1.5 seconds then show an ad
         if (true)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
             #if UNITY_ADS
             if (Advertisement.IsReady("video"))
             {
