@@ -76,8 +76,14 @@ public class TailController : MonoBehaviour
 
     public void SetGlow(bool isBoosted)
     {
-        //ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
         var em = glow.emission;
         em.enabled = isBoosted;
     }
+
+    public void SetGlowColor(Color glowColor)
+    {
+        var main = glow.main;
+        main.startColor = glowColor;
+    }
+
 }

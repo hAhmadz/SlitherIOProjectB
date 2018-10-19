@@ -17,11 +17,12 @@ public class PlayerJoystickController : SnakeController
     public new void Start()
     {
         // assign the players chosen skin
-        //print("skin assigning");
-        //print(PersistenceController.persistence.skin);
         Sprite skinToApply = PersistenceController.persistence.skin;
         sprRend.sprite = skinToApply;
         tail[0].gameObject.GetComponent<SpriteRenderer>().sprite = skinToApply;
+
+        // set boost color
+        SetGlowColor(skinToApply.texture.GetPixel(40, 40));
 
 
         base.Start();
@@ -154,7 +155,8 @@ public class PlayerJoystickController : SnakeController
         SetGlow(boosted);
     }
 
-    void SetGlow(bool isBoosted) {
+    void SetGlow(bool isBoosted) 
+    {
         ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
         var em = glow.emission;
         em.enabled = isBoosted;
@@ -165,6 +167,19 @@ public class PlayerJoystickController : SnakeController
         }
             
     }
+
+    void SetGlowColor(Color glowColor)
+    {
+        ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
+        var main = glow.main;
+        main.startColor = glowColor;
+
+        foreach (Transform link in tail)
+        {
+            link.gameObject.GetComponent<TailController>().SetGlowColor(glowColor);
+        }
+    }
+
 
     // a thread to drop tail links while boosted
     IEnumerator DropTailLinks()

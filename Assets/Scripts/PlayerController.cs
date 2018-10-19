@@ -19,6 +19,9 @@ public class PlayerController : SnakeController
         sprRend.sprite = skinToApply;
         tail[0].gameObject.GetComponent<SpriteRenderer>().sprite = skinToApply;
 
+        // set boost color
+        SetGlowColor(skinToApply.texture.GetPixel(40, 40));
+
         base.Start();
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
@@ -147,6 +150,18 @@ public class PlayerController : SnakeController
             link.gameObject.GetComponent<TailController>().SetGlow(isBoosted);
         }
             
+    }
+
+    void SetGlowColor(Color glowColor)
+    {
+        ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
+        var main = glow.main;
+        main.startColor = glowColor;
+
+        foreach (Transform link in tail)
+        {
+            link.gameObject.GetComponent<TailController>().SetGlowColor(glowColor);
+        }
     }
 
     // a thread to drop tail links while boosted

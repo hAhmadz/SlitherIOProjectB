@@ -11,6 +11,7 @@ public class PersistenceController : MonoBehaviour {
     public bool ads;
     public Sprite skin;
     private int skinIndex;
+    // public Color boostColor;
     public List<Sprite> availableSkins; 
     // public enum Controls {Touch, Joystick, Gravity}; // how to set controls?
     // public ... // how to set snake skin ?
@@ -79,7 +80,10 @@ public class PersistenceController : MonoBehaviour {
             dummySkin.sprite = skin;
         }
 
-            
+
+
+        // print(boostColor);
+
     }
 
 
