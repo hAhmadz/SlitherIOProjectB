@@ -7,7 +7,7 @@ public class PlayerController : SnakeController
 {
     public Text lengthText;
     public Text gameOverText;
-    public Button restartBtn;
+    //public Button restartBtn;
     public Camera mainCam;
     private bool boosted = false;
 
@@ -25,45 +25,45 @@ public class PlayerController : SnakeController
         base.Start();
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
-        restartBtn.gameObject.SetActive(false);
+        //restartBtn.gameObject.SetActive(false);
     }
 
 
     // TODO: i'm not entirely sure if respawning the player is strictly necessary?
     //used to restart the game (i.e. revive the player)
-    public void Restart()
-    {
-        restartBtn.gameObject.SetActive(false);
-        transform.gameObject.SetActive(true);
-        transform.position = new Vector2(10, 10);
+    //public void Restart()
+    //{
+    //    restartBtn.gameObject.SetActive(false);
+    //    transform.gameObject.SetActive(true);
+    //    transform.position = new Vector2(10, 10);
 
-        //tentative fix to scaling and colission radius
-        //scaling fine, and radius may be too (but not sure how accurate)
-        sprRend.size = Vector2.one;
-        hitBox.radius = 0.5f;
+    //    //tentative fix to scaling and colission radius
+    //    //scaling fine, and radius may be too (but not sure how accurate)
+    //    sprRend.size = Vector2.one;
+    //    hitBox.radius = 0.5f;
 
-        // bit of a hack to reorient the camera
-        while (mainCam.orthographicSize > 10.0f)
-        {
-            ZoomCamera(-1.0f);
-        }
+    //    // bit of a hack to reorient the camera
+    //    while (mainCam.orthographicSize > 10.0f)
+    //    {
+    //        ZoomCamera(-1.0f);
+    //    }
 
-        //add first tail link...
-        Vector2 tailPos = transform.position;
+    //    //add first tail link...
+    //    Vector2 tailPos = transform.position;
 
-        // make a new tail link object and add it to the tail list
-        Transform newLink;
-        newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
-        tail.Add(newLink);
-        newLink.SetParent(transform.parent);
-        newLink.GetComponent<TailController>().SetHead(transform);
-        newLink.gameObject.SetActive(true);
+    //    // make a new tail link object and add it to the tail list
+    //    Transform newLink;
+    //    newLink = Instantiate(tailLink, tailPos, Quaternion.identity) as Transform;
+    //    tail.Add(newLink);
+    //    newLink.SetParent(transform.parent);
+    //    newLink.GetComponent<TailController>().SetHead(transform);
+    //    newLink.gameObject.SetActive(true);
 
-        base.Start();
-        gameOverText.text = "";
-        lengthText.text = "Length: " + GetStartingLength().ToString();
+    //    base.Start();
+    //    gameOverText.text = "";
+    //    lengthText.text = "Length: " + GetStartingLength().ToString();
 
-    }
+    //}
 
 
 
@@ -95,7 +95,7 @@ public class PlayerController : SnakeController
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
 
 
-         restartBtn.gameObject.SetActive(true);
+         // restartBtn.gameObject.SetActive(true);
     }
 
 

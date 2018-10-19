@@ -79,7 +79,20 @@ public class PlayerAccelerometerController : SnakeController
         //transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
         //transform.position = Vector3.MoveTowards(transform.position, targetPos, GetSpeed());
 
-        transform.Translate(Input.acceleration.x, 0, -Input.acceleration.z);
+
+        Vector3 moveVector = (Vector3.right * Input.acceleration.x + Vector3.up * Input.acceleration.z);
+        if (moveVector == Vector3.zero)
+        {
+            moveVector = (transform.up) * 1.5f;
+        }
+
+        Vector3 currentPos = transform.position;
+        Vector3 targetPos = currentPos + moveVector;
+
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, GetSpeed());
+
+        // transform.Translate(Input.acceleration.x, 0, -Input.acceleration.z);
     }
 
 

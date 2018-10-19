@@ -11,9 +11,9 @@ public class PersistenceController : MonoBehaviour {
     public bool ads;
     public Sprite skin;
     private int skinIndex;
-    // public Color boostColor;
-    public List<Sprite> availableSkins; 
-    // public enum Controls {Touch, Joystick, Gravity}; // how to set controls?
+    public List<Sprite> availableSkins;
+    public enum Controls {Touch, Joystick, Accelerometer}; // how to set controls?
+    public Controls control;
     // public ... // how to set snake skin ?
     // public ... availableSkins;
     public int score;
@@ -34,6 +34,7 @@ public class PersistenceController : MonoBehaviour {
         // set defaults // TODO: will be handled by reading from file eventually
         SetAds(true);
 
+
 	}
 
     // loading data in OnEnable
@@ -50,10 +51,10 @@ public class PersistenceController : MonoBehaviour {
     //    sound = soundValue;
     //}
 
-    //public void SetControls(... controlChoice)
-    //{
-    //    controls = controlChoice;
-    //}
+    public void SetControls(Controls controlChoice)
+    {
+        control = controlChoice;
+    }
 
 
 
@@ -79,11 +80,6 @@ public class PersistenceController : MonoBehaviour {
         {
             dummySkin.sprite = skin;
         }
-
-
-
-        // print(boostColor);
-
     }
 
 
