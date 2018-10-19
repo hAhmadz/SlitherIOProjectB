@@ -28,6 +28,8 @@ public class TailController : MonoBehaviour
         sprRend.sprite = head.gameObject.GetComponent<SpriteRenderer>().sprite;
         tail = head.GetComponent<SnakeController>().tail;
         tailNumber = tail.IndexOf(transform);
+        // set rendering order
+        sprRend.sortingOrder = -tailNumber;
     }
 
 
