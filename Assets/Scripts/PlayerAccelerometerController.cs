@@ -80,7 +80,7 @@ public class PlayerAccelerometerController : SnakeController
         //transform.position = Vector3.MoveTowards(transform.position, targetPos, GetSpeed());
 
 
-        Vector3 moveVector = (Vector3.right * Input.acceleration.x + Vector3.up * Input.acceleration.z);
+        Vector3 moveVector = (Vector3.right * Input.acceleration.x + Vector3.up * Input.acceleration.y);
         if (moveVector == Vector3.zero)
         {
             moveVector = (transform.up) * 1.5f;
