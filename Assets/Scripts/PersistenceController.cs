@@ -182,10 +182,8 @@ public class PersistenceController : MonoBehaviour
 
     public void Load()
     {
-        print("here 1");
         if (File.Exists(Application.persistentDataPath + "/options.dat"))
         {
-            print("here 2");
             print(Application.persistentDataPath);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/options.dat", FileMode.Open);
