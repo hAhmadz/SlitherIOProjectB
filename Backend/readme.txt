@@ -86,13 +86,14 @@ Input:
 }
 *this is just to check whether you're logged in*
 Output:
-[
-    {
-        "highestscore":<int>,
-	"mostrecentscore":<int>,
-        "username":<string>
-    }
-]
+{
+    "Results": [
+        {
+            "highestscore":<int>,
+            "mostrecentscore":<int>,
+            "username":<string>
+        }    ]
+}
 NOTE: Output is in an array this time, because there can be multiple results
 Example output:
 {
