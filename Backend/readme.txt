@@ -89,21 +89,36 @@ Output:
 [
     {
         "highestscore":<int>,
+	"mostrecentscore":<int>,
         "username":<string>
     }
 ]
 NOTE: Output is in an array this time, because there can be multiple results
 Example output:
-[
-    {
-        "highestscore": 200,
-        "username": "yjchua"
-    },
-    {
-        "highestscore": 500,
-        "username": "jclark"
-    }
-]
+{
+    "Results": [
+        {
+            "highestscore": 200,
+            "mostrecentscore": null,
+            "username": "yjchua"
+        },
+        {
+            "highestscore": 500,
+            "mostrecentscore": 300,
+            "username": "jclark"
+        },
+        {
+            "highestscore": null,
+            "mostrecentscore": null,
+            "username": "dripper"
+        },
+        {
+            "highestscore": null,
+            "mostrecentscore": null,
+            "username": "haarisa"
+        }
+    ]
+}
 ****************************************************
 /edit_username
 Input:
