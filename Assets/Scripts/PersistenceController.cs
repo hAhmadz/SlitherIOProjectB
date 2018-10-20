@@ -50,9 +50,24 @@ public class PersistenceController : MonoBehaviour {
     //    sound = soundValue;
     //}
 
-    public void SetControls(Controls controlChoice)
+    public void SetControls(int choice)
     {
-        controls = controlChoice;
+        switch (choice)
+        {
+            case 0:
+                controls = Controls.Touch;
+                break;
+            case 1:
+                controls = Controls.Joystick;
+                break;
+            case 2:
+                controls = Controls.Accelerometer;
+                break;
+            default:
+                // shouldn't happen, but incase it does default to touch controls
+                controls = Controls.Touch;
+                break;
+        }
     }
 
 
