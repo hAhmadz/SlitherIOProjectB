@@ -1,8 +1,5 @@
 All addresses start with 203.101.225.0:5000
 Example: /signup denotes 203.101.225.0:5000/signup
-script-nectar.py is used for deploying on the remote Nectar server
-script.py is if you want to run the server locally
-Both are identical except for the hosting address
 ***************************************************
 /signup
 Input:
@@ -71,7 +68,7 @@ Output:
     "firstname":<string>,
     "highestscore":<int>,
     "lastname":<string>,
-    "mostrecentscore":<int>
+    "level":<int>
 }
 highestscore and level can be null.
 Example of output:
@@ -79,9 +76,8 @@ Example of output:
     "firstname": "YJ",
     "highestscore": 100,
     "lastname": "Chua",
-    "mostrecentscore": null
+    "level": null
 } 
-This function retrieves your own details (for example, to be displayed in the 'About yourself' page
 ****************************************************
 /retrieve_scores
 Input:
@@ -90,42 +86,24 @@ Input:
 }
 *this is just to check whether you're logged in*
 Output:
-{
-    "Results": [
-        {
-            "highestscore":<int>,
-            "mostrecentscore":<int>,
-            "username":<string>
-        }
-    ]
-}
-
+[
+    {
+        "highestscore":<int>,
+        "username":<string>
+    }
+]
+NOTE: Output is in an array this time, because there can be multiple results
 Example output:
-{
-    "Results": [
-        {
-            "highestscore": 200,
-            "mostrecentscore": null,
-            "username": "yjchua"
-        },
-        {
-            "highestscore": 500,
-            "mostrecentscore": 300,
-            "username": "jclark"
-        },
-        {
-            "highestscore": null,
-            "mostrecentscore": null,
-            "username": "dripper"
-        },
-        {
-            "highestscore": null,
-            "mostrecentscore": null,
-            "username": "haarisa"
-        }
-    ]
-}
-Usage: Use this in a global leaderboards page
+[
+    {
+        "highestscore": 200,
+        "username": "yjchua"
+    },
+    {
+        "highestscore": 500,
+        "username": "jclark"
+    }
+]
 ****************************************************
 /edit_username
 Input:
@@ -154,8 +132,6 @@ Output:
 {
     "Message": "Highest score updated!"
 }
-Usage:
-When you first log in, the backend returns all details about you. Keep them somewhere, it includes your highest score. After each game, compare that score with the highest score retrieved from the database earlier. If it's higher, call this function to update it.
 ****************************************************
 /update_mostrecentscore
 Input:
@@ -168,8 +144,6 @@ Output:
 {
     "Message": "Most recent score updated!"
 }
-Usage:
-After every game, call this function to upload your most recent score to the DB
 ****************************************************
 /search_user
 {
@@ -185,24 +159,22 @@ Sample output:
             "firstname": "Joshua",
             "highestscore": 500,
             "lastname": "Clark",
-            "level": null,
             "loggedin": 1,
+            "mostrecentscore": 300,
             "userid": 2,
             "username": "jclark"
         },
         {
             "firstname": "David",
-            "highestscore": 750,
+            "highestscore": null,
             "lastname": "Ripper",
-            "level": null,
             "loggedin": 1,
+            "mostrecentscore": 200,
             "userid": 3,
             "username": "dripper"
         }
     ]
 }
-Usage:
-Search engine to find people and add them as friends
 ****************************************************
 /add_friend
 Input:
@@ -224,8 +196,10 @@ OR
 {
     "Message": "Request already sent!"
 }
-Usage:
-Send a friend request to someone
+OR
+{
+    "Message": "User does not exist!"
+}
 ****************************************************
 /retrieve_friend_requests
 Input:
@@ -247,8 +221,6 @@ Sample output:
         }
     ]
 }
-Usage:
-See who wants to make friends with you
 ****************************************************
 /friend_request_action
 {
@@ -266,8 +238,6 @@ OR
 {
     "Message": "Friend request rejected!"
 }
-Usage:
-Act upon friend requests
 ****************************************************
 /retrieve_friends_details
 {
@@ -281,8 +251,8 @@ Sample output:
             "firstname": "Joshua",
             "highestscore": 500,
             "lastname": "Clark",
-            "level": null,
             "loggedin": 1,
+            "mostrecentscore": 300,
             "userid": 2,
             "username": "jclark"
         },
@@ -290,15 +260,13 @@ Sample output:
             "firstname": "David",
             "highestscore": null,
             "lastname": "Ripper",
-            "level": null,
             "loggedin": 1,
+            "mostrecentscore": null,
             "userid": 3,
             "username": "dripper"
         }
     ]
 }
-Usage:
-Call this function in a friends page or something like that. This function retrieves details of all your friends.
 ****************************************************
 /send_message:
 Input:
@@ -318,8 +286,6 @@ OR
 {
     "Message": "Message sent!"
 }
-Usage:
-Send a message to a friend
 ****************************************************
 /retrieve_messages
 Input:
@@ -353,4 +319,3 @@ If no unread messages:
     "Unread messages": []
 }
 
-Note: Please keep the messageid for each message for ordering/sorting purposes. This function only returns unread messages.
