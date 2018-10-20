@@ -151,6 +151,8 @@ public class PlayerJoystickController : SnakeController
 
         if (!boosted)
             StopCoroutine(DropTailLinks());
+        else
+            Handheld.Vibrate();
 
         SetGlow(boosted);
     }

@@ -164,6 +164,8 @@ public class PlayerAccelerometerController : SnakeController
 
         if (!boosted)
             StopCoroutine(DropTailLinks());
+        else
+            Handheld.Vibrate();
 
         SetGlow(boosted);
     }
