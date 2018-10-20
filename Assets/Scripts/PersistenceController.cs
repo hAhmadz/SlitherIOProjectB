@@ -34,6 +34,8 @@ public class PersistenceController : MonoBehaviour {
 
         // set defaults // TODO: will be handled by reading from file eventually
         SetAds(true);
+
+        SetControls(0);
 	}
 
     // loading data in OnEnable
@@ -52,6 +54,29 @@ public class PersistenceController : MonoBehaviour {
 
     public void SetControls(int choice)
     {
+        print(choice);
+        // highlight the pressed button
+        // dehighlight the others
+        for (int i = 0; i < 3; i++)
+        {
+            var btn = GameObject.Find("Controls Chooser").transform.GetChild(i).gameObject.GetComponent<Button>();
+            if (i == choice)
+            {
+                ColorBlock cb = btn.colors;
+                cb.normalColor = new Color(0.81f, 0.25f, 0.18f, 1f);
+                cb.highlightedColor = new Color(0.81f, 0.25f, 0.18f, 1f);
+                btn.colors = cb;
+            }
+            else
+            {
+                ColorBlock cb = btn.colors;
+                cb.normalColor = Color.white;
+                cb.highlightedColor = Color.white;
+                btn.colors = cb;
+            }
+        }
+
+        // set the desired control mechanism
         switch (choice)
         {
             case 0:
