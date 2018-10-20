@@ -3,6 +3,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Assets.Scripts;
 
 public class MenuController : MonoBehaviour
 {
@@ -25,13 +26,15 @@ public class MenuController : MonoBehaviour
 
     public void signUp()
     {
-
+        user u = new user(FName.text, LName.text, userName.text, pswd.text);
+        urlAddress = urlAddress + "/signup";
+        string jsonString = JsonUtility.ToJson(u);
+        StartCoroutine(Post(urlAddress, jsonString));
     }
 
     IEnumerator Post(string url, string bodyJsonString)
     {
         string outputMsg = "";
-
         var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(bodyJsonString);
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
@@ -39,12 +42,11 @@ public class MenuController : MonoBehaviour
         request.SetRequestHeader("Content-Type", "application/json");
 
         yield return request.Send();
-
-        Debug.Log("Status Code: " + request.responseCode);
         if (request.responseCode.Equals(201))
             outputMsg = "User Added";
         else
             outputMsg = "Cannot Add";
+        Debug.Log(outputMsg);
 
     }
 }

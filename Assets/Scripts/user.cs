@@ -9,21 +9,21 @@ namespace Assets.Scripts
     {
         public string FirstName;
         public string LastName;
-        public string UserName;
+        public string Username;
         public string Password;
 
         public user()
         {
             FirstName = "";
             LastName = "";
-            UserName = "";
+            Username = "";
             Password = "";
         }
         public user(string fName, string lName, string uName, string pswdd)
         {
             FirstName = fName;
             LastName = lName;
-            UserName = uName;
+            Username = uName;
             Password = pswdd;
         }
     }
