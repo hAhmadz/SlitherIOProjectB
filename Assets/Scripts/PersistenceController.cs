@@ -18,7 +18,7 @@ public class PersistenceController : MonoBehaviour
     public List<Sprite> availableSkins;
     public List<Sprite> unlockableSkins;
     public Controls controls;
-    public int score;
+    public int lastScore;
 
 
     // check PersistenceController existence
@@ -34,14 +34,15 @@ public class PersistenceController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // set defaults // TODO: will be handled by reading from file eventually
-        SetAds(true);
-
-        SetControls(0);
+        Load();
+        //SetAds(true);
+        //SetControls(0);
     }
 
-    // loading data in OnEnable
-    // saving data in OnDisable
+    private void OnDisable()
+    {
+        Save();
+    }
 
 
     public void SetAds(bool adValue)
@@ -49,10 +50,6 @@ public class PersistenceController : MonoBehaviour
         ads = adValue;
     }
 
-    //public void SetSound(bool soundValue)
-    //{
-    //    sound = soundValue;
-    //}
 
     public void SetControls(int choice)
     {
@@ -120,6 +117,22 @@ public class PersistenceController : MonoBehaviour
         skin = availableSkins[skinIndex];
 
         // update the preview skin
+        SetDummySkin(skin);
+    }
+
+    public void SetSkin(int skinIndex) 
+    {
+        if (skinIndex < availableSkins.Count)
+        {
+            skin = availableSkins[skinIndex];
+            SetDummySkin(skin);
+        }
+            
+        
+    }
+
+    public void SetDummySkin(Sprite skin)
+    {
         Image dummySkin = GameObject.Find("Skin Preview").GetComponent<Image>();
         if (dummySkin != null)
         {
@@ -144,12 +157,10 @@ public class PersistenceController : MonoBehaviour
 
 
 
-    public void SetScore(int scoreValue)
+    public void SetLastScore(int scoreValue)
     {
-        score = scoreValue;
+        lastScore = scoreValue;
     }
-
-
 
 
     public void Save()
@@ -160,9 +171,11 @@ public class PersistenceController : MonoBehaviour
         // create an instance of OptionsData to store current options
         OptionsData options = new OptionsData();
         options.ads = ads;
-        //options.sound = sound;
-        //options.controls = controls;
-        //options.skin = skin;
+        options.skin = skin;
+        options.skinIndex = skinIndex;
+        options.availableSkins = availableSkins;
+        options.unlockableSkins = unlockableSkins;
+        options.controls = controls;
 
         // write current options to file
         bf.Serialize(file, options);
@@ -179,9 +192,11 @@ public class PersistenceController : MonoBehaviour
             file.Close();
 
             ads = options.ads;
-            //sound = options.sound;
-            //controls = options.controls;
-            //skin = options.skin;
+            skin = options.skin;
+            skinIndex = options.skinIndex;
+            availableSkins = options.availableSkins;
+            unlockableSkins = options.unlockableSkins;
+            controls = options.controls;
         }
     }
 
@@ -195,7 +210,9 @@ public class PersistenceController : MonoBehaviour
 class OptionsData
 {
     public bool ads;
-    // public bool sound;
-    // public enum Controls {Touch, Joystick, Gravity}; // how to set controls?
-    // public ... // how to set snake skin ?
+    public Sprite skin;
+    public int skinIndex;
+    public List<Sprite> availableSkins;
+    public List<Sprite> unlockableSkins;
+    public Controls controls;
 }

@@ -23,11 +23,13 @@ public class MenuController : MonoBehaviour
     //both play the same game at the moment from two different functions
     public void singlePlayerBtn()
     {
+        PersistenceController.persistence.Save();
         UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/SinglePlayerScene");
     }
 
     public void multiPlayerBtn()
     {
+        PersistenceController.persistence.Save();
         UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/MultiPlayerScene");
     }
 
