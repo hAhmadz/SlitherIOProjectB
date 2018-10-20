@@ -8,12 +8,18 @@ using Assets.Scripts;
 public class MenuController : MonoBehaviour
 {
     public string urlAddress;
+    //signup page
     public InputField FName;
     public InputField LName;
     public InputField userName;
     public InputField pswd;
     public Text TextOut;
-    
+
+    //signinPage
+    public InputField userNameSignIn;
+    public InputField pswdSignIn;
+    public Text TextOutSignIn;
+
     //both play the same game at the moment from two different functions
     public void singlePlayerBtn()
     {
@@ -45,17 +51,17 @@ public class MenuController : MonoBehaviour
 
     public void signIn()
     {
-        if (userName.text != "" && pswd.text != "")
+        if (userNameSignIn.text != "" && pswdSignIn.text != "")
         {
-            user u = new user(userName.text, pswd.text);
+            user u = new user(userNameSignIn.text, pswdSignIn.text);
             urlAddress = urlAddress + "/login";
             string jsonString = JsonUtility.ToJson(u);
             StartCoroutine(Post(urlAddress, jsonString,"login"));
         }
         else
-            TextOut.text = "No User Found";
-        userName.text = "";
-        pswd.text = "";
+            TextOutSignIn.text = "No User Found";
+        userNameSignIn.text = "";
+        pswdSignIn.text = "";
     }
 
     IEnumerator Post(string url, string bodyJsonString,string func)
@@ -75,15 +81,15 @@ public class MenuController : MonoBehaviour
                 outputMsg = "User Added";
             else
                 outputMsg = "Cannot Add";
+            TextOut.text = outputMsg;
         }
         else if(func.Equals("login"))
         {
-            if (request.responseCode.Equals(201))
+            if (request.responseCode.Equals(201) || request.responseCode.Equals(200))
                 outputMsg = "Login Successful";
             else
                 outputMsg = "Login Unsuccessful";
+            TextOutSignIn.text = outputMsg;
         }
-        
-        TextOut.text = outputMsg;
     }
 }
