@@ -8,6 +8,9 @@ TagManager:
   - Tail
   - AI
   - Wall
+  - Top10Text
+  - GameOver
+  - Length
   layers:
   - Default
   - TransparentFX
