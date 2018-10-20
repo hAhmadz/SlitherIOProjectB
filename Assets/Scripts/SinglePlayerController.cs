@@ -106,7 +106,7 @@ public class SinglePlayerController : SnakeController
         // deactivate heads up display canvases / panels
         controlCanvas.enabled = false;
         miniMapCanvas.enabled = false;
-        scorePanel.SetActive(false);
+        scorePanel.GetComponent<CanvasGroup>().alpha = 0;
 
 
         gameOverText.text = "YOU LOSE";
@@ -120,9 +120,6 @@ public class SinglePlayerController : SnakeController
 
         //Functionality to jump to start menu when game Over
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
-
-
-         //restartBtn.gameObject.SetActive(true);
     }
 
 

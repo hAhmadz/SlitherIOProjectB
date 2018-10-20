@@ -12882,6 +12882,7 @@ GameObject:
   - component: {fileID: 1766995122}
   - component: {fileID: 1766995121}
   - component: {fileID: 1766995123}
+  - component: {fileID: 1766995124}
   m_Layer: 5
   m_Name: ScorePanel
   m_TagString: Untagged
@@ -12956,6 +12957,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topTenText: {fileID: 1615544336}
   threshold: 0
+--- !u!225 &1766995124
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766995119}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1786795640
 Prefab:
   m_ObjectHideFlags: 0
