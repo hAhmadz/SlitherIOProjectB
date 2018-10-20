@@ -6,6 +6,9 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+// place the controls enum in global space (referenced in PlayerController)
+public enum Controls { Touch, Joystick, Accelerometer };
+
 public class PersistenceController : MonoBehaviour {
     public static PersistenceController persistence;
     public bool ads;
@@ -13,8 +16,7 @@ public class PersistenceController : MonoBehaviour {
     private int skinIndex;
     public List<Sprite> availableSkins;
     public List<Sprite> unlockableSkins;
-    public enum Controls {Touch, Joystick, Accelerometer}; // how to set controls?
-    public Controls control;
+    public Controls controls;
     public int score;
 
 
@@ -32,8 +34,6 @@ public class PersistenceController : MonoBehaviour {
 
         // set defaults // TODO: will be handled by reading from file eventually
         SetAds(true);
-
-
 	}
 
     // loading data in OnEnable
@@ -52,7 +52,7 @@ public class PersistenceController : MonoBehaviour {
 
     public void SetControls(Controls controlChoice)
     {
-        control = controlChoice;
+        controls = controlChoice;
     }
 
 

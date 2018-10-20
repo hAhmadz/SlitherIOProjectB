@@ -5,21 +5,16 @@ using UnityEngine;
 public class KillerAIController : AIController
 {
     Transform targetHead;
-    //Vector2 targetLastObserved;
+
 
     public override Vector2 FindTarget()
     {
-        Vector2 target = GetCurrentTarget();
-        Vector3 target3d = new Vector3(target.x, target.y, 0);
-
-        Vector2 intercept;
+        // todo: refine this
+        // Vector2 target = GetCurrentTarget();
 
         if (targetHead != null)
         {
-            intercept = targetHead.position + targetHead.forward * 2.5f;
-
-            print("intercept : " + intercept);
-
+            Vector2 intercept = targetHead.position + targetHead.forward * 2.5f;
             return intercept;
         }
 
