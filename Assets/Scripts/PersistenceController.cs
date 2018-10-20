@@ -9,7 +9,8 @@ using System.IO;
 // place the controls enum in global space (referenced in PlayerController)
 public enum Controls { Touch, Joystick, Accelerometer };
 
-public class PersistenceController : MonoBehaviour {
+public class PersistenceController : MonoBehaviour
+{
     public static PersistenceController persistence;
     public bool ads;
     public Sprite skin;
@@ -20,14 +21,15 @@ public class PersistenceController : MonoBehaviour {
     public int score;
 
 
-	// check PersistenceController existence
-	void Awake () {
-        if(persistence == null)
+    // check PersistenceController existence
+    void Awake()
+    {
+        if (persistence == null)
         {
             DontDestroyOnLoad(gameObject);
             persistence = this;
         }
-        else if(persistence != this)
+        else if (persistence != this)
         {
             Destroy(gameObject);
         }
@@ -36,11 +38,11 @@ public class PersistenceController : MonoBehaviour {
         SetAds(true);
 
         SetControls(0);
-	}
+    }
 
     // loading data in OnEnable
     // saving data in OnDisable
-	
+
 
     public void SetAds(bool adValue)
     {
@@ -54,26 +56,30 @@ public class PersistenceController : MonoBehaviour {
 
     public void SetControls(int choice)
     {
-        print(choice);
         // highlight the pressed button
         // dehighlight the others
         for (int i = 0; i < 3; i++)
         {
-            var btn = GameObject.Find("Controls Chooser").transform.GetChild(i).gameObject.GetComponent<Button>();
-            if (i == choice)
+            GameObject controlsChooser = GameObject.Find("Controls Chooser");
+            if (controlsChooser != null)
             {
-                ColorBlock cb = btn.colors;
-                cb.normalColor = new Color(0.81f, 0.25f, 0.18f, 1f);
-                cb.highlightedColor = new Color(0.81f, 0.25f, 0.18f, 1f);
-                btn.colors = cb;
+                var btn = controlsChooser.transform.GetChild(i).gameObject.GetComponent<Button>();
+                if (i == choice)
+                {
+                    ColorBlock cb = btn.colors;
+                    cb.normalColor = new Color(0.81f, 0.25f, 0.18f, 1f);
+                    cb.highlightedColor = new Color(0.81f, 0.25f, 0.18f, 1f);
+                    btn.colors = cb;
+                }
+                else
+                {
+                    ColorBlock cb = btn.colors;
+                    cb.normalColor = Color.white;
+                    cb.highlightedColor = Color.white;
+                    btn.colors = cb;
+                }
             }
-            else
-            {
-                ColorBlock cb = btn.colors;
-                cb.normalColor = Color.white;
-                cb.highlightedColor = Color.white;
-                btn.colors = cb;
-            }
+
         }
 
         // set the desired control mechanism
@@ -103,7 +109,7 @@ public class PersistenceController : MonoBehaviour {
         skinIndex += next ? 1 : -1;
         if (skinIndex < 0)
         {
-            skinIndex = availableSkins.Count - 1; 
+            skinIndex = availableSkins.Count - 1;
         }
         else if (skinIndex >= availableSkins.Count)
         {
@@ -165,7 +171,7 @@ public class PersistenceController : MonoBehaviour {
 
     public void Load()
     {
-        if(File.Exists(Application.persistentDataPath + "/options.dat"))
+        if (File.Exists(Application.persistentDataPath + "/options.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/options.dat", FileMode.Open);
