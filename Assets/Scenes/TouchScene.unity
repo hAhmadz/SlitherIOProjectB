@@ -155,6 +155,112 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35f63a430403e42a5b2f6cc83b411dd3, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &71686170
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &71686171 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 71686170}
+--- !u!1001 &80108811
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 26.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &80108812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 80108811}
 --- !u!1001 &85261482
 Prefab:
   m_ObjectHideFlags: 0
@@ -202,11 +308,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4100763495685196, guid: 4dd804f113b6b4a908c0b655cfaf1baa,
     type: 2}
   m_PrefabInternal: {fileID: 85261482}
---- !u!4 &99290459 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1353090915}
 --- !u!4 &139385999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4995592352063164, guid: 3597a60618e0f41f8ad9a98753c45445,
@@ -342,52 +443,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 527b47e75b48b4ed2aa988ff6e9cbeff, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &242832715
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 20.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 16.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_Name
-      value: Delicious Food (13)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &247269504
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,11 +515,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35f63a430403e42a5b2f6cc83b411dd3, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &298003262 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1795883505}
 --- !u!1 &304698416
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +587,70 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 304698416}
   m_CullTransparentMesh: 0
+--- !u!1 &308058465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 308058467}
+  - component: {fileID: 308058466}
+  m_Layer: 0
+  m_Name: Food
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &308058466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 308058465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915a22eada0954dc691b08375b8a134d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deliciousFood: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+    type: 2}
+  boardMin: -25
+  boardMax: 25
+  spawnProbability: 0.01
+--- !u!4 &308058467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 308058465}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2305117, y: -3.5025077, z: -0.067949295}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1691441806}
+  - {fileID: 688490748}
+  - {fileID: 848080399}
+  - {fileID: 995734611}
+  - {fileID: 1715829254}
+  - {fileID: 1282076315}
+  - {fileID: 844587367}
+  - {fileID: 853402525}
+  - {fileID: 71686171}
+  - {fileID: 1536469757}
+  - {fileID: 2067756720}
+  - {fileID: 80108812}
+  - {fileID: 1416720356}
+  - {fileID: 1095510269}
+  - {fileID: 707442050}
+  - {fileID: 618567482}
+  - {fileID: 576126914}
+  - {fileID: 1214545198}
+  - {fileID: 1742546176}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &318589327
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,11 +843,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35f63a430403e42a5b2f6cc83b411dd3, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &440136242 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1193867670}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,52 +1146,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1001 &553686238
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -11.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -6.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_Name
-      value: Delicious Food (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &560117756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,11 +1240,112 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &639250305 stripped
+--- !u!1001 &576126913
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -17.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -17.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food (16)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &576126914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
     type: 2}
-  m_PrefabInternal: {fileID: 1077202783}
+  m_PrefabInternal: {fileID: 576126913}
+--- !u!1001 &618567481
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 19.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food (15)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &618567482 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 618567481}
 --- !u!1 &663923583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1404,8 @@ MonoBehaviour:
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
   m_OnlineScene: 
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -1446,30 +1611,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!4 &784066830 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 895724042}
---- !u!4 &816511318 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1496831568}
---- !u!1001 &836938627
+--- !u!1001 &688490747
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -18.04
+      value: 17.01
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.92
+      value: 6.05
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1493,44 +1648,36 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (3)
+      value: Delicious Food (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &876873054 stripped
+--- !u!4 &688490748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
     type: 2}
-  m_PrefabInternal: {fileID: 987419113}
---- !u!4 &881658715 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1611209800}
---- !u!4 &883733135 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1786807241}
---- !u!1001 &895724042
+  m_PrefabInternal: {fileID: 688490747}
+--- !u!1001 &707442049
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: 21.46
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 16.1
+      value: 2.49
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1554,29 +1701,36 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (9)
+      value: Delicious Food (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &923238865
+--- !u!4 &707442050 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 707442049}
+--- !u!1001 &844587366
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.6
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 13.7
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1600,26 +1754,81 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (18)
+      value: Delicious Food (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &951625661 stripped
+--- !u!4 &844587367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
     type: 2}
-  m_PrefabInternal: {fileID: 1786795640}
---- !u!1001 &987419113
+  m_PrefabInternal: {fileID: 844587366}
+--- !u!1001 &848080398
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -6.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &848080399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 848080398}
+--- !u!1001 &853402524
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1657,9 +1866,69 @@ Prefab:
       propertyPath: m_Name
       value: Delicious Food (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &853402525 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 853402524}
+--- !u!1001 &995734610
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -18.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &995734611 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 995734610}
 --- !u!1 &1009653070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,25 +2086,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &1042508039 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 923238865}
---- !u!1001 &1077202783
+--- !u!1001 &1095510268
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 12.4
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -11
+      value: 16.2
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1859,140 +2123,36 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (5)
+      value: Delicious Food (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1080103270
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1080103271}
-  - component: {fileID: 1080103272}
-  m_Layer: 0
-  m_Name: Food
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1080103271
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1080103270}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2305117, y: -3.5025077, z: -0.06794945}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1127557705}
-  - {fileID: 440136242}
-  - {fileID: 1831515708}
-  - {fileID: 2023268713}
-  - {fileID: 1818378069}
-  - {fileID: 639250305}
-  - {fileID: 1469597696}
-  - {fileID: 876873054}
-  - {fileID: 1405304354}
-  - {fileID: 784066830}
-  - {fileID: 1822548930}
-  - {fileID: 816511318}
-  - {fileID: 951625661}
-  - {fileID: 1709500296}
-  - {fileID: 881658715}
-  - {fileID: 298003262}
-  - {fileID: 99290459}
-  - {fileID: 883733135}
-  - {fileID: 1042508039}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1080103272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1080103270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915a22eada0954dc691b08375b8a134d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deliciousFood: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  boardMin: -25
-  boardMax: 25
-  spawnProbability: 0.01
---- !u!1001 &1092084743
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.6994883
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 9.132507
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
---- !u!4 &1127557705 stripped
+--- !u!4 &1095510269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
     type: 2}
-  m_PrefabInternal: {fileID: 1092084743}
---- !u!1001 &1193867670
+  m_PrefabInternal: {fileID: 1095510268}
+--- !u!1001 &1214545197
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 17.01
+      value: -19.1
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.05
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2016,15 +2176,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (1)
+      value: Delicious Food (17)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &1214545198 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1214545197}
 --- !u!1 &1271660760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,20 +2279,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1271660760}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1353090915
+--- !u!1001 &1282076314
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.3
+      value: 12.4
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -17.7
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2149,15 +2316,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (16)
+      value: Delicious Food (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &1282076315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1282076314}
 --- !u!1001 &1357532524
 Prefab:
   m_ObjectHideFlags: 0
@@ -2200,30 +2374,20 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3597a60618e0f41f8ad9a98753c45445, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &1405304354 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1563957576}
---- !u!4 &1469597696 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1756302266}
---- !u!1001 &1496831568
+--- !u!1001 &1416720355
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.5
+      value: 17.8
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 26.5
+      value: 25.6
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2247,29 +2411,36 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (11)
+      value: Delicious Food (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &1563957576
+--- !u!4 &1416720356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1416720355}
+--- !u!1001 &1536469756
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.4
+      value: 16.1
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2293,15 +2464,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (8)
+      value: Delicious Food (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &1536469757 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1536469756}
 --- !u!1 &1566275030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,52 +2618,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4671164904433556, guid: 527b47e75b48b4ed2aa988ff6e9cbeff,
     type: 2}
   m_PrefabInternal: {fileID: 202830692}
---- !u!1001 &1574665288
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 13.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_Name
-      value: Delicious Food (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1590741260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2739,52 +2871,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1608115772}
   m_CullTransparentMesh: 0
---- !u!1001 &1611209800
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 21.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_Name
-      value: Delicious Food (14)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1615544334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,6 +2975,139 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1691441805
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.6994883
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 9.132507
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i0
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i1
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i2
+      value: 142
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i3
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i4
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i5
+      value: 182
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i6
+      value: 244
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i7
+      value: 132
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i8
+      value: 232
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i9
+      value: 238
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i11
+      value: 182
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i12
+      value: 233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i13
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i14
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+        type: 2}
+      propertyPath: m_AssetId.i15
+      value: 255
+      objectReference: {fileID: 0}
+    - target: {fileID: 1377389959123406, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114876414686068692, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+    - {fileID: 114587949574711024, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: a06c8e7239b6f484e8ee14b6e95a37ff, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &1691441806 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4038556689074562, guid: a06c8e7239b6f484e8ee14b6e95a37ff,
+    type: 2}
+  m_PrefabInternal: {fileID: 1691441805}
 --- !u!1 &1700614153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2919,25 +3138,20 @@ Transform:
   m_Father: {fileID: 2119839127}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1709500296 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 242832715}
---- !u!1001 &1756302266
+--- !u!1001 &1715829253
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1080103271}
+    m_TransformParent: {fileID: 308058467}
     m_Modifications:
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.7
+      value: 13.3
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -10.8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2961,15 +3175,75 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
       propertyPath: m_Name
-      value: Delicious Food (6)
+      value: Delicious Food (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &1715829254 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1715829253}
+--- !u!1001 &1742546175
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -17.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 13.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food (18)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &1742546176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1742546175}
 --- !u!1 &1766995119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,144 +3329,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topTenText: {fileID: 1615544336}
   threshold: 0
---- !u!1001 &1786795640
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 17.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 25.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_Name
-      value: Delicious Food (12)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1786807241
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -19.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_Name
-      value: Delicious Food (17)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1795883505
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 19.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -13.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_Name
-      value: Delicious Food (15)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1816691451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,67 +3359,6 @@ Transform:
   m_Father: {fileID: 2119839127}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1818378069 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1574665288}
---- !u!4 &1822548930 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1903458914}
---- !u!4 &1831515708 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 553686238}
---- !u!1001 &1903458914
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080103271}
-    m_Modifications:
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -16.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 22.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.06794945
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-      propertyPath: m_Name
-      value: Delicious Food (10)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &1914709197
 Prefab:
   m_ObjectHideFlags: 0
@@ -3331,11 +3406,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4708723509934610, guid: 35f63a430403e42a5b2f6cc83b411dd3,
     type: 2}
   m_PrefabInternal: {fileID: 273274663}
---- !u!4 &2023268713 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
-    type: 2}
-  m_PrefabInternal: {fileID: 836938627}
 --- !u!1 &2029996470
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,6 +3442,137 @@ RectTransform:
   m_AnchoredPosition: {x: 33, y: 6.5}
   m_SizeDelta: {x: -120, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2046334211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2046334213}
+  - component: {fileID: 2046334212}
+  - component: {fileID: 2046334214}
+  m_Layer: 0
+  m_Name: Food Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2046334212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046334211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
+--- !u!4 &2046334213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046334211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 425.1786, y: -311.50128, z: -17.728119}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2046334214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046334211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3baf22bf2ec19484badb3e09b589a43a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodPrefab: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  intitialFoodCount: 50
+  spawnProbability: 0.1
+  xRange: 24.9
+  yRange: 24.9
+--- !u!1001 &2067756719
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 308058467}
+    m_Modifications:
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -16.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.06794945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522189103445086, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+      propertyPath: m_Name
+      value: Delicious Food (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114249906577548078, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+    - {fileID: 114495233564817870, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 523f0c14981f6444a856f3d234af898a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &2067756720 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4753377436060506, guid: 523f0c14981f6444a856f3d234af898a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2067756719}
 --- !u!1 &2119839126
 GameObject:
   m_ObjectHideFlags: 0
