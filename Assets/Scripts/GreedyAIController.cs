@@ -1,11 +1,4 @@
-﻿/*
- * A very simple AI snake that makes random moves.
- * 
- * 
- * 
- */
-
-
+﻿
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,10 +16,11 @@ public class GreedyAIController : AIController
     // certain distance threshold and goes for that
     public override Vector2 FindTarget()
     {
-        // todo: stop the snake from stopping (apparently randomly) ??
         Vector2 target = GetCurrentTarget();
+        Vector3 target3d = new Vector3(target.x, target.y, 0);
 
-        if (target.Equals(Vector2.zero) || transform.position.Equals(target))
+        // if targeting at the origin, or you've reached your target, acquire a new one.
+        if (target.Equals(Vector2.zero) || transform.position == target3d)
         {
             food = GameObject.FindGameObjectsWithTag("Food");
             if (closestFood == null || closestFood.Count == 0)
@@ -54,7 +48,7 @@ public class GreedyAIController : AIController
             searchDepth *= 2.0f;
         }
         searchDepth /= 2.0f;
-        // an attempt to stop the snake repeatedly enqueuing and dequeing different targets
+
         closest.Enqueue(RandomPosition());
         return closest;
     }

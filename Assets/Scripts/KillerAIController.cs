@@ -10,50 +10,114 @@ public class KillerAIController : AIController
     public override Vector2 FindTarget()
     {
         Vector2 target = GetCurrentTarget();
-        if (targetHead == null || 
-              target.Equals(Vector2.zero) || 
-              transform.position.Equals(target))
+        Vector3 target3d = new Vector3(target.x, target.y, 0);
+
+        Vector2 intercept;
+
+        if (targetHead != null)
         {
+            intercept = targetHead.position + targetHead.forward * 2.5f;
 
-            var chance = Random.value;
-            //print("chance : " + chance.ToString());
-            if (chance < 0.33f) // hunt player
-            {
-                GameObject targetGameObj = GameObject.FindGameObjectWithTag("Player");
-                // print(targetGameObj);
-                if (targetGameObj == null) { return RandomPosition(); }
-                targetHead = targetGameObj.transform;
-            }
-            else // hunt ai
-            {
-                GameObject[] AIHeads = GameObject.FindGameObjectsWithTag("AI");
-                foreach (GameObject head in AIHeads)
-                {
-                    if (!(head.transform.Equals(transform)))
-                    {
-                        targetHead = head.transform;
-                        break;
-                    }
-                }
-                if (targetHead == null) { return RandomPosition(); }
+            print("intercept : " + intercept);
 
-            }
-
+            return intercept;
         }
 
-        Vector2 myPos = transform.position;
-        Vector2 diff = myPos - target;
+        // acquire new target
+        if (targetHead == null)
+        {
+            targetHead = AcquireTarget();
+            return RandomPosition();
+        }
 
-        if (Mathf.Abs(diff.x) < 1 && Mathf.Abs(diff.x) < 1)
-            return diff * -1;
-
-        Vector2 targetPos = targetHead.position;
-        //Vector2 delta =  targetPos - targetLastObserved;
-        Vector2 intercept = targetPos * 1.5f;
-
-        //targetLastObserved = intercept;
-        return intercept;
-        //return targetHead.position;
+        // as a last resort, return a random position
+        return RandomPosition();
     }
+
+
+
+
+    public Transform AcquireTarget()
+    {
+        var chance = Random.value;
+
+        if (chance < 0.33f) // hunt player
+        {
+            targetHead = HuntPlayer();
+
+        }
+        else if (chance < 0.66f) // hunt ai
+        {
+            targetHead = HuntAI();
+
+        }
+        else // hunt food
+        {
+            targetHead = HuntFood();
+        }
+
+        return targetHead;
+
+    }
+
+
+    Transform HuntPlayer()
+    {
+        GameObject targetGameObj = GameObject.FindGameObjectWithTag("Player");
+        // print(targetGameObj);
+        if (targetGameObj == null)
+        {
+            return null;
+        }
+        return targetGameObj.transform;
+    }
+
+
+
+    Transform HuntAI()
+    {
+        Transform target = null;
+        GameObject[] AIHeads = GameObject.FindGameObjectsWithTag("AI");
+        foreach (GameObject head in AIHeads)
+        {
+            if (!(head.transform.Equals(transform)))
+            {
+                target = head.transform;
+                break;
+            }
+        }
+        return target;
+    }
+
+
+
+
+    Transform HuntFood()
+    {
+        float searchDepth = 5.0f;
+        GameObject[] food = GameObject.FindGameObjectsWithTag("Food");
+        Queue<Transform> closest = new Queue<Transform>();
+        while (closest.Count == 0)
+        {
+            foreach (GameObject obj in food)
+            {
+                Vector2 objPos = obj.transform.position;
+                if (ManhattanDistance(transform.position, objPos) < searchDepth)
+                    closest.Enqueue(obj.transform);
+            }
+            searchDepth *= 2.0f;
+        }
+        searchDepth /= 2.0f;
+        return closest.Dequeue();
+    }
+
+
+
+
+    float ManhattanDistance(Vector2 pos1, Vector2 pos2)
+    {
+        return Mathf.Abs(pos1.x - pos2.x) + Mathf.Abs(pos1.y - pos2.y);
+    }
+
 }
-       
+
