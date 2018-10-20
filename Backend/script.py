@@ -353,8 +353,11 @@ def add_friend():
     if not isUserExistsByID(UserTwo):
         return make_response(jsonify({"Message":"User does not exist!"}), 400)
     
+    # if already sent friend request before to target user, return error message
     if isRequestExists(UserOne, UserTwo):
         return make_response(jsonify({"Message":"Request already sent!"}), 400)
+
+    # if already friends, return error message
     elif isFriends(UserOne, UserTwo):
         return make_response(jsonify({"Message":"Already friends!"}), 400)
 
