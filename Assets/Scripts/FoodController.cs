@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 
-public class FoodController : MonoBehaviour {
+public class FoodController : MonoBehaviour 
+{
     public Transform deliciousFood;
     public int boardMin, boardMax;
     public float spawnProbability;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	void FixedUpdate () {
         MakeFood();
 	}
