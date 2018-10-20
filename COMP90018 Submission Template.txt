@@ -16,4 +16,7 @@ YouTube Link:
 README:
 
 Please include details on how to compile and run your APP.
+1) import our project into Unity
+2) Follow instructions here on how to set up Unity for running Android apps:
+   https://unity3d.com/learn/tutorials/topics/mobile-touch/building-your-unity-game-android-device-testing?playlist=17138 
 
