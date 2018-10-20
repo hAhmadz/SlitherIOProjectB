@@ -18,7 +18,7 @@ public class KillerAIController : AIController
         {
             intercept = targetHead.position + targetHead.forward * 2.5f;
 
-            print("intercept : " + intercept);
+            //print("intercept : " + intercept);
 
             return intercept;
         }

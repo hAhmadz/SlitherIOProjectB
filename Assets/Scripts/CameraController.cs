@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public GameObject player;
+    public Transform player;
 
     private Vector3 offset;
 
@@ -17,5 +17,12 @@ public class CameraController : MonoBehaviour {
 	void LateUpdate () 
     {
         transform.position = player.transform.position + offset;
+    }
+
+    public void setTarget(Transform target)
+    {
+        player = target;
+        //Debug.Log(player == null);
+        offset = transform.position - player.transform.position;
     }
 }

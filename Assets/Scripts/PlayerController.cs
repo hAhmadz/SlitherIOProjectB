@@ -8,12 +8,19 @@ public class PlayerController : SnakeController
     public Text lengthText;
     public Text gameOverText;
     //public Button restartBtn;
-    public Camera mainCam;
+    //public Camera mainCam;
     private bool boosted = false;
 
 
     public new void Start()
     {
+        //mainCam = GetComponentInParent<Camera>();
+        //mainCam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        //Camera.main.GetComponent<CameraController>().setTarget(gameObject.transform);
+        //mainCam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        gameOverText = GameObject.FindWithTag("GameOver").GetComponent<Text>();
+        lengthText = GameObject.FindWithTag("Length").GetComponent<Text>();
+
         // assign the players chosen skin
         Sprite skinToApply = PersistenceController.persistence.skin;
         sprRend.sprite = skinToApply;
@@ -28,6 +35,10 @@ public class PlayerController : SnakeController
         //restartBtn.gameObject.SetActive(false);
     }
 
+    /*public void setCamera(Camera target)
+    {
+        mainCam = target;
+    }*/
 
     // TODO: i'm not entirely sure if respawning the player is strictly necessary?
     //used to restart the game (i.e. revive the player)
@@ -70,12 +81,14 @@ public class PlayerController : SnakeController
     public override void RotateAndMove()
     {
         // rotate head (... TODO: something not right with this)
-        Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        /*Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         float angle = Mathf.Atan2(mousePos.x, mousePos.y) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward * -1); // -1 for inverted z-axis
 
         // move head
-        transform.position = Vector2.MoveTowards(transform.position, mousePos, GetSpeed());
+        transform.position = Vector2.MoveTowards(transform.position, mousePos, GetSpeed());*/
+        transform.rotation = transform.parent.rotation;
+        transform.position = transform.parent.position;
     }
 
 
@@ -89,13 +102,15 @@ public class PlayerController : SnakeController
         ads.WaitAndDisplayAd();
 
         // deactivate the head
-        transform.gameObject.SetActive(false);
+        //transform.gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
+
 
         //Functionality to jump to start menu when game Over
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
 
 
-         // restartBtn.gameObject.SetActive(true);
+        // restartBtn.gameObject.SetActive(true);
     }
 
 
@@ -106,7 +121,14 @@ public class PlayerController : SnakeController
         // zoom out
         if (tail.Count > GetStartingLength())
         {
-            ZoomCamera(1.0f);
+            /*
+             Script parentScript = this.transform.parent.GetComponent<Script>();
+ 
+ script.parentMethod();
+             */
+            PlayerNetworkController parentScript = this.transform.parent.GetComponent<PlayerNetworkController>();
+            parentScript.ZoomCamera(1.0f);
+            //ZoomCamera(1.0f);
         }
         lengthText.text = "Length: " + tail.Count.ToString();
     }
@@ -172,11 +194,14 @@ public class PlayerController : SnakeController
         while (true)
         {
             yield return new WaitForSeconds(0.9f);
-
+            Debug.Log(boosted == true);
+            Debug.Log(tail.Count);
             if (boosted && tail.Count > startingLength)
             {
                 ShrinkSnake();
-                ZoomCamera(-1.0f);
+                PlayerNetworkController parentScript = this.transform.parent.GetComponent<PlayerNetworkController>();
+                parentScript.ZoomCamera(-1.0f);
+                //ZoomCamera(-1.0f);
                 lengthText.text = "Length: " + tail.Count.ToString();
             }
             else
@@ -200,10 +225,10 @@ public class PlayerController : SnakeController
 
 
     /* method to adjust the main camera's orthographic size */
-    void ZoomCamera(float zoomFactor) 
+   /* void ZoomCamera(float zoomFactor) 
     {
         float newZoom = mainCam.orthographicSize + zoomFactor;
         mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, newZoom, 2.0f * Time.deltaTime);
-    }
+    }*/
 
 }
