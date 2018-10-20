@@ -12,6 +12,7 @@ namespace Assets.Scripts
         public string Username;
         public string Password;
 
+
         public user()
         {
             FirstName = "";

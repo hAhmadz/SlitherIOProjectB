@@ -12,7 +12,8 @@ public class MenuController : MonoBehaviour
     public InputField LName;
     public InputField userName;
     public InputField pswd;
-
+    public Text TextOut;
+    
     //both play the same game at the moment from two different functions
     public void singlePlayerBtn()
     {
@@ -26,12 +27,22 @@ public class MenuController : MonoBehaviour
 
     public void signUp()
     {
-        user u = new user(FName.text, LName.text, userName.text, pswd.text);
-        urlAddress = urlAddress + "/signup";
-        string jsonString = JsonUtility.ToJson(u);
-        StartCoroutine(Post(urlAddress, jsonString));
+        if (userName.text != "" && pswd.text != "")
+        {
+            user u = new user(FName.text, LName.text, userName.text, pswd.text);
+            urlAddress = urlAddress + "/signup";
+            string jsonString = JsonUtility.ToJson(u);
+            StartCoroutine(Post(urlAddress, jsonString));
+        }
+        else
+            TextOut.text = "Cannot Add";
+        
+        FName.text = "";
+        LName.text = "";
+        userName.text = "";
+        pswd.text = "";
     }
-
+    
     IEnumerator Post(string url, string bodyJsonString)
     {
         string outputMsg = "";
@@ -46,7 +57,6 @@ public class MenuController : MonoBehaviour
             outputMsg = "User Added";
         else
             outputMsg = "Cannot Add";
-        Debug.Log(outputMsg);
-
+        TextOut.text = outputMsg;
     }
 }
