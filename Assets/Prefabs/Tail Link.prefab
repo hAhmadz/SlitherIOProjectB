@@ -38,8 +38,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177868868013054}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7741178, w: 0.63304156}
-  m_LocalPosition: {x: 1.0215601, y: 5.753385, z: 9.491837}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.576, y: -0.45899996, z: 9.491837}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.505
+  m_Radius: 0.38
 --- !u!114 &114811895847560514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4667,7 +4667,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: Infinity
+  m_MaxParticleSize: 900000000
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -4719,7 +4719,7 @@ SpriteRenderer:
   m_SortingLayerID: -1004995675
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bf74eb5a3d9c9481aa0429779f877b3e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 544de1c4078ff4a148dd7e7c039f37e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

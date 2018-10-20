@@ -12,10 +12,9 @@ public class PersistenceController : MonoBehaviour {
     public Sprite skin;
     private int skinIndex;
     public List<Sprite> availableSkins;
+    public List<Sprite> unlockableSkins;
     public enum Controls {Touch, Joystick, Accelerometer}; // how to set controls?
     public Controls control;
-    // public ... // how to set snake skin ?
-    // public ... availableSkins;
     public int score;
 
 
@@ -80,6 +79,20 @@ public class PersistenceController : MonoBehaviour {
         {
             dummySkin.sprite = skin;
         }
+    }
+
+
+
+    public void UnlockSkins()
+    {
+        foreach (Sprite locked in unlockableSkins)
+        {
+            availableSkins.Add(locked);
+        }
+
+        // remove the skin from the unloackable list 
+        //(so it can't get added mulitple times to the availableSkins)
+        unlockableSkins.Clear();
     }
 
 
