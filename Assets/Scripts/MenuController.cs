@@ -52,7 +52,7 @@ public class MenuController : MonoBehaviour
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
 
-        yield return request.Send();
+        yield return request.SendWebRequest();
         if (request.responseCode.Equals(201))
             outputMsg = "User Added";
         else
