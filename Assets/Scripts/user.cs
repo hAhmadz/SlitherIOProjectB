@@ -20,6 +20,13 @@ namespace Assets.Scripts
             Username = "";
             Password = "";
         }
+
+        public user(string uName, string pswdd)
+        {
+            Username = uName;
+            Password = pswdd;
+        }
+
         public user(string fName, string lName, string uName, string pswdd)
         {
             FirstName = fName;

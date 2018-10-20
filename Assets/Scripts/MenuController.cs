@@ -32,7 +32,7 @@ public class MenuController : MonoBehaviour
             user u = new user(FName.text, LName.text, userName.text, pswd.text);
             urlAddress = urlAddress + "/signup";
             string jsonString = JsonUtility.ToJson(u);
-            StartCoroutine(Post(urlAddress, jsonString));
+            StartCoroutine(Post(urlAddress, jsonString,"signup"));
         }
         else
             TextOut.text = "Cannot Add";
@@ -42,8 +42,23 @@ public class MenuController : MonoBehaviour
         userName.text = "";
         pswd.text = "";
     }
-    
-    IEnumerator Post(string url, string bodyJsonString)
+
+    public void signIn()
+    {
+        if (userName.text != "" && pswd.text != "")
+        {
+            user u = new user(userName.text, pswd.text);
+            urlAddress = urlAddress + "/login";
+            string jsonString = JsonUtility.ToJson(u);
+            StartCoroutine(Post(urlAddress, jsonString,"login"));
+        }
+        else
+            TextOut.text = "No User Found";
+        userName.text = "";
+        pswd.text = "";
+    }
+
+    IEnumerator Post(string url, string bodyJsonString,string func)
     {
         string outputMsg = "";
         var request = new UnityWebRequest(url, "POST");
@@ -53,10 +68,22 @@ public class MenuController : MonoBehaviour
         request.SetRequestHeader("Content-Type", "application/json");
 
         yield return request.SendWebRequest();
-        if (request.responseCode.Equals(201))
-            outputMsg = "User Added";
-        else
-            outputMsg = "Cannot Add";
+
+        if (func.Equals("signup"))
+        {
+            if (request.responseCode.Equals(201))
+                outputMsg = "User Added";
+            else
+                outputMsg = "Cannot Add";
+        }
+        else if(func.Equals("login"))
+        {
+            if (request.responseCode.Equals(201))
+                outputMsg = "Login Successful";
+            else
+                outputMsg = "Login Unsuccessful";
+        }
+        
         TextOut.text = outputMsg;
     }
 }
