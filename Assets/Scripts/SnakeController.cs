@@ -37,6 +37,7 @@ public abstract class SnakeController : MonoBehaviour
     {
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
+        hitBox.enabled = false;
     }
 
     public void Start()
@@ -53,6 +54,8 @@ public abstract class SnakeController : MonoBehaviour
 
 
         SubmitScore();
+        // reactivate the head, once tail links have had a chance to find their head
+        hitBox.enabled = true;
     }
 
 
@@ -125,6 +128,10 @@ public abstract class SnakeController : MonoBehaviour
         else if (other.gameObject.CompareTag("Tail"))
         {
             // don't kill yourself if you've only hit your own tail
+            var vOne = other.gameObject;
+            var vTwo = vOne.GetComponent<TailController>();
+            var vThree = vTwo.GetHead();
+            var vFour = vThree.Equals(transform);
             if (!(other.gameObject.GetComponent<TailController>().GetHead().Equals(transform)))
                 CrashAndBurn();
         }
