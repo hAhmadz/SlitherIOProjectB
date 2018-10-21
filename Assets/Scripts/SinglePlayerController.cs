@@ -20,8 +20,6 @@ public class SinglePlayerController : SnakeController
 
     public new void Start()
     {
-
-
         // set up player controls and GUI elements
         controls = PersistenceController.persistence.controls;
         SetUpGUI();
@@ -49,6 +47,8 @@ public class SinglePlayerController : SnakeController
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
     }
+
+
 
     public void SetUpGUI()
     {
@@ -102,8 +102,8 @@ public class SinglePlayerController : SnakeController
     }
 
 
-    // todo: why does this only work if the method is called in the switch statement,
-    //       not when moveVector is set to mousePos ???
+    // Unity doesn't like it when the call to mainCam.ScreenPointToWorld is put 
+    // into the above function, so it geths a method of its own.
     public void TouchMovement()
     {
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -121,9 +121,7 @@ public class SinglePlayerController : SnakeController
         miniMapCanvas.enabled = false;
         scorePanel.GetComponent<CanvasGroup>().alpha = 0;
 
-
         gameOverText.text = "YOU LOSE";
-
 
         AdvertisementController ads = gameObject.GetComponentInParent<AdvertisementController>();
         ads.WaitAndDisplayAd();
@@ -134,6 +132,7 @@ public class SinglePlayerController : SnakeController
         //Functionality to jump to start menu when game Over
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
+
 
 
     // Player snake growth needs to handle zooming out the camera, and updating the score text
@@ -189,6 +188,7 @@ public class SinglePlayerController : SnakeController
         SetGlow(boosted);
     }
 
+
     void SetGlow(bool isBoosted) 
     {
         ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
@@ -201,6 +201,7 @@ public class SinglePlayerController : SnakeController
         }
             
     }
+
 
     void SetGlowColor(Color glowColor)
     {
@@ -245,7 +246,6 @@ public class SinglePlayerController : SnakeController
             t.gameObject.GetComponent<TailController>().followBoost = boost;
         }
     }
-
 
 
     /* method to adjust the main camera's orthographic size */

@@ -1063,7 +1063,6 @@ GameObject:
   - component: {fileID: 403469613}
   - component: {fileID: 403469612}
   - component: {fileID: 403469611}
-  - component: {fileID: 403469614}
   m_Layer: 5
   m_Name: Touch Button
   m_TagString: Untagged
@@ -1176,19 +1175,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 403469609}
   m_CullTransparentMesh: 0
---- !u!114 &403469614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 403469609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfc1bc8977cd4ed09bb917f4b47b53b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonOn: 0
-  MyButton: {fileID: 403469611}
 --- !u!1 &416557757
 GameObject:
   m_ObjectHideFlags: 0
@@ -4075,7 +4061,6 @@ GameObject:
   - component: {fileID: 1124141945}
   - component: {fileID: 1124141944}
   - component: {fileID: 1124141943}
-  - component: {fileID: 1124141946}
   m_Layer: 5
   m_Name: Joystick Button
   m_TagString: Untagged
@@ -4188,19 +4173,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1124141941}
   m_CullTransparentMesh: 0
---- !u!114 &1124141946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1124141941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adfc1bc8977cd4ed09bb917f4b47b53b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonOn: 0
-  MyButton: {fileID: 0}
 --- !u!1 &1221917094
 GameObject:
   m_ObjectHideFlags: 0
@@ -6330,16 +6302,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: availableSkins.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: unlockableSkins.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4259135874195456, guid: fbf353a87ab944b1a8f0181c94003edc, type: 2}
       propertyPath: m_LocalPosition.x
       value: -14.267405
@@ -6372,66 +6334,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: availableSkins.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 544de1c4078ff4a148dd7e7c039f37e0,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: skin
-      value: 
-      objectReference: {fileID: 21300000, guid: bf74eb5a3d9c9481aa0429779f877b3e,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: availableSkins.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 3051c305cff84489a93fe818ef02d0ec,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: availableSkins.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: e27a19dcfeec24a88b2f31b45ed8ddcc,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: availableSkins.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 0d2c32e9c9af24e46aba2a9d860baf03,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: availableSkins.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 76066370dd0ac4dbeaa8c50026bb2b86,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: unlockableSkins.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: d13bfed123c884c16bab685f0792f3a0,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: unlockableSkins.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 35cb47568c63c43f0baad9c2c8a90138,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: unlockableSkins.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 5a2a58304ad2d4cd3884abe90af4b472,
-        type: 3}
-    - target: {fileID: 114457390858309818, guid: fbf353a87ab944b1a8f0181c94003edc,
-        type: 2}
-      propertyPath: unlockableSkins.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: e8b6bfeb17b70426096c93ddbce5c604,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbf353a87ab944b1a8f0181c94003edc, type: 2}
   m_IsPrefabAsset: 0
