@@ -36,15 +36,11 @@ public class PersistenceController : MonoBehaviour
         }
 
         // default name
-        snakename = "player";
+
 
         Load();
+        snakename = "playersnake";
     }
-
-    //private void OnDisable()
-    //{
-    //    Save();
-    //}
 
 
     public void SetAds(bool adValue)
@@ -90,7 +86,6 @@ public class PersistenceController : MonoBehaviour
                     btn.colors = cb;
                 }
             }
-
         }
 
         // set the desired control mechanism
