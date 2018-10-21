@@ -154,6 +154,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.Mobile.Slither
     Standalone: com.Company.ProductName
+    iOS: com.g54.slithertest
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16

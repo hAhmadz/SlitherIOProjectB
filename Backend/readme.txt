@@ -1,5 +1,23 @@
 All addresses start with 203.101.225.0:5000
 Example: /signup denotes 203.101.225.0:5000/signup
+
+Functionalities available (functions without descriptions are self-explanatory by name):
+signup
+login
+logout
+edit_username
+retrieve_self (retrieving one's own details, intended for display in one's own profile page)
+retrieve_scores (retrieving top 10 highest scores, intended for a global leaderboard function)
+update_highscore (update one's highest score)
+update_mostrecentscore (update one's most recent score, intended to be called upon death in a game)
+search_user (part of social network functionality, to search for players to add as a friend)
+add_friend
+retrieve_friend_requests
+friend_request_action (accept or reject and delete friend requests)
+retrieve_friends_details (retrieve all of a user's friends' details, intended for friends list functionality)
+send_message (send message to a friend)
+retrieve_messages (retrieve all unread messages from friends)
+
 ***************************************************
 /signup
 Input:

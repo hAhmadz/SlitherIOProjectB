@@ -34,3 +34,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/JsonDotNet/Assemblies/AOT/Newtonsoft.Json.dll.meta
+Assets/JsonDotNet/Assemblies/AOT/Newtonsoft.Json.dll.meta
+Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll.meta
+Assets/JsonDotNet/Assemblies/Windows/Newtonsoft.Json.dll.meta
+Assets/Scripts/highscores.cs
+ProjectSettings/ProjectSettings.asset
