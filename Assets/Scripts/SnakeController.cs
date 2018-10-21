@@ -243,8 +243,7 @@ public abstract class SnakeController : MonoBehaviour
             Destroy(trans.gameObject);
         }
 
-        //clears the tail list
-        tail.Clear();
+
         // and the head spawns a food
         foodSpawner.MakeFood(transform.position);
 

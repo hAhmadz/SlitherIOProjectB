@@ -47,6 +47,8 @@ public abstract class AIController : SnakeController
 
     public override void KillSnake()
     {
+        //clears the tail list
+        tail.Clear();
         Destroy(gameObject);
     }
 }
