@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class AssignUIListeners : MonoBehaviour
@@ -12,7 +10,6 @@ public class AssignUIListeners : MonoBehaviour
     public Button nextSkin;
     public Button prevSkin;
 
-    // Use this for initialization
     void Start()
     {
         PersistenceController options = GameObject.Find("Options").GetComponent<PersistenceController>();
