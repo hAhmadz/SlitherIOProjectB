@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -37,7 +36,7 @@ public class highscores : MonoBehaviour {
     {
         scoreObj sobj = new scoreObj(8);
         string url = "http://203.101.225.0:5000/retrieve_scores";
-        string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(sobj);
+        string jsonString = JsonUtility.ToJson(sobj);
         StartCoroutine(Post(url, jsonString));
     }
     IEnumerator Post(string url, string bodyJsonString)
@@ -51,17 +50,17 @@ public class highscores : MonoBehaviour {
         yield return request.SendWebRequest();
         Debug.Log(request.responseCode);
 
-        var values = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(request.downloadHandler.text);
-        string outputString = "";
-        for (int j = 0; j < values.Length; j++)
-        {
-            string name = values[j]["username"];
-            string score = values[j]["highestscore"];
+        //var values = JsonUtility.FromJson<Dictionary<string, string>[]>(request.downloadHandler.text);
+        //string outputString = "";
+        //for (int j = 0; j < values.Length; j++)
+        //{
+        //    string name = values[j]["username"];
+        //    string score = values[j]["highestscore"];
 
-            string tempString = name + "\t\t\t" + score;
-            outputString = outputString + tempString + '\n';
-        }
-        outputText.text = outputString;
+        //    string tempString = name + "\t\t\t" + score;
+        //    outputString = outputString + tempString + '\n';
+        //}
+        //outputText.text = outputString;
     }
 }
 
