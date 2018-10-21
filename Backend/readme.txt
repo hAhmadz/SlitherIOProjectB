@@ -86,40 +86,24 @@ Input:
 }
 *this is just to check whether you're logged in*
 Output:
-{
-    "Results": [
-        {
-            "highestscore":<int>,
-            "mostrecentscore":<int>,
-            "username":<string>
-        }    ]
-}
+[
+    {
+        "highestscore":<int>,
+        "username":<string>
+    }
+]
 NOTE: Output is in an array this time, because there can be multiple results
 Example output:
-{
-    "Results": [
-        {
-            "highestscore": 200,
-            "mostrecentscore": null,
-            "username": "yjchua"
-        },
-        {
-            "highestscore": 500,
-            "mostrecentscore": 300,
-            "username": "jclark"
-        },
-        {
-            "highestscore": null,
-            "mostrecentscore": null,
-            "username": "dripper"
-        },
-        {
-            "highestscore": null,
-            "mostrecentscore": null,
-            "username": "haarisa"
-        }
-    ]
-}
+[
+    {
+        "highestscore": 500,
+        "username": "jclark"
+    },
+    {
+        "highestscore": 200,
+        "username": "yjchua"
+    }
+]
 ****************************************************
 /edit_username
 Input:
@@ -168,29 +152,33 @@ Output:
 }
 Note: UserID is used to check if you're logged in
 
-Sample output:
+Sample input:
 {
-    "Results": [
-        {
-            "firstname": "Joshua",
-            "highestscore": 500,
-            "lastname": "Clark",
-            "loggedin": 1,
-            "mostrecentscore": 300,
-            "userid": 2,
-            "username": "jclark"
-        },
-        {
-            "firstname": "David",
-            "highestscore": null,
-            "lastname": "Ripper",
-            "loggedin": 1,
-            "mostrecentscore": 200,
-            "userid": 3,
-            "username": "dripper"
-        }
-    ]
+    "UserID": 1,
+    "SearchQuery":"david clark"
 }
+
+Corresponding sample output:
+[
+    {
+        "firstname": "David",
+        "highestscore": null,
+        "lastname": "Ripper",
+        "loggedin": 1,
+        "mostrecentscore": null,
+        "userid": 3,
+        "username": "dripper"
+    },
+    {
+        "firstname": "Joshua",
+        "highestscore": 500,
+        "lastname": "Clark",
+        "loggedin": 1,
+        "mostrecentscore": 300,
+        "userid": 2,
+        "username": "jclark"
+    }
+]
 ****************************************************
 /add_friend
 Input:
@@ -225,18 +213,16 @@ Input:
 Note: UserID is your own UserID
 
 Sample output:
-{
-    "Requests": [
-        {
-            "status": 0,
-            "userfrom": 1
-        },
-        {
-            "status": 0,
-            "userfrom": 3
-        }
-    ]
-}
+[
+    {
+        "status": 0,
+        "userfrom": 1
+    },
+    {
+        "status": 0,
+        "userfrom": 3
+    }
+]
 ****************************************************
 /friend_request_action
 {
@@ -261,29 +247,26 @@ OR
 }
 
 Sample output:
-{
-    "Results": [
-        {
-            "firstname": "Joshua",
-            "highestscore": 500,
-            "lastname": "Clark",
-            "loggedin": 1,
-            "mostrecentscore": 300,
-            "userid": 2,
-            "username": "jclark"
-        },
-        {
-            "firstname": "David",
-            "highestscore": null,
-            "lastname": "Ripper",
-            "loggedin": 1,
-            "mostrecentscore": null,
-            "userid": 3,
-            "username": "dripper"
-        }
-    ]
-}
-****************************************************
+[
+    {
+        "firstname": "Joshua",
+        "highestscore": 500,
+        "lastname": "Clark",
+        "loggedin": 1,
+        "mostrecentscore": 300,
+        "userid": 2,
+        "username": "jclark"
+    },
+    {
+        "firstname": "David",
+        "highestscore": null,
+        "lastname": "Ripper",
+        "loggedin": 1,
+        "mostrecentscore": null,
+        "userid": 3,
+        "username": "dripper"
+    }
+]***********************************************
 /send_message:
 Input:
 {
@@ -311,22 +294,20 @@ Input:
 Note: This is your own UserID
 
 Sample output:
-{
-    "Unread messages": [
-        {
-            "message": "Message 1!",
-            "messageid": 2,
-            "timestamp": "1425 4 Oct 2018",
-            "userfrom": 1
-        },
-        {
-            "message": "Message 2!",
-            "messageid": 3,
-            "timestamp": "1425 4 Oct 2018",
-            "userfrom": 1
-        }
-    ]
-}
+[
+    {
+        "message": "Screw you!",
+        "messageid": 4,
+        "timestamp": "1041 Oct 21 2018",
+        "userfrom": 1
+    },
+    {
+        "message": "I'll eat you!",
+        "messageid": 5,
+        "timestamp": "1041 Oct 21 2018",
+        "userfrom": 1
+    }
+]
 PS - you can sort the messages according to messageid, more recent ones have a larger ID (I used auto increment in the DB). The timestamp here is just a sample timestamp, can be any format depending on how you generate the timestamp when message is sent from client.
 Once messages are retrieved, you can't retrieve them again (but it's possible to retrieve read messages, they're always stored in the DB. I can write a function for this if needed).
 

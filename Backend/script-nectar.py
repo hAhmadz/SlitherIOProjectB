@@ -5,7 +5,7 @@ Created on Sun Sep 23 18:46:56 2018
 
 @author: yjchua
 """
-
+from operator import itemgetter
 from flask import Flask
 from flask import abort
 from flask import request
@@ -157,14 +157,27 @@ def retrieve_scores():
     if not isLoggedIn(userid):
         return make_response(jsonify({"Message":"You are not logged in!"}), 400)
     
-    query = "select username, highestscore, mostrecentscore from users"
+    # query = "select username, highestscore, mostrecentscore from users"
+    query = "select username, highestscore from users"
     
     cursor.execute(query)
 
     results = cursor.fetchall()
     cnx.close()
+    
+    # take only top 10 highest scores
+    nonull_results = []
+    for result in results:
+        if not result['highestscore']:
+            pass
+        else:
+            nonull_results.append(result)
+    
+    sorted_results = sorted(nonull_results, key=itemgetter('highestscore'), reverse=True)
+    sorted_results = sorted_results[0:10]
 
-    return make_response(jsonify({"Results":results}), 200)
+    # return make_response(jsonify({"Results":results}), 200)
+    return make_response(jsonify(sorted_results), 200)
     
 
 '''
@@ -325,7 +338,8 @@ def search_user():
         del search_results[row_index]
 
 
-    return make_response(jsonify({"Results":search_results}), 200)
+    # return make_response(jsonify({"Results":search_results}), 200)
+    return make_response(jsonify(search_results), 200)
 
 '''
 Function to add friend
@@ -387,7 +401,8 @@ def retrieve_friend_requests():
     # execute retrieving friend requests list
     result = retrieve_from_db(table, parameters, conditions)
 
-    return make_response(jsonify({"Requests":result}), 200)
+    # return make_response(jsonify({"Requests":result}), 200)
+    return make_response(jsonify(result), 200)
 
 '''
 Function to act upon friend requests - accept or reject
@@ -471,7 +486,8 @@ def retrieve_friends_details():
         result = retrieve_from_db('all_no_password','*', condition)
         results_array.append(result[0])
 
-    return make_response(jsonify({"Results":results_array}), 200)
+    # return make_response(jsonify({"Results":results_array}), 200)
+    return make_response(jsonify(results_array), 200)
     
 '''
 Function to send message to another user
@@ -543,7 +559,9 @@ def retrieve_messages():
         update_row_in_db('messages', pair, condition)
         
     
-    return make_response(jsonify({"Unread messages":result}), 200)
+    # return make_response(jsonify({"Unread messages":result}), 200)
+    return make_response(jsonify(result), 200)
+
 
 '''
 Helper function to see if two users are friends with each other, before being

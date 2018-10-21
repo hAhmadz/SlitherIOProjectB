@@ -16,13 +16,14 @@ public abstract class SnakeController : MonoBehaviour
     public List<Transform> tail = new List<Transform>();
     public Transform tailLink;
     public int startingLength = 5;
-    // TODO: enable different snakes to have different skins
     private Sprite skin;
     public SpriteRenderer sprRend;
     public CircleCollider2D hitBox;
-    // TODO: figure out constants, and make them instance variables
+
     private float speed = 0.1f;
     private float scaleFactor = 0.05f;
+    private float followTimeDelta = 0.001f;
+    private float glowMultiplierDelta = 0.1f;
     public string snakename;
 
 
@@ -37,6 +38,8 @@ public abstract class SnakeController : MonoBehaviour
     {
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
+        // deactivate collider on awake to avoid null references until your own tail
+        hitBox.enabled = false;
     }
 
     public void Start()
@@ -44,15 +47,15 @@ public abstract class SnakeController : MonoBehaviour
         // give a snake a random name
         snakename = "snake" + Random.Range(0, 9999).ToString(); 
 
-
         // snakes start with 1 link already, so grow until you reach start length
         for (int i = 0; i < startingLength - 1; i++)
         {
             GrowSnake();
         }
 
-
         SubmitScore();
+        // reactivate the head, once tail links have had a chance to find their head
+        hitBox.enabled = true;
     }
 
 
@@ -84,12 +87,12 @@ public abstract class SnakeController : MonoBehaviour
 
 
     // used to submit our current length to the leaderboard
-    void SubmitScore()
+    public void SubmitScore()
     {
         GameObject.Find("ScorePanel").GetComponent<ScoreController>().SubmitScore(snakename, tail.Count);
     }
 
-    void RemoveScore()
+    public void RemoveScore()
     {
         GameObject.Find("ScorePanel").GetComponent<ScoreController>().RemoveScore(snakename);
     }
@@ -148,16 +151,15 @@ public abstract class SnakeController : MonoBehaviour
 
 
         // scale up the size of all the links
-        // TODO: abstract out the functionality of growing up / shrinking down
         if (tail.Count > startingLength)
         {
             Vector2 scaleVector = new Vector2(scaleFactor, scaleFactor);
             Vector2 newSize = sprRend.size + scaleVector;
             float newRadius = hitBox.radius + scaleFactor / 2; // divided by two because radius not diameter
-            float newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime + 0.001f; // bigger snake links spread out more
-            float newGlowMultiplier = tail[0].gameObject.GetComponent<ParticleSystem>().main.startSizeMultiplier + 0.1f;
-            // TODO: figure out proper timeSteps / deltas -- and make them CONSTANTs
-
+            /// bigger snake links spread out more
+            float newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime + followTimeDelta;
+            // and they have a larger boost glow
+            float newGlowMultiplier = tail[0].gameObject.GetComponent<ParticleSystem>().main.startSizeMultiplier + glowMultiplierDelta;
 
             // increase head size
             sprRend.size = newSize;
@@ -173,6 +175,53 @@ public abstract class SnakeController : MonoBehaviour
 
         SubmitScore();
     }
+
+
+
+    // method called whilst the snake is speed boosted to drop off tail links
+    // and spawn food
+    public void ShrinkSnake()
+    {
+        // get the last link in the tail
+        int shrinkIndex = tail.Count - 1;
+        Transform tailToShrink = tail[shrinkIndex];
+
+        // find where to spawn the food
+        FoodController foodSpawner = GameObject.Find("Food").GetComponent<FoodController>() as FoodController;
+        Vector2 spawnPos = tailToShrink.position;
+        foodSpawner.MakeFood(spawnPos);
+
+        // drop the tail link
+        tail.RemoveAt(shrinkIndex);
+        Destroy(tailToShrink.gameObject);
+
+        // scale down the size of all the links
+        if (tail.Count > startingLength)
+        {
+            // TODO: abstract out the functionality of growing up / shrinking down
+            Vector2 scaleVector = new Vector2(scaleFactor, scaleFactor);
+            Vector2 newSize = sprRend.size - scaleVector;
+            float newRadius = hitBox.radius - scaleFactor / 2; // divided by two because radius, not diameter
+            // smaller snake links spread out less 
+            float newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime - followTimeDelta;
+            // and have a smaller glow radius
+            float newGlowMultiplier = tail[0].gameObject.GetComponent<ParticleSystem>().main.startSizeMultiplier - glowMultiplierDelta;
+            // decrease head size
+            sprRend.size = newSize;
+            // decrease eye size
+            transform.GetChild(0).GetComponent<SpriteRenderer>().size = newSize;
+            hitBox.radius = newRadius;
+            // map scaling up changes to the rest of the snake (i.e., its tail)
+            foreach (Transform trans in tail)
+            {
+                trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius, newGlowMultiplier);
+            }
+        }
+
+        SubmitScore();
+
+    }
+
 
     // when all snakes die they release food. (scatterFactor dictates the random spread from a body object)
     // then they call the KillSnake method which can be specific to certain snakes
@@ -202,61 +251,13 @@ public abstract class SnakeController : MonoBehaviour
 
         KillSnake();
     }
-    
+
+
     // a concrete snake needs to override this to handle "game over" functionality
     public abstract void KillSnake();
 
 
-
-
-
     // TODO: work most of the boosting logic into the base class except for the triggering condition
     public virtual void IsBoosted() {}
-
-
-
-    // method called whilst the snake is speed boosted to drop off tail links
-    // and spawn food
-    public void ShrinkSnake()
-    {
-        // get the last link in the tail
-        int shrinkIndex = tail.Count - 1;
-        Transform tailToShrink = tail[shrinkIndex];
-
-        // find where to spawn the food
-        FoodController foodSpawner = GameObject.Find("Food").GetComponent<FoodController>() as FoodController;
-        Vector2 spawnPos = tailToShrink.position;
-        foodSpawner.MakeFood(spawnPos);
-
-        // drop the tail link
-        tail.RemoveAt(shrinkIndex);
-        Destroy(tailToShrink.gameObject);
-
-        // scale down the size of all the links
-        if (tail.Count > startingLength)
-        {
-            // TODO: abstract out the functionality of growing up / shrinking down
-            Vector2 scaleVector = new Vector2(scaleFactor, scaleFactor);
-            Vector2 newSize = sprRend.size - scaleVector;
-            float newRadius = hitBox.radius - scaleFactor / 2; // divided by two because radius, not diameter
-
-            float newFollowTime = tail[0].gameObject.GetComponent<TailController>().followTime - 0.001f; // smaller snake links spread out less 
-            float newGlowMultiplier = tail[0].gameObject.GetComponent<ParticleSystem>().main.startSizeMultiplier - 0.1f;
-            // float newGlowMultiplier = tail.Count * 1.05f;
-            // decrease head size
-            sprRend.size = newSize;
-            // decrease eye size
-            transform.GetChild(0).GetComponent<SpriteRenderer>().size = newSize;
-            hitBox.radius = newRadius;
-            // map scaling up changes to the rest of the snake (i.e., its tail)
-            foreach (Transform trans in tail)
-            {
-                trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius, newGlowMultiplier);
-            }
-        }
-
-        SubmitScore();
-
-    }
 
 }

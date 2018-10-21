@@ -18,6 +18,7 @@ public class PersistenceController : MonoBehaviour
     public List<Sprite> availableSkins;
     public List<Sprite> unlockableSkins;
     public Controls controls;
+    public string snakename;
     public int lastScore;
 
 
@@ -34,20 +35,26 @@ public class PersistenceController : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // default name
+        snakename = "player";
+
         Load();
-        //SetAds(true);
-        //SetControls(0);
     }
 
-    private void OnDisable()
-    {
-        Save();
-    }
+    //private void OnDisable()
+    //{
+    //    Save();
+    //}
 
 
     public void SetAds(bool adValue)
     {
         ads = adValue;
+    }
+
+    public void SetName(string name)
+    {
+        snakename = name;
     }
 
 
@@ -133,10 +140,10 @@ public class PersistenceController : MonoBehaviour
 
     public void SetDummySkin(Sprite skin)
     {
-        Image dummySkin = GameObject.Find("Skin Preview").GetComponent<Image>();
+        GameObject dummySkin = GameObject.Find("Skin Preview");
         if (dummySkin != null)
         {
-            dummySkin.sprite = skin;
+            dummySkin.GetComponent<Image>().sprite = skin;
         }
     }
 
@@ -170,11 +177,10 @@ public class PersistenceController : MonoBehaviour
 
         // create an instance of OptionsData to store current options
         OptionsData options = new OptionsData();
+        options.snakename = snakename;
         options.ads = ads;
-        options.skin = skin;
         options.skinIndex = skinIndex;
-        options.availableSkins = availableSkins;
-        options.unlockableSkins = unlockableSkins;
+        options.skinsUnlocked = (unlockableSkins.Count == 0);
         options.controls = controls;
 
         // write current options to file
@@ -186,17 +192,20 @@ public class PersistenceController : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + "/options.dat"))
         {
+            print(Application.persistentDataPath);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/options.dat", FileMode.Open);
             OptionsData options = bf.Deserialize(file) as OptionsData;
             file.Close();
 
+            snakename = options.snakename;
             ads = options.ads;
-            skin = options.skin;
             skinIndex = options.skinIndex;
-            availableSkins = options.availableSkins;
-            unlockableSkins = options.unlockableSkins;
+            SetSkin(skinIndex);
+            if (options.skinsUnlocked)
+                UnlockSkins();
             controls = options.controls;
+            SetControls((int) controls);
         }
     }
 
@@ -209,10 +218,9 @@ public class PersistenceController : MonoBehaviour
 [Serializable]
 class OptionsData
 {
+    public string snakename;
     public bool ads;
-    public Sprite skin;
     public int skinIndex;
-    public List<Sprite> availableSkins;
-    public List<Sprite> unlockableSkins;
+    public bool skinsUnlocked;
     public Controls controls;
 }
