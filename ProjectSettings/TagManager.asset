@@ -8,6 +8,13 @@ TagManager:
   - Tail
   - AI
   - Wall
+  - GameOver
+  - Length
+  - Fixed
+  - Boost
+  - MiniMap
+  - Control
+  - Score
   layers:
   - Default
   - TransparentFX
