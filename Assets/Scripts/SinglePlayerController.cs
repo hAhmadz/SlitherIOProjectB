@@ -1,9 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-
-
 
 public class SinglePlayerController : SnakeController
 {
@@ -52,9 +49,7 @@ public class SinglePlayerController : SnakeController
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
     }
-
-
-
+    
     public void SetUpGUI()
     {
         if (controls == Controls.Touch)
@@ -70,14 +65,11 @@ public class SinglePlayerController : SnakeController
             boostPos.y = 120f;
             controlCanvas.transform.GetChild(1).transform.position = boostPos;
         }
-
     }
-
-
+    
     public override void RotateAndMove()
     {
         Vector3 moveVector = Vector3.zero;
-
         switch (controls)
         {
             case Controls.Touch:
@@ -96,40 +88,30 @@ public class SinglePlayerController : SnakeController
 
         // ensure the snake keeps moving on zeroed input
         if (moveVector == Vector3.zero)
-        {
             moveVector = (transform.up) * 1.5f;
-        }
-
+        
         Vector3 currentPos = transform.position;
         Vector3 targetPos = currentPos + moveVector;
 
         transform.rotation = Quaternion.LookRotation(Vector3.forward, moveVector);
         transform.position = Vector3.MoveTowards(transform.position, targetPos, GetSpeed());
     }
-
-
-    // Unity doesn't like it when the call to mainCam.ScreenPointToWorld is put 
-    // into the above function, so it geths a method of its own.
+    
     public void TouchMovement()
     {
         TouchBoost();
-        // we're not clicking on a UI object, so do your normal movement stuff here
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos);
         transform.position = Vector2.MoveTowards(transform.position, mousePos, GetSpeed());
     }
 
-
-    // for a player snake, death is slighlty more prolonged
     public override void KillSnake()
     {
         print(tail.Count);
         PersistenceController.persistence.lastScore = tail.Count;
         print(PersistenceController.persistence.lastScore);
-        //clears the tail list
         tail.Clear();
 
-        // deactivate heads up display canvases / panels
         controlCanvas.enabled = false;
         miniMapCanvas.enabled = false;
         scorePanel.GetComponent<CanvasGroup>().alpha = 0;
@@ -142,10 +124,7 @@ public class SinglePlayerController : SnakeController
         // deactivate the head
         transform.gameObject.SetActive(false);
     }
-
-
-
-    // Player snake growth needs to handle zooming out the camera, and updating the score text
+    
     public override void GrowSnake()
     {
         base.GrowSnake();
@@ -157,16 +136,13 @@ public class SinglePlayerController : SnakeController
         lengthText.text = "Length: " + tail.Count.ToString();
     }
 
-
-
     // joystick and accelerometer boost function is called by a button press
     public void PressBoost(bool isPressed)
     {
         boostButtonPressed = isPressed;
         boostButtonDown = isPressed;
     }
-
-
+    
     // touch control boost is activated by a double tap
     public void TouchBoost()
     {
@@ -182,8 +158,7 @@ public class SinglePlayerController : SnakeController
         boostButtonPressed = false;
         boostButtonDown = false;
     }
-
-
+    
     public override void IsBoosted()
     {
         // if the snake is greater than the minimum length and the button was 
@@ -220,12 +195,8 @@ public class SinglePlayerController : SnakeController
         ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
         var em = glow.emission;
         em.enabled = isBoosted;
-
         foreach (Transform link in tail)
-        {
             link.gameObject.GetComponent<TailController>().SetGlow(isBoosted);
-        }
-
     }
 
 
@@ -234,21 +205,15 @@ public class SinglePlayerController : SnakeController
         ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
         var main = glow.main;
         main.startColor = glowColor;
-
         foreach (Transform link in tail)
-        {
             link.gameObject.GetComponent<TailController>().SetGlowColor(glowColor);
-        }
     }
-
-
-    // a thread to drop tail links while boosted
-    IEnumerator DropTailLinks()
+    
+    IEnumerator DropTailLinks() //drop tails while boosted
     {
         while (true)
         {
             yield return new WaitForSeconds(0.9f);
-
             if (boosted && tail.Count > startingLength)
             {
                 ShrinkSnake();
@@ -256,15 +221,11 @@ public class SinglePlayerController : SnakeController
                 lengthText.text = "Length: " + tail.Count.ToString();
             }
             else
-            {
                 break;
-            }
         }
         StopCoroutine(DropTailLinks());
     }
-
-
-
+    
     void ChangeTailFollowBoost(float boost)
     {
         foreach (Transform t in tail)
@@ -272,9 +233,7 @@ public class SinglePlayerController : SnakeController
             t.gameObject.GetComponent<TailController>().followBoost = boost;
         }
     }
-
-
-    /* method to adjust the main camera's orthographic size */
+    
     void ZoomCamera(float zoomFactor)
     {
         float newZoom = mainCam.orthographicSize + zoomFactor;

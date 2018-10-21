@@ -1,37 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class KillerAIController : AIController
 {
     Transform targetHead;
 
-
     public override Vector2 FindTarget()
     {
-        // todo: refine this
-        // Vector2 target = GetCurrentTarget();
-
         if (targetHead != null)
         {
             Vector2 intercept = targetHead.position + targetHead.forward * 2.5f;
             return intercept;
         }
 
-        // acquire new target
         if (targetHead == null)
         {
             targetHead = AcquireTarget();
             return RandomPosition();
         }
 
-        // as a last resort, return a random position
         return RandomPosition();
     }
-
-
-
-
+    
     public Transform AcquireTarget()
     {
         var chance = Random.value;
@@ -47,28 +37,20 @@ public class KillerAIController : AIController
 
         }
         else // hunt food
-        {
             targetHead = HuntFood();
-        }
-
+        
         return targetHead;
-
     }
 
 
     Transform HuntPlayer()
     {
         GameObject targetGameObj = GameObject.FindGameObjectWithTag("Player");
-        // print(targetGameObj);
         if (targetGameObj == null)
-        {
             return null;
-        }
         return targetGameObj.transform;
     }
-
-
-
+    
     Transform HuntAI()
     {
         Transform target = null;
@@ -83,10 +65,7 @@ public class KillerAIController : AIController
         }
         return target;
     }
-
-
-
-
+    
     Transform HuntFood()
     {
         float searchDepth = 5.0f;
@@ -105,10 +84,7 @@ public class KillerAIController : AIController
         searchDepth /= 2.0f;
         return closest.Dequeue();
     }
-
-
-
-
+    
     float ManhattanDistance(Vector2 pos1, Vector2 pos2)
     {
         return Mathf.Abs(pos1.x - pos2.x) + Mathf.Abs(pos1.y - pos2.y);

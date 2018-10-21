@@ -1,6 +1,5 @@
 ﻿
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class GreedyAIController : AIController
@@ -10,7 +9,6 @@ public class GreedyAIController : AIController
     GameObject[] food;
     [SerializeField]
     Queue<Vector2> closestFood;
-
 
     // A greedy snake looking for a target just takes the first food it comes across closer than a 
     // certain distance threshold and goes for that
@@ -28,9 +26,7 @@ public class GreedyAIController : AIController
             target = closestFood.Dequeue();
         }
         return target;
-
     }
-
 
     // return a queue of object positions within the search depth
     // increase the search depth until at least one can be found.
@@ -52,9 +48,7 @@ public class GreedyAIController : AIController
         closest.Enqueue(RandomPosition());
         return closest;
     }
-
-
-
+    
     float ManhattanDistance(Vector2 pos1, Vector2 pos2)
     {
         return Mathf.Abs(pos1.x - pos2.x) + Mathf.Abs(pos1.y - pos2.y);
