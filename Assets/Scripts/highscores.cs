@@ -51,16 +51,16 @@ public class highscores : MonoBehaviour {
         yield return request.SendWebRequest();
         Debug.Log(request.responseCode);
 
-        var values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>[]>(request.downloadHandler.text);
-        string outputString = "";
-        for (int j = 0; j < values.Length; j++)
-        {
-            string name = values[j]["username"];
-            string score = values[j]["highestscore"];
-            string tempString = name + "\t\t\t" + score;
-            outputString = outputString + tempString + '\n';
-        }
-        outputText.text = outputString;
+        //var values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>[]>(request.downloadHandler.text);
+        //string outputString = "";
+        //for (int j = 0; j < values.Length; j++)
+        //{
+        //    string name = values[j]["username"];
+        //    string score = values[j]["highestscore"];
+        //    string tempString = name + "\t\t\t" + score;
+        //    outputString = outputString + tempString + '\n';
+        //}
+        //outputText.text = outputString;
     }
 }
 
