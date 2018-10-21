@@ -26,5 +26,4 @@ public class AssignUIListeners : MonoBehaviour
 
         adsToggle.GetComponent<Toggle>().onValueChanged.AddListener(val => options.SetAds(val));
     }
-
 }
