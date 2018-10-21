@@ -20,6 +20,8 @@ public class SinglePlayerController : SnakeController
 
     public new void Start()
     {
+
+
         // set up player controls and GUI elements
         controls = PersistenceController.persistence.controls;
         SetUpGUI();
@@ -33,6 +35,17 @@ public class SinglePlayerController : SnakeController
         SetGlowColor(skinToApply.texture.GetPixel(40, 40));
 
         base.Start();
+
+        // override randomly assigned name if user has chosen their own
+        if (PersistenceController.persistence.snakename != "")
+        {
+            RemoveScore(); // remove the random name from the leader board
+            snakename = PersistenceController.persistence.snakename;
+            if (snakename.Length > 9) // truncate too long snake names
+                snakename = snakename.Substring(0, 9) + "...";
+            SubmitScore(); // add your newly assigned name
+        }
+
         gameOverText.text = "";
         lengthText.text = "Length: " + GetStartingLength().ToString();
     }

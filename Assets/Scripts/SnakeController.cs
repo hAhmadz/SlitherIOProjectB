@@ -37,6 +37,7 @@ public abstract class SnakeController : MonoBehaviour
     {
         sprRend = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
         hitBox = gameObject.GetComponent<CircleCollider2D>() as CircleCollider2D;
+        // deactivate collider on awake to avoid null references until your own tail
         hitBox.enabled = false;
     }
 
@@ -45,13 +46,11 @@ public abstract class SnakeController : MonoBehaviour
         // give a snake a random name
         snakename = "snake" + Random.Range(0, 9999).ToString(); 
 
-
         // snakes start with 1 link already, so grow until you reach start length
         for (int i = 0; i < startingLength - 1; i++)
         {
             GrowSnake();
         }
-
 
         SubmitScore();
         // reactivate the head, once tail links have had a chance to find their head
@@ -87,12 +86,12 @@ public abstract class SnakeController : MonoBehaviour
 
 
     // used to submit our current length to the leaderboard
-    void SubmitScore()
+    public void SubmitScore()
     {
         GameObject.Find("ScorePanel").GetComponent<ScoreController>().SubmitScore(snakename, tail.Count);
     }
 
-    void RemoveScore()
+    public void RemoveScore()
     {
         GameObject.Find("ScorePanel").GetComponent<ScoreController>().RemoveScore(snakename);
     }
@@ -128,10 +127,6 @@ public abstract class SnakeController : MonoBehaviour
         else if (other.gameObject.CompareTag("Tail"))
         {
             // don't kill yourself if you've only hit your own tail
-            var vOne = other.gameObject;
-            var vTwo = vOne.GetComponent<TailController>();
-            var vThree = vTwo.GetHead();
-            var vFour = vThree.Equals(transform);
             if (!(other.gameObject.GetComponent<TailController>().GetHead().Equals(transform)))
                 CrashAndBurn();
         }

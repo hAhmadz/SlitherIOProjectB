@@ -18,6 +18,7 @@ public class PersistenceController : MonoBehaviour
     public List<Sprite> availableSkins;
     public List<Sprite> unlockableSkins;
     public Controls controls;
+    public string snakename;
     public int lastScore;
 
 
@@ -34,9 +35,10 @@ public class PersistenceController : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // default name
+        snakename = "player";
+
         Load();
-        //SetAds(true);
-        //SetControls(0);
     }
 
     //private void OnDisable()
@@ -48,6 +50,11 @@ public class PersistenceController : MonoBehaviour
     public void SetAds(bool adValue)
     {
         ads = adValue;
+    }
+
+    public void SetName(string name)
+    {
+        snakename = name;
     }
 
 
@@ -170,6 +177,7 @@ public class PersistenceController : MonoBehaviour
 
         // create an instance of OptionsData to store current options
         OptionsData options = new OptionsData();
+        options.snakename = snakename;
         options.ads = ads;
         options.skinIndex = skinIndex;
         options.skinsUnlocked = (unlockableSkins.Count == 0);
@@ -190,6 +198,7 @@ public class PersistenceController : MonoBehaviour
             OptionsData options = bf.Deserialize(file) as OptionsData;
             file.Close();
 
+            snakename = options.snakename;
             ads = options.ads;
             skinIndex = options.skinIndex;
             SetSkin(skinIndex);
@@ -209,6 +218,7 @@ public class PersistenceController : MonoBehaviour
 [Serializable]
 class OptionsData
 {
+    public string snakename;
     public bool ads;
     public int skinIndex;
     public bool skinsUnlocked;
