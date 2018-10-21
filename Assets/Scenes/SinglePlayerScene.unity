@@ -160,8 +160,11 @@ MonoBehaviour:
   scorePanel: {fileID: 1766995119}
   controls: 0
   joystick: {fileID: 1964372892}
+  boostButton: {fileID: 355835527}
   boostButtonPressed: 0
   boostButtonDown: 0
+  touchBoostPressed: 0
+  touchBoostDown: 0
 --- !u!50 &12369779
 Rigidbody2D:
   serializedVersion: 4
@@ -12314,7 +12317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 9.705017, y: -9.705017}
+  m_AnchoredPosition: {x: 9.705078, y: -9.705017}
   m_SizeDelta: {x: 150.29504, y: 215}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1766995121

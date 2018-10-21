@@ -138,8 +138,9 @@ public abstract class SnakeController : MonoBehaviour
     // by the Scale
     public virtual void GrowSnake()
     {
-        // snakes always start with one tail link, so this is not an out of bounds issue
-        Vector2 tailPos = tail[tail.Count - 1].position;
+        int count = tail.Count - 1;
+        int tailIndex = count < 0 ? 0 : count;
+        Vector2 tailPos = tail[tailIndex].position;
 
         // make a new tail link object and add it to the tail list
         Transform newLink;

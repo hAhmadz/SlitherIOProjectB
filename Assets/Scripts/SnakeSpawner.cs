@@ -17,8 +17,7 @@ public class SnakeSpawner : MonoBehaviour
     // with spawnProbability make a new food in a random location within the board
     void MakeSnake()
     {
-        //Transform prefabToSpawn = snakePrefabs[Random.Range(0, snakePrefabs.Length - 1)];
-        Transform prefabToSpawn = snakePrefabs[Random.Range(0, 1)];
+        Transform prefabToSpawn = snakePrefabs[Random.Range(0, snakePrefabs.Length - 1)];
 
         float chance = Random.value;
         if (chance < spawnProbability)

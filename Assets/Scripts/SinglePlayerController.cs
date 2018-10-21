@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 
@@ -14,9 +15,12 @@ public class SinglePlayerController : SnakeController
     public GameObject scorePanel;
     public Controls controls;
     public Joystick joystick;
+    public Button boostButton;
     private bool boosted = false;
     public bool boostButtonPressed;
     public bool boostButtonDown;
+    public bool touchBoostPressed;
+    public bool touchBoostDown;
 
     public new void Start()
     {
@@ -52,14 +56,15 @@ public class SinglePlayerController : SnakeController
 
     public void SetUpGUI()
     {
-        if (controls == Controls.Joystick)
+        if (controls == Controls.Touch)
+            controlCanvas.enabled = false;
+        else if (controls == Controls.Joystick)
         {
             controlCanvas.transform.GetChild(0).gameObject.SetActive(true);
         }
-        else
+        else // controls == Controls.Accelerometer
         {
             controlCanvas.transform.GetChild(0).gameObject.SetActive(false);
-            print(controlCanvas.transform.GetChild(1));
             var boostPos = controlCanvas.transform.GetChild(1).transform.position;
             boostPos.y = 120f;
             controlCanvas.transform.GetChild(1).transform.position = boostPos;
@@ -106,11 +111,12 @@ public class SinglePlayerController : SnakeController
     // into the above function, so it geths a method of its own.
     public void TouchMovement()
     {
+        TouchBoost();
+        // we're not clicking on a UI object, so do your normal movement stuff here
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos);
         transform.position = Vector2.MoveTowards(transform.position, mousePos, GetSpeed());
     }
-
 
 
     // for a player snake, death is slighlty more prolonged
@@ -149,13 +155,29 @@ public class SinglePlayerController : SnakeController
 
 
 
-    // joystick boost function is called by a button press
+    // joystick and accelerometer boost function is called by a button press
     public void PressBoost(bool isPressed)
     {
         boostButtonPressed = isPressed;
         boostButtonDown = isPressed;
     }
 
+
+    // touch control boost is activated by a double tap
+    public void TouchBoost()
+    {
+        foreach (Touch t in Input.touches)
+        {
+            if (t.tapCount > 1)
+            {
+                boostButtonPressed = (t.phase == TouchPhase.Began);
+                boostButtonDown = true;
+                return;
+            }
+        }
+        boostButtonPressed = false;
+        boostButtonDown = false;
+    }
 
 
     public override void IsBoosted()
