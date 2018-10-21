@@ -12,8 +12,7 @@ public class SnakeSpawner : MonoBehaviour
     {
         MakeSnake();
     }
-
-
+    
     // with spawnProbability make a new food in a random location within the board
     void MakeSnake()
     {
