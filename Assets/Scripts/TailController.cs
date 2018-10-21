@@ -71,7 +71,6 @@ public class TailController : MonoBehaviour
         sprRend.size = new Vector2(newSize, newSize);
         followTime = newFollowTime;
         hitBox.radius = newRadius;
-        //ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
         var glowmain = glow.main;
         glowmain.startSizeMultiplier = newGlowMultiplier;
     }

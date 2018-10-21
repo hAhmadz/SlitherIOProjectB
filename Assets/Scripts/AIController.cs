@@ -1,13 +1,8 @@
-﻿/*
+﻿using UnityEngine;
+
+/*
  * Abstract base for different AI strategies
- * 
- * 
- * 
  */
-
-
-using System.Collections.Generic;
-using UnityEngine;
 
 public abstract class AIController : SnakeController
 {
@@ -25,7 +20,6 @@ public abstract class AIController : SnakeController
     public override void RotateAndMove()
     {
         currentTarget = FindTarget();
-        //transform.rotation = Quaternion.LookRotation(Vector3.forward, currentTarget);
         transform.position = Vector2.MoveTowards(transform.position, currentTarget, GetSpeed());
     }
 
@@ -47,7 +41,6 @@ public abstract class AIController : SnakeController
 
     public override void KillSnake()
     {
-        //clears the tail list
         tail.Clear();
         Destroy(gameObject);
     }

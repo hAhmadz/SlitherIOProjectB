@@ -1,5 +1,9 @@
+A remote version of this server application is hosted on the address below and will remain up until marking has finished.
 All addresses start with 203.101.225.0:5000
 Example: /signup denotes 203.101.225.0:5000/signup
+
+NOTE: If running locally, please run script.py on your local machine using Python 3 and change the address to localhost.
+If running on remote server, please remember to provide the hosting server address in the last line of the code.
 
 Functionalities available (functions without descriptions are self-explanatory by name):
 signup
@@ -330,7 +334,4 @@ PS - you can sort the messages according to messageid, more recent ones have a l
 Once messages are retrieved, you can't retrieve them again (but it's possible to retrieve read messages, they're always stored in the DB. I can write a function for this if needed).
 
 If no unread messages:
-{
-    "Unread messages": []
-}
-
+[]

@@ -1,16 +1,9 @@
-﻿/*
- * Abstract Base Class for all other SnakeControllers, including Player and AI Snakes.
- * 
- * 
- * 
- * 
- * 
- * 
- */
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * Abstract Base Class for all other SnakeControllers, including Player and AI Snakes.
+ */
+ 
 public abstract class SnakeController : MonoBehaviour
 {
     public List<Transform> tail = new List<Transform>();
@@ -25,10 +18,7 @@ public abstract class SnakeController : MonoBehaviour
     private float followTimeDelta = 0.001f;
     private float glowMultiplierDelta = 0.1f;
     public string snakename;
-
-
-
-
+    
     /**************************************************************************
      * INITIALIZATION AND UPDATES
      **************************************************************************/
@@ -44,28 +34,20 @@ public abstract class SnakeController : MonoBehaviour
 
     public void Start()
     {
-        // give a snake a random name
-        snakename = "snake" + Random.Range(0, 9999).ToString(); 
-
-        // snakes start with 1 link already, so grow until you reach start length
-        for (int i = 0; i < startingLength - 1; i++)
-        {
+        snakename = "snake" + Random.Range(0, 9999).ToString(); // give a snake a random name
+        for (int i = 0; i < startingLength - 1; i++)// snakes start with 1 link already, so grow until you reach start length
             GrowSnake();
-        }
-
+        
         SubmitScore();
-        // reactivate the head, once tail links have had a chance to find their head
-        hitBox.enabled = true;
+        hitBox.enabled = true; // reactivate the head, once tail links have had a chance to find their head
     }
-
 
     public void FixedUpdate()
     {
         IsBoosted();
         RotateAndMove();
     }
-
-
+    
     /**************************************************************************
      * GETTING AND SETTING
      **************************************************************************/
@@ -84,8 +66,7 @@ public abstract class SnakeController : MonoBehaviour
     {
         speed = newSpeed;
     }
-
-
+    
     // used to submit our current length to the leaderboard
     public void SubmitScore()
     {
@@ -96,13 +77,11 @@ public abstract class SnakeController : MonoBehaviour
     {
         GameObject.Find("ScorePanel").GetComponent<ScoreController>().RemoveScore(snakename);
     }
-
-
+    
     /**************************************************************************
      * SNAKE LOGIC
      **************************************************************************/
-
-
+     
     // needs to be implemented in child classes
     // this is where an AI strategy is implmented
     public abstract void RotateAndMove();
@@ -162,18 +141,13 @@ public abstract class SnakeController : MonoBehaviour
             // and they have a larger boost glow
             float newGlowMultiplier = tail[0].gameObject.GetComponent<ParticleSystem>().main.startSizeMultiplier + glowMultiplierDelta;
 
-            // increase head size
-            sprRend.size = newSize;
-            // increase eye size
-            transform.GetChild(0).GetComponent<SpriteRenderer>().size = newSize;
+            sprRend.size = newSize; // increase head size
+            transform.GetChild(0).GetComponent<SpriteRenderer>().size = newSize; // increase eye size
             hitBox.radius = newRadius;
             // map scaling up changes to the rest of the snake (i.e., its tail)
             foreach (Transform trans in tail)
-            {
                 trans.gameObject.GetComponent<TailController>().Scale(newSize.x, newFollowTime, newRadius, newGlowMultiplier);
-            }
         }
-
         SubmitScore();
     }
 
