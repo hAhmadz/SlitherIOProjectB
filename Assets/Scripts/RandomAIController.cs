@@ -1,11 +1,8 @@
-﻿/*
- * A very simple AI snake that makes random moves.
- * 
- * 
- * 
- */
+﻿using UnityEngine;
 
-using UnityEngine;
+/*
+ * A very simple AI snake that makes random moves.
+ */
 
 public class RandomAIController : AIController
 {
@@ -14,19 +11,12 @@ public class RandomAIController : AIController
     {
         Vector2 target = GetCurrentTarget();
         if (target.Equals(null))
-        {
             target = RandomPosition();
-        }
-
+        
         var chance = Random.value;
         if (chance < 0.01)
-        {
             target = RandomPosition();
-
-        }
-
-        // ensure target is not too close to the current position
-        // TODO: constrain the angles so snakes don't do 180s
+        
         if (Mathf.Abs(target.x - transform.position.x) < 5 &&
             Mathf.Abs(target.y - transform.position.y) < 5)
         {
@@ -35,7 +25,4 @@ public class RandomAIController : AIController
 
         return target;
     }
-
-
-
 }

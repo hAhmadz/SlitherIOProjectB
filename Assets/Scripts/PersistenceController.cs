@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -21,7 +20,6 @@ public class PersistenceController : MonoBehaviour
     public string snakename;
     public int lastScore;
 
-
     // check PersistenceController existence
     void Awake()
     {
@@ -31,9 +29,7 @@ public class PersistenceController : MonoBehaviour
             persistence = this;
         }
         else if (persistence != this)
-        {
             Destroy(gameObject);
-        }
         Load();
     }
 
@@ -58,8 +54,6 @@ public class PersistenceController : MonoBehaviour
 
     public void SetControls(int choice)
     {
-        // highlight the pressed button
-        // dehighlight the others
         for (int i = 0; i < 3; i++)
         {
             GameObject controlsChooser = GameObject.Find("Controls Chooser");
@@ -101,22 +95,16 @@ public class PersistenceController : MonoBehaviour
                 break;
         }
     }
-
-
-
+    
     public void SetSkin(bool next)
     {
         // traverse available skins list based on input
         skinIndex += next ? 1 : -1;
         if (skinIndex < 0)
-        {
             skinIndex = availableSkins.Count - 1;
-        }
         else if (skinIndex >= availableSkins.Count)
-        {
             skinIndex = 0;
-        }
-
+        
         // assign the selected skin choice
         skin = availableSkins[skinIndex];
 
@@ -138,40 +126,26 @@ public class PersistenceController : MonoBehaviour
     {
         GameObject dummySkin = GameObject.Find("Skin Preview");
         if (dummySkin != null)
-        {
             dummySkin.GetComponent<Image>().sprite = skin;
-        }
     }
-
-
-
+    
     public void UnlockSkins()
     {
         foreach (Sprite locked in unlockableSkins)
-        {
             availableSkins.Add(locked);
-        }
-
-        // remove the skin from the unloackable list 
-        //(so it can't get added mulitple times to the availableSkins)
         unlockableSkins.Clear();
     }
-
-
-
 
     public void SetLastScore(int scoreValue)
     {
         lastScore = scoreValue;
     }
-
-
+    
     public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/options.dat");
 
-        // create an instance of OptionsData to store current options
         OptionsData options = new OptionsData();
         options.snakename = snakename;
         options.ads = ads;
@@ -206,7 +180,6 @@ public class PersistenceController : MonoBehaviour
     }
 
 }
-
 
 /*
  * Utility data class to hold option settings
