@@ -30,16 +30,13 @@ public class scoreFinalObj
 
 public class highscores : MonoBehaviour {
 
-    public ScrollRect s;
-    public Text Name;
-    public Text Score;
-    public string url;
+    public Text outputText;
     public Dictionary<string, string> scoresDB;
     
     private void Start()
     {
         scoreObj sobj = new scoreObj(8);
-        url = url + "/retrieve_scores";
+        string url = "http://203.101.225.0:5000/retrieve_scores";
         string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(sobj);
         StartCoroutine(Post(url, jsonString));
     }
@@ -55,13 +52,16 @@ public class highscores : MonoBehaviour {
         Debug.Log(request.responseCode);
 
         var values = JsonConvert.DeserializeObject<Dictionary<string, string>[]>(request.downloadHandler.text);
+        string outputString = "";
         for (int j = 0; j < values.Length; j++)
         {
             string name = values[j]["username"];
             string score = values[j]["highestscore"];
-            Name.text = name;
-            Score.text = score;
+
+            string tempString = name + "\t\t\t" + score;
+            outputString = outputString + tempString + '\n';
         }
+        outputText.text = outputString;
     }
 }
 
