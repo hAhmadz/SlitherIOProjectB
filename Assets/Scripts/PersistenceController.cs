@@ -49,6 +49,13 @@ public class PersistenceController : MonoBehaviour
 
     public void SetAds(bool adValue)
     {
+        GameObject adsToggle = GameObject.Find("AdsToggle");
+        if (adsToggle != null)
+        {
+            var toggle = adsToggle.GetComponent<Toggle>();
+            toggle.isOn = adValue;
+        }
+
         ads = adValue;
     }
 
@@ -127,15 +134,15 @@ public class PersistenceController : MonoBehaviour
         SetDummySkin(skin);
     }
 
-    public void SetSkin(int skinIndex) 
+    public void SetSkin(int skinIndex)
     {
         if (skinIndex < availableSkins.Count)
         {
             skin = availableSkins[skinIndex];
             SetDummySkin(skin);
         }
-            
-        
+
+
     }
 
     public void SetDummySkin(Sprite skin)
@@ -199,13 +206,13 @@ public class PersistenceController : MonoBehaviour
             file.Close();
 
             snakename = options.snakename;
-            ads = options.ads;
+            SetAds(options.ads);
             skinIndex = options.skinIndex;
             SetSkin(skinIndex);
             if (options.skinsUnlocked)
                 UnlockSkins();
             controls = options.controls;
-            SetControls((int) controls);
+            SetControls((int)controls);
         }
     }
 

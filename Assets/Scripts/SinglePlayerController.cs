@@ -69,7 +69,7 @@ public class SinglePlayerController : SnakeController
             boostPos.y = 120f;
             controlCanvas.transform.GetChild(1).transform.position = boostPos;
         }
-            
+
     }
 
 
@@ -120,8 +120,14 @@ public class SinglePlayerController : SnakeController
 
 
     // for a player snake, death is slighlty more prolonged
-    public override void KillSnake() 
+    public override void KillSnake()
     {
+        print(tail.Count);
+        PersistenceController.persistence.lastScore = tail.Count;
+        print(PersistenceController.persistence.lastScore);
+        //clears the tail list
+        tail.Clear();
+
         // deactivate heads up display canvases / panels
         controlCanvas.enabled = false;
         miniMapCanvas.enabled = false;
@@ -129,20 +135,17 @@ public class SinglePlayerController : SnakeController
 
         gameOverText.text = "YOU LOSE";
 
-        AdvertisementController ads = gameObject.GetComponentInParent<AdvertisementController>();
+        GameOverController ads = gameObject.GetComponentInParent<GameOverController>();
         ads.WaitAndDisplayAd();
 
         // deactivate the head
         transform.gameObject.SetActive(false);
-
-        //Functionality to jump to start menu when game Over
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 
 
 
     // Player snake growth needs to handle zooming out the camera, and updating the score text
-    public override void GrowSnake() 
+    public override void GrowSnake()
     {
         base.GrowSnake();
         // zoom out
@@ -211,7 +214,7 @@ public class SinglePlayerController : SnakeController
     }
 
 
-    void SetGlow(bool isBoosted) 
+    void SetGlow(bool isBoosted)
     {
         ParticleSystem glow = gameObject.GetComponent<ParticleSystem>();
         var em = glow.emission;
@@ -221,7 +224,7 @@ public class SinglePlayerController : SnakeController
         {
             link.gameObject.GetComponent<TailController>().SetGlow(isBoosted);
         }
-            
+
     }
 
 
@@ -271,7 +274,7 @@ public class SinglePlayerController : SnakeController
 
 
     /* method to adjust the main camera's orthographic size */
-    void ZoomCamera(float zoomFactor) 
+    void ZoomCamera(float zoomFactor)
     {
         float newZoom = mainCam.orthographicSize + zoomFactor;
         mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, newZoom, 2.0f * Time.deltaTime);
