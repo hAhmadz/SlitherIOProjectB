@@ -31,6 +31,7 @@ public class SinglePlayerController : SnakeController
         // assign the players chosen skin
         Sprite skinToApply = PersistenceController.persistence.skin;
         sprRend.sprite = skinToApply;
+        Debug.Log(tail.Count);
         tail[0].gameObject.GetComponent<SpriteRenderer>().sprite = skinToApply;
 
         // set boost color

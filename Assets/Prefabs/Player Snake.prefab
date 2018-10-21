@@ -420,7 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5e224e7218757439ba774d0f03bcf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tail: []
+  tail:
+  - {fileID: 0}
   tailLink: {fileID: 4563559604460810}
   startingLength: 5
   sprRend: {fileID: 0}

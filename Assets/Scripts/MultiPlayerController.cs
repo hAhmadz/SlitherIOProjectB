@@ -40,8 +40,12 @@ public class MultiPlayerController : SnakeController
         // assign the players chosen skin
         Sprite skinToApply = PersistenceController.persistence.skin;
         sprRend.sprite = skinToApply;
-        Debug.Log(tail[0] == null);
+        //Debug.Log(tail[0] == null);
         Debug.Log("hi");
+        Debug.Log(tail.Count);
+        Debug.Log("hi");
+
+
         tail[0].gameObject.GetComponent<SpriteRenderer>().sprite = skinToApply;
 
         // set boost color
@@ -67,6 +71,8 @@ public class MultiPlayerController : SnakeController
 
     public void SetUpGUI()
     {
+        Debug.Log(tail.Count);
+        Debug.Log("hi");
         if (controls == Controls.Touch)
             controlCanvas.enabled = false;
         else if (controls == Controls.Joystick)
