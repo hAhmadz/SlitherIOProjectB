@@ -34,12 +34,7 @@ public class PersistenceController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        // default name
-
-
         Load();
-        snakename = "playersnake";
     }
 
 
@@ -129,6 +124,7 @@ public class PersistenceController : MonoBehaviour
         SetDummySkin(skin);
     }
 
+
     public void SetSkin(int skinIndex)
     {
         if (skinIndex < availableSkins.Count)
@@ -136,8 +132,6 @@ public class PersistenceController : MonoBehaviour
             skin = availableSkins[skinIndex];
             SetDummySkin(skin);
         }
-
-
     }
 
     public void SetDummySkin(Sprite skin)
