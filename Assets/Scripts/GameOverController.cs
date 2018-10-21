@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Advertisements;
 
 public class GameOverController : MonoBehaviour
 {
@@ -10,13 +8,10 @@ public class GameOverController : MonoBehaviour
         //Advertisement.Initialize("2837831");
     }
 
-
     public void WaitAndDisplayAd()
     {
         StartCoroutine(AdDelayTimer());
     }
-
-
 
     IEnumerator AdDelayTimer()
     {
@@ -35,8 +30,6 @@ public class GameOverController : MonoBehaviour
             }
         }
         StopCoroutine(AdDelayTimer());
-
-        // return to start menu when game Over, after the ad
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu"); //to start menu
     }
 }

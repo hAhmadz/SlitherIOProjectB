@@ -9,9 +9,7 @@ public class FoodController : MonoBehaviour
 	void FixedUpdate () {
         MakeFood();
 	}
-
-
-    // with spawnProbability make a new food in a random location within the board
+    
     void MakeFood() {
         float chance = Random.value;
         if (chance < spawnProbability)
@@ -23,7 +21,6 @@ public class FoodController : MonoBehaviour
         }
     }
 
-    // make a food at a given x,y location
     public void MakeFood(Vector2 spawnLocation) {
         Transform newFood = Instantiate(deliciousFood, spawnLocation, Quaternion.identity);
         newFood.parent = GameObject.Find("Food").transform;
