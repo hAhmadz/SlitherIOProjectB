@@ -36,6 +36,7 @@ public class highscores : MonoBehaviour {
     {
         scoreObj sobj = new scoreObj(8);
         string url = "http://203.101.225.0:5000/retrieve_scores";
+        //string jsonString = JsonUtility.ToJson(sobj);
         string jsonString = JsonUtility.ToJson(sobj);
         StartCoroutine(Post(url, jsonString));
     }
@@ -50,17 +51,16 @@ public class highscores : MonoBehaviour {
         yield return request.SendWebRequest();
         Debug.Log(request.responseCode);
 
-        //var values = JsonUtility.FromJson<Dictionary<string, string>[]>(request.downloadHandler.text);
-        //string outputString = "";
-        //for (int j = 0; j < values.Length; j++)
-        //{
-        //    string name = values[j]["username"];
-        //    string score = values[j]["highestscore"];
-
-        //    string tempString = name + "\t\t\t" + score;
-        //    outputString = outputString + tempString + '\n';
-        //}
-        //outputText.text = outputString;
+        var values = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>[]>(request.downloadHandler.text);
+        string outputString = "";
+        for (int j = 0; j < values.Length; j++)
+        {
+            string name = values[j]["username"];
+            string score = values[j]["highestscore"];
+            string tempString = name + "\t\t\t" + score;
+            outputString = outputString + tempString + '\n';
+        }
+        outputText.text = outputString;
     }
 }
 
