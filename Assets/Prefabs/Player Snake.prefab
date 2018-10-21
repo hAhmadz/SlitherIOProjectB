@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4614163925654716}
-  - component: {fileID: 114759791056363438}
   - component: {fileID: 114836262203969916}
   - component: {fileID: 114773593438750020}
   - component: {fileID: 114560895306255116}
+  - component: {fileID: 114133325141899472}
   m_Layer: 0
   m_Name: Player Snake
   m_TagString: Untagged
@@ -318,6 +318,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.38
+--- !u!114 &114133325141899472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1029448864238506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577dcf3e00e554396bc007c3692eda09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114560895306255116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,17 +364,6 @@ MonoBehaviour:
   speed: 0.1
   followTime: 0.10500001
   followBoost: 1
---- !u!114 &114759791056363438
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029448864238506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 577dcf3e00e554396bc007c3692eda09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114773593438750020
 MonoBehaviour:
   m_ObjectHideFlags: 1

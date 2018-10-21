@@ -22,10 +22,10 @@ public class GameOverController : MonoBehaviour
             if (PersistenceController.persistence.ads)
             {
                 #if UNITY_ADS
-                if (Advertisement.IsReady("video"))
+               /* if (Advertisement.IsReady("video"))
                 {
                     Advertisement.Show("video");
-                }
+                }*/
                 #endif
             }
         }
